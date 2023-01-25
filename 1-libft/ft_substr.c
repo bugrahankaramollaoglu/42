@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 12:38:50 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:33:32 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/01/21 16:59:05 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/01/21 17:26:00 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,28 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char			*substring;
+	unsigned int	space;
+	int				mal;
 	unsigned int	i;
-	size_t			counter;
-	char			*sub;
 
 	i = 0;
-	counter = 0;
-	sub = malloc(len + 1);
-	if (!sub)
-		return (0);
-	if (!s)
-		return (0);
-	while (i < start)
-		i++;
-	while (counter < len)
+	if (!s || (start > ft_strlen(s)))
+		return (ft_strdup(""));
+	if (ft_strlen(s) - start >= len)
+		mal = len;
+	else
+		mal = ft_strlen(s) - start;
+	substring = malloc(sizeof(char) * mal + 1);
+	if (!substring)
+		return (NULL);
+	space = start + len;
+	while (s[start] && start < space)
 	{
-		sub[counter] = s[i];
+		substring[i] = s[start];
 		i++;
-		counter++;
+		start++;
 	}
-	sub[counter] = '\0';
-	return (sub);
+	substring[i] = '\0';
+	return (substring);
 }
