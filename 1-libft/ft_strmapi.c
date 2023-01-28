@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:51:24 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:59:16 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:47:16 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (0);
 	len = ft_strlen(s);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
 		return (0);
 	while (i < len)
 	{

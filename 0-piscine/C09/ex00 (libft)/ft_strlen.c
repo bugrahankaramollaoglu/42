@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 00:12:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/25 22:46:30 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/01/28 09:36:31 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/01/28 09:36:45 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i++ < n)
-	{
-		if (((unsigned char *)s)[i] == c)
-			return ((unsigned char *)s + i);
+int ft_strlen(char *str) {
+	int i = 0;
+	while (str[i] != '\0') {
+		i++;
 	}
-	return (0);
+	return (i);
 }

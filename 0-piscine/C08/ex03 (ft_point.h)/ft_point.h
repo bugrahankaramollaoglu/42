@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 00:12:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/25 22:46:30 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/01/28 09:19:46 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/01/28 09:21:41 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-void	*ft_memchr(const void *s, int c, size_t n)
+typedef struct my_struct
 {
-	size_t	i;
+	int	x;
+	int	y;
+}		t_point;
 
-	i = 0;
-	while (i++ < n)
-	{
-		if (((unsigned char *)s)[i] == c)
-			return ((unsigned char *)s + i);
-	}
-	return (0);
-}
+void	set_point(t_point *point);
+
+#endif

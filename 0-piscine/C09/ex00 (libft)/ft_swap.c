@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 00:12:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/25 22:46:30 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/01/28 09:36:47 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/01/28 09:48:05 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+void ft_swap(int *a, int *b)
 {
-	size_t	i;
-
-	i = 0;
-	while (i++ < n)
-	{
-		if (((unsigned char *)s)[i] == c)
-			return ((unsigned char *)s + i);
-	}
-	return (0);
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
+
