@@ -1,5 +1,7 @@
 ## exam format
 
+SİMÜLATÖR --> bash -c "$(curl https://grademe.fr)"
+
     login -> exam
     password -> exam
 

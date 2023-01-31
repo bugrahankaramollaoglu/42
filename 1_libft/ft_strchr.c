@@ -6,25 +6,33 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:54:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:36:43 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:37:23 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// s'yi c'den itibaren c dahil sonuna kadar yazdıran fonksiyon
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!s || !s)
-		return (0);
-	while (s[i] != c)
-		i++;
-	if (s[i] == c)
+
+	// s bitene kadar
+	while (s[i])
 	{
-		return ((char *)s + i);
+		// c'ye gelirsen c dahil stringin kalanını döndür
+		if (s[i] == c)
+			return ((char *)s + i);
+		i++;
 	}
-	else
-		return (0);
+
+	// 1) c boşsa
+	// 2) s'nin sonuna gelinmişse
+	// kalanını döndür
+	if (!c && s[i] == '\0')
+		return ((char *)s + i);
+	// yoksa null döndür
+	return (NULL);
 }
