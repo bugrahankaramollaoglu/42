@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/02 05:55:01 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/02 05:55:02 by bkaramol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -88,3 +100,4 @@ int main()
     ft_printf("%s\n", "auhsjhagkjhsdkjvxk-lpşorpkter0kpg243*05349+");
     ft_printf("%%");
 }
+
