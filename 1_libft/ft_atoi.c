@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 12:30:22 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:38:00 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/03 04:05:27 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/03 04:06:43 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
+	int	count;
 	int	sign;
 	int	result;
 
-	i = 0;
+	count = 0;
 	sign = 1;
 	result = 0;
-	if (str[i] == '-')
+	while (((str[count] >= 9 && str[count] <= 13) || str[count] == ' ')
+		&& str[count])
+		count++;
+	if (str[count] == '+' || str[count] == '-')
 	{
-		sign = -sign;
-		i++;
+		if (str[count] == '-')
+			sign *= -1;
+		count++;
 	}
-	while (str[i])
+	while (str[count] >= '0' && str[count] <= '9')
 	{
-		result = (str[i] - '0') + (result * 10);
-		i++;
+		result = (str[count] - '0') + (result * 10);
+		count++;
 	}
-	return (sign * result);
+	return (result * sign);
 }

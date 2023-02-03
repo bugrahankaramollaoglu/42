@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 23:40:42 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:55:05 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/02 22:22:58 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ size_t	ft_strlcpy(char *dest, char const *src, size_t size)
 	i = 0;
 	if (size && src)
 	{
-		while (src[i++] && size > 1)
+		while (src[i] != '\0' && size > 1)
 		{
 			dest[i] = src[i];
 			size--;
+			i++;
 		}
-		dest[i] = 0;
+		dest[i] = '\0';
 	}
-	return (ft_strlen(dest));
+	return (ft_strlen(src));
 }

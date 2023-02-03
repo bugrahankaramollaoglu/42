@@ -5,56 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 13:20:09 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:23:40 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/03 03:11:40 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/03 03:11:48 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digit(int nb)
+static int	digit(int nb)
 {
-	int	counter;
+	int	i;
 
-	counter = 0;
-	if (nb == 0)
+	i = 0;
+	if (nb == 0 || nb == 1)
 		return (1);
 	if (nb < 0)
 	{
-		counter++;
-		nb *= -1;
+		i++;
+		nb = -nb;
 	}
 	while (nb)
 	{
-		++counter;
+		++i;
 		nb /= 10;
 	}
-	return (counter);
+	return (i);
 }
 
-char	*ft_itoa(int nb)
+char	*ft_itoa(int n)
 {
-	char	*string;
-	int		dig;
-	int		nb2;
+	char	*mystr;
+	int		a;
+	long	nb;
 
-	dig = digit(nb);
-	nb2 = nb;
-	string = malloc(dig + 1);
-	if (!string)
-		return (0);
-	if (nb < 0)
+	nb = n;
+	a = digit(nb);
+	mystr = (char *)malloc(a + 1);
+	if (!mystr)
+		return (NULL);
+	if (n < 0)
 	{
-		string[0] = '-';
-		nb = -nb;
+		nb *= -1;
+		mystr[0] = '-';
 	}
-	string[dig] = '\0';
-	dig--;
-	while ((nb < 0) <= dig)
+	mystr[a] = '\0';
+	a--;
+	while ((n < 0) <= a)
 	{
-		string[dig] = (nb2 % 10) + '0';
-		dig--;
-		nb2 /= 10;
+		mystr[a] = (nb % 10) + 48;
+		nb /= 10;
+		a--;
 	}
-	return (string);
+	return (mystr);
 }

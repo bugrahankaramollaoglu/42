@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 23:16:20 by bkaramol          #+#    #+#              #
-#    Updated: 2023/01/21 01:04:16 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/02/03 03:40:22 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SOURCES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.
 		  ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 
 BONUSES	= ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-		  ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+		  ft_lstdelone.c ft_lstiteri.c ft_lstlast.c \
 		  ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 OBJECTS = ${SOURCES:.c=.o}
@@ -34,15 +34,17 @@ CFLAGS = -Wall -Werror -Wextra
 all: ${NAME}
 
 ${NAME}: ${OBJECTS} ${BONUS_OBJECTS}
-	ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
 
 clean:
-	rm -rf ${OBJECTS} ${BONUS_OBJECTS}
-
+	@rm -rf ${OBJECTS} ${BONUS_OBJECTS}
+	@echo "[clean] has been used."
 fclean: clean
-	rm -rf ${NAME}
+	@rm -rf ${NAME}
+	@echo "[fclean] has been used."
 
 re: fclean all
+	@echo "[re] has been used."
 
 bonus: ${OBJECTS} ${BONUS_OBJECTS}
-	ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)

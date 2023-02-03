@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:14:22 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:36:38 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:33:22 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (s[i])
+	while (*s)
 	{
 		f(i, s);
 		i++;
+		s++;
 	}
 }

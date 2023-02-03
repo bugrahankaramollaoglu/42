@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:09:54 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:33:58 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/03 00:07:22 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
 	int	len;
 
-	i = 0;
 	len = ft_strlen(s);
-	if (!s && !c)
-		return (0);
-	while (s[len] == '\0' || s[len] != c)
+	while (len >= 0)
+	{
+		if (s[len] == (char)c)
+			return ((char *)s + len);
 		len--;
-	if (s[len] == c)
-		return ((char *)s + (len - i));
-	else
-		return (0);
+	}
+	return (0);
 }

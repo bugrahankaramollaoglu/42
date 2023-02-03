@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:15:30 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/01/21 00:37:56 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:00:03 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*thing;
+	void	*a;
 
-	thing = malloc(count * size);
-	if (!thing)
-		return (0);
-	ft_bzero(thing, count * size);
-	return (thing);
+	a = malloc(count * size);
+	if (!a)
+		return (NULL);
+	ft_bzero(a, count * size);
+	return (a);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 14:54:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/01 15:45:22 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/03 03:57:56 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/03 21:34:24 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (s[0] == '\0')
-		return (0);
-	if (c == '\0')
-	{
-		while (*s)
-			s++;
-		return ((char *)s);
-	}
-	else
-	{
-		while (*s)
-		{
-			if (*s == c)
-				return ((char *)s);
-			s++;
-		}
-		return (0);
-	}
-}
+	size_t	i;
 
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (!c && s[i] == '\0')
+		return ((char *)s + i);
+	return (0);
+}
