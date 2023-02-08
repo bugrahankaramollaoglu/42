@@ -41,7 +41,7 @@ int	ft_printf_lowerx(unsigned long x)
 	if ((x % 16) < 10)
 		ret += ft_printf_putchar((x % 16) + 48);
 	else
-		ret += ft_printf_putchar((x % 16) + 87);
+		ret += ft_printf_putchar((x % 16) + 55);
 	return (ret);
 }
 
@@ -55,6 +55,6 @@ int	ft_printf_upperx(unsigned long x)
 	if ((x % 16) < 10)
 		ret += ft_printf_putchar((x % 16) + 48);
 	else
-		ret += ft_printf_putchar((x % 16) + 55);
+		ret += ft_printf_putchar((x % 16) + 87);
 	return (ret);
 }
