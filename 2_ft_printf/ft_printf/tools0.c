@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:23:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/05 14:53:48 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:39:37 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 int	checker(int c, va_list ap);
 
-int	ft_printf(const char *param, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list	my_arg;
-	int		ret;
+	va_list	arg;
+	int		i;
+	int		j;
 
-	ret = 0;
-	va_start(my_arg, param);
-	while (*param)
+	va_start(arg, s);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		if (*param != '%')
-			ret += ft_printf_putchar(*param);
-		else
-			ret += checker(*(param + 1), my_arg);
-		param++;
+		if (s[i] != '%')
+		{
+			ft_printf_putchar(s[i]);
+			j++;
+		}
+		if (s[i] == '%')
+		{
+			i++;
+			j += checker(s[i], arg);
+		}
+		i++;
 	}
-	va_end(my_arg);
-	return (ret);
+	va_end(arg);
+	return (j);
 }
 
 int	checker(int c, va_list ap)
@@ -41,9 +49,9 @@ int	checker(int c, va_list ap)
 	if (c == 's')
 		ret += ft_printf_putstr(va_arg(ap, char *));
 	else if (c == 'c')
-		ret += ft_printf_putchar(va_arg(ap, char));
+		ret += ft_printf_putchar(va_arg(ap, int));
 	else if (c == 'p')
-		ret += ft_printf_printPtr(va_arg(ap, unsigned long));
+		ret += ft_printf_print_ptr(va_arg(ap, unsigned long));
 	else if (c == 'd' || c == 'i')
 		ret += ft_printf_putnbr(va_arg(ap, int));
 	else if (c == 'u')
@@ -51,9 +59,9 @@ int	checker(int c, va_list ap)
 	else if (c == 'x' || c == 'X')
 	{
 		if (c == 'x')
-			ret += ft_printf_x(va_arg(ap, int));
+			ret += ft_printf_lowerx(va_arg(ap, int));
 		if (c == 'X')
-			ret += ft_printf_X(va_arg(ap, int));
+			ret += ft_printf_upperx(va_arg(ap, int));
 	}
 	else if (c == '%')
 		ret += ft_printf_putchar('%');
@@ -61,30 +69,3 @@ int	checker(int c, va_list ap)
 		return (ft_printf_putchar(c));
 	return (ret);
 }
-
-/* int	ft_printf(const char *param, ...)
-{
-	va_list	ap;
-	int		a;
-	int		ret;
-
-	va_start(ap, param);
-	a = 0;
-	ret = 0;
-	while (param[a] != NULL)
-	{
-		if (param[a] == '%')
-		{
-			a++;
-			while ((param[a] == ' ' || param[a] == '\t') && param[a] != NULL)
-				a++;
-			ret += checker(param[a], ap);
-		}
-		else
-			ret += write(1, &param[a], 1);
-		a++;
-	}
-	va_end(ap);
-	return (ret);
-}
- */

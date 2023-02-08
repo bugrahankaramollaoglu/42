@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bkaramol <bkaramol@student.42.fr>          +#+  +:+       +#+         #
+#    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 04:53:30 by bkaramol          #+#    #+#              #
-#    Updated: 2022/07/29 22:27:55 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/02/08 15:20:41 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

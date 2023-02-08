@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:23:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/05 21:57:52 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:42:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_printf_putstr(char *str)
 	ret = 0;
 	i = 0;
 	if (!str)
-		return (ft_putstr("(null)"));
+		return (ft_printf_putstr("(null)"));
 	else
 	{
 		while (str[i])
 		{
-			ret += write(1, &str[i], 1);
+			ret += ft_printf_putchar(str[i]);
 			i++;
 		}
 		return (ret);
@@ -37,13 +37,13 @@ int	ft_printf_print_ptr(unsigned long ptr)
 	int	ret;
 
 	ret = 0;
-	ret += ft_print_putstr("0x");
+	ret += ft_printf_putstr("0x");
 	if (ptr >= 16)
 		ret += ft_printf_print_ptr(ptr / 16);
 	if ((ptr % 16) < 10)
-		ret += ft_print_putchar((ptr % 16) + 48);
+		ret += ft_printf_putchar((ptr % 16) + 48);
 	else
-		ret += ft_printf_putchar((p % 16) + 87);
+		ret += ft_printf_putchar((ptr % 16) + 87);
 }
 
 int	ft_printf_putnbr(int nb)
@@ -62,8 +62,8 @@ int	ft_printf_putnbr(int nb)
 	}
 	else
 	{
-		ret += ft_putnbr(nb / 10);
-		ret += ft_putnbr(nb % 10);
+		ret += ft_printf_putnbr(nb / 10);
+		ret += ft_printf_putnbr(nb % 10);
 	}
 	return (ret);
 }
@@ -81,8 +81,4 @@ int	ft_printf_unsigned(unsigned int u)
 		i += ft_printf_unsigned(u % 10);
 	}
 	return (i);
-}
-
-int	ft_printf_x(unsigned long x)
-{
 }
