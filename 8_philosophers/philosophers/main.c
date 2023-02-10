@@ -6,15 +6,15 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:29 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 17:34:08 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/11 00:54:02 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_args(char **av)
+int check_args(char **av)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	while (av[i])
@@ -29,12 +29,12 @@ int	check_args(char **av)
 	return (1);
 }
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	t_philo			*philo;
-	pthread_mutex_t	*fork;
-	pthread_mutex_t	*lock;
-
+	t_philo *philo;
+	pthread_mutex_t *fork;
+	pthread_mutex_t *lock;
+// pilo 10 100 20 30 (kackere)
 	if (ac == 5 || ac == 6)
 	{
 		if (check_args(av))
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 			fork = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 			lock = malloc(sizeof(pthread_mutex_t));
 			if (!philo || !fork || !lock)
-				return (2);
+				return (1);
 			// ilklendirme işlemlerini yapiyoruz
 			init_philos(philo, av, ac);
 			// kitleme işlemi yapiyor
