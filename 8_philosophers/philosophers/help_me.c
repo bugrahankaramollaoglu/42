@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   help_me.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nliman <nliman@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:36 by nliman            #+#    #+#             */
-/*   Updated: 2022/12/10 19:18:34 by nliman           ###   ########.fr       */
+/*   Updated: 2023/02/10 20:30:02 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ long	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nb = nb * 10 + str[i] - '0';
+		nb = (nb * 10) + (str[i] - 48);
 		i++;
 	}
 	return (nb * sign);
@@ -59,6 +59,7 @@ void	ft_free(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 	i = 0;
 	while (i < philo->philo_num)
 	{
+		/* bu fonksiyon bir mutexi silmek için kullanılır. başarı durumunda 0 döndürür. */
 		pthread_mutex_destroy(philo[i].left_fork_mutex);
 		pthread_mutex_destroy(philo[i].right_fork_mutex);
 		i++;

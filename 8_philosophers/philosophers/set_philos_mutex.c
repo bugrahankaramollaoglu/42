@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:01 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 18:07:38 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:29:39 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 		philo[i].lock = lock;
 		i++;
 	}
-	/* bu fonksiyon bir mutexi ilklendiriyor. mutex,
-		çoklu threadlerin kullandıgı
-	ortak bir veriye erişimi sınırlandırmada kullanılan bir metottur. ilk parametresi
-	kitlenecek mutex,
-		ikincisi ise mutexe extra özellik verirken kullanılır. mutexin türünü
-	belirtebiliriz böylece farklı threadler tarafından kitlendiginde farklı davranır. bunlar
+	/* bu fonksiyon bir mutexi ilklendiriyor. mutexler,	çoklu threadlerin ortak kullandıgı
+	bir veriye erişimi sınırlandırmada kullanılan bir metottur. aynı anda erişilmemesini sağlar
+	ilk parametresi	kitlenecek mutex,
+	ikincisi ise mutexe extra özellik verirken kullanılır.
+	mutexin türünü belirtebiliriz böylece farklı threadler tarafından kitlendiginde farklı
+	davranır. bunlar
 		* PTHREAD_MUTEX_NORMAL: This is the default type of mutex,
 			and it operates in a straightforward manner. If a thread
 			tries to lock a mutex that is already locked by another thread,
@@ -77,8 +77,7 @@ void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 			so that if a thread tries to lock a mutex that it has already locked,
 			an error is returned.
 		* PTHREAD_MUTEX_RECURSIVE: This type of mutex allows a thread to lock
-			the same mutex multiple times without deadlocking.
-		*/
+			the same mutex multiple times without deadlocking. */
 	pthread_mutex_init(philo->lock, NULL);
 }
 

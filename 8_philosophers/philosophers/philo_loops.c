@@ -6,12 +6,13 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:18 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 18:17:16 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:37:26 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/* ekrana yazı yazdıran fonksiyon */
 void	print_philos_status(t_philo *philo, char *status, int kill)
 {
 	pthread_mutex_lock(philo->lock);
@@ -57,6 +58,7 @@ void	sleep_time_philos(t_philo *philo)
 	waiting_philos(philo, philo->sleep_time);
 }
 
+/* filozofların döngülerini çalıştıran fonksiyon */
 void	*loops_for_philos(void *argument)
 {
 	t_philo	*philo;

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:43 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 18:13:21 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:35:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	ft_philo_check(t_philo *philo)
 	/* ölüm süresini geçerse öldü yazdırıyoruz. */
 	if (ft_get_time() - philo->last_meal > philo->die_time)
 	{
-		/*
-		1)  */
+		/* filozofların o anki durumlarını bastıracak fonksiyona gönderen fonksiyon */
 		print_philos_status(philo, "died", 1);
 		return (1);
 	}
