@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:43 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/08 20:32:25 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:13:21 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_philo_check(t_philo *philo)
 {
+	/* eğer goal verilmemişse -1'dir default hali o yüzden bu kontrole asla
+	girilmez. girilmişse ve yenilen yemek sayısı ona eşitlenirse döngüden çıkılır. */
 	if (philo->eaten == philo->goal)
 		return (1);
 	pthread_mutex_lock(philo->lock);
@@ -23,8 +25,11 @@ int	ft_philo_check(t_philo *philo)
 		return (1);
 	}
 	pthread_mutex_unlock(philo->lock);
+	/* ölüm süresini geçerse öldü yazdırıyoruz. */
 	if (ft_get_time() - philo->last_meal > philo->die_time)
 	{
+		/*
+		1)  */
 		print_philos_status(philo, "died", 1);
 		return (1);
 	}
@@ -54,16 +59,17 @@ t_time	ft_get_time(void)
 	zamanı arasındaki süreyi hesaplamak için kullanılır.
 	struct timeval türünde o anki zamani döndürür. time structının
 	1. parametresi saniye,
-		2. parametresi microsaniye türündedir. bu 1. parametre
+	2. parametresi microsaniye türündedir. bu 1. parametre
 	structı gösteren pointerdır,
-		bu pointer zamanı tutar. fonksiyon çağrıldığında
+	bu pointer zamanı tutar. fonksiyon çağrıldığında
 	ilk parametrenin point ettiği structın tipinde yaratılan tv değişkenine zamanı
 	yazar. pointer tipinde olması başka yerde de erişebilmek için.
 	2. parametrede ise normalde greenwich'e göre geçen dakikayi vererek
 	timezone belirtiliyor fakat çok nadir kullanılmakta. */
 	gettimeofday(&tv, NULL);
-	// micro saniye milisaniyeden cok cok kücüktür.bunu miliye cevirmek icin
-	// *1000 /1000 yapiyoruz.
+	/* 	micro saniye milisaniyeden cok cok kücüktür.bunu miliye cevirmek icin
+	*1000 /1000 yapiyoruz. tv_sec saniye türünden,
+	tv_usec mikrosaniye türünden */
 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (time);
 }

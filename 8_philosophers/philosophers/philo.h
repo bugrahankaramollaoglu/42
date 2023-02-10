@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: nliman <nliman@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:13 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/05 14:23:47 by bkaramol         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:15:50 by nliman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stddef.h>
 # include <pthread.h>
 # include <sys/time.h>
 
