@@ -6,14 +6,14 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:03:18 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/11 00:46:59 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:57:09 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* ekrana yazı yazdıran fonksiyon */
-void	print_philos_status(t_philo *philo, char *status, int kill)
+void print_philos_status(t_philo *philo, char *status, int kill)
 {
 	pthread_mutex_lock(philo->lock);
 	/* eğer filozof ölmemişse kontrol ediyoruz */
@@ -23,8 +23,7 @@ void	print_philos_status(t_philo *philo, char *status, int kill)
 		burada eat, die,
 		sleep ve think olabilir. filozof_id'leri ekrana yazdırırken
 		1'den başladığı için +1 dedik. */
-		printf("[%llu %d %s]\n", (ft_get_time() - philo->start_time), philo->id
-				+ 1, status);
+		printf("[%llu %d %s]\n", (ft_get_time() - philo->start_time), philo->id + 1, status);
 		/* eğer kill 1 olarak verilmişse dead_flag'i düzenliyoruz. */
 		if (kill)
 			*philo->is_dead = 1;
@@ -33,7 +32,7 @@ void	print_philos_status(t_philo *philo, char *status, int kill)
 }
 
 /* filozofları yemek yedirmek icin bu fonksiyonu kullanıyoruz */
-void	eat_time_philos(t_philo *philo)
+void eat_time_philos(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork_mutex);
 	print_philos_status(philo, "has taken a fork ", 0);
@@ -41,7 +40,7 @@ void	eat_time_philos(t_philo *philo)
 	print_philos_status(philo, "has taken a fork", 0);
 	/* her yeme uyuma düşünme vs. eyleminde ft_philo_chec */
 	if (ft_philo_check(philo))
-		return ;
+		return;
 	print_philos_status(philo, "is eating", 0);
 	pthread_mutex_lock(philo->lock);
 	philo->last_meal = ft_get_time();
@@ -50,20 +49,20 @@ void	eat_time_philos(t_philo *philo)
 	waiting_philos(philo, philo->eat_time);
 }
 
-void	sleep_time_philos(t_philo *philo)
+void sleep_time_philos(t_philo *philo)
 {
 	pthread_mutex_unlock(philo->left_fork_mutex);
 	pthread_mutex_unlock(philo->right_fork_mutex);
 	if (ft_philo_check(philo))
-		return ;
+		return;
 	print_philos_status(philo, "is sleeping", 0);
 	waiting_philos(philo, philo->sleep_time);
 }
 
 /* filozofların döngülerini çalıştıran fonksiyon */
-void	*loops_for_philos(void *argument)
+void *loops_for_philos(void *argument)
 {
-	t_philo	*philo;
+	t_philo *philo;
 
 	philo = (t_philo *)argument;
 	/* filozof sayisi 1 ise ya da koşullara uymuyosa direkt çatal aldırıp öldürüyoruz. */
@@ -84,7 +83,7 @@ void	*loops_for_philos(void *argument)
 	while (1)
 	{
 		if (ft_philo_check(philo))
-			break ;
+			break;
 		eat_time_philos(philo);
 		sleep_time_philos(philo);
 		if (!ft_philo_check(philo))
