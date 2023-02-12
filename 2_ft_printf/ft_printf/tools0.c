@@ -6,19 +6,19 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:23:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/08 15:39:37 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:04:43 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	checker(int c, va_list ap);
+int checker(int c, va_list ap);
 
-int	ft_printf(const char *s, ...)
+int ft_printf(const char *s, ...)
 {
-	va_list	arg;
-	int		i;
-	int		j;
+	va_list arg;
+	int i;
+	int j;
 
 	va_start(arg, s);
 	i = 0;
@@ -41,9 +41,9 @@ int	ft_printf(const char *s, ...)
 	return (j);
 }
 
-int	checker(int c, va_list ap)
+int checker(int c, va_list ap)
 {
-	int	ret;
+	int ret;
 
 	ret = 0;
 	if (c == 's')

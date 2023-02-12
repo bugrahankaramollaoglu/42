@@ -6,16 +6,16 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:23:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/08 15:42:50 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:08:20 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_putstr(char *str)
+int ft_printf_putstr(char *str)
 {
-	int	ret;
-	int	i;
+	int ret;
+	int i;
 
 	ret = 0;
 	i = 0;
@@ -32,9 +32,9 @@ int	ft_printf_putstr(char *str)
 	}
 }
 
-int	ft_printf_print_ptr(unsigned long ptr)
+int ft_printf_print_ptr(unsigned long ptr)
 {
-	int	ret;
+	int ret;
 
 	ret = 0;
 	ret += ft_printf_putstr("0x");
@@ -44,11 +44,12 @@ int	ft_printf_print_ptr(unsigned long ptr)
 		ret += ft_printf_putchar((ptr % 16) + 48);
 	else
 		ret += ft_printf_putchar((ptr % 16) + 87);
+	return ret;
 }
 
-int	ft_printf_putnbr(int nb)
+int ft_printf_putnbr(int nb)
 {
-	int	ret;
+	int ret;
 
 	ret = 0;
 	if (nb < 10)
@@ -68,9 +69,9 @@ int	ft_printf_putnbr(int nb)
 	return (ret);
 }
 
-int	ft_printf_unsigned(unsigned int u)
+int ft_printf_unsigned(unsigned int u)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (u <= 9)
