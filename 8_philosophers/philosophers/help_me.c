@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 19:03:36 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 20:30:02 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/13 22:17:14 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/13 22:17:15 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	is_digit(char *str)
+int is_digit(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
@@ -26,17 +26,16 @@ int	is_digit(char *str)
 	return (1);
 }
 
-long	ft_atoi(const char *str)
+long ft_atoi(const char *str)
 {
-	int		i;
-	long	nb;
-	int		sign;
+	int i;
+	long nb;
+	int sign;
 
 	i = 0;
 	nb = 0;
 	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -52,9 +51,9 @@ long	ft_atoi(const char *str)
 	return (nb * sign);
 }
 
-void	ft_free(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
+void ft_free(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (i < philo->philo_num)

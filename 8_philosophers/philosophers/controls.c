@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 19:03:43 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/10 20:35:50 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/13 22:17:20 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_philo_check(t_philo *philo)
+int ft_philo_check(t_philo *philo)
 {
 	/* eğer goal verilmemişse -1'dir default hali o yüzden bu kontrole asla
 	girilmez. girilmişse ve yenilen yemek sayısı ona eşitlenirse döngüden çıkılır. */
@@ -35,9 +35,9 @@ int	ft_philo_check(t_philo *philo)
 	return (0);
 }
 
-int	waiting_philos(t_philo *philo, t_time wait_time)
+int waiting_philos(t_philo *philo, t_time wait_time)
 {
-	t_time	time;
+	t_time time;
 
 	time = ft_get_time();
 	while (ft_get_time() - time < wait_time)
@@ -49,10 +49,10 @@ int	waiting_philos(t_philo *philo, t_time wait_time)
 	return (0);
 }
 
-t_time	ft_get_time(void)
+t_time ft_get_time(void)
 {
-	struct timeval		tv;
-	unsigned long long	time;
+	struct timeval tv;
+	unsigned long long time;
 
 	/* bu fonksiyon time.h'da bulunur. genelde iki kod blogunun calısma
 	zamanı arasındaki süreyi hesaplamak için kullanılır.

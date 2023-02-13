@@ -5,13 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 19:03:01 by nliman            #+#    #+#             */
-/*   Updated: 2023/02/11 05:09:53 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/13 22:35:25 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/* filozoflara argümanları atiyoruz */
 void init_philos(t_philo *philo, char **av, int ac)
 {
 	int *is_dead;
@@ -83,12 +84,12 @@ void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 
 void create_threads(t_philo *philo)
 {
-	int i;
+	int a;
 
-	i = 0;
+	a = 0;
 	/* filozof sayısı kadar thread yaratiyor çünkü her biri (her bir thread) aynı anda farklı farklı
 	işler yapacaklar */
-	while (i < philo->philo_num)
+	while (a < philo->philo_num)
 	{
 		/* thread yaratmak için pthread_create() kullanılır.
 		int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
@@ -99,18 +100,18 @@ void create_threads(t_philo *philo)
 			4) an argument to be passed to the start_routine function. This argument can be any pointer value,
 			including NULL.
 		her bir thread yaratıldıktan sonra philo[i] parametresiyle loops_for_philos fonksiyonunu çalıştırır. */
-		pthread_create(&philo[i].thread, NULL, &loops_for_philos, &philo[i]);
-		i++;
+		pthread_create(&philo[a].thread, NULL, &loops_for_philos, &philo[a]);
 		/* threadleri yaratırken karışmaması için 100 mikrosaniye bekletiyoruz. */
 		usleep(100);
+		a++;
 	}
-	i = 0;
+	a = 0;
 	/* daha sonra thread (filozof) sayısı kadar pthread_join uyguluyoruz her bir threade. */
-	while (i < philo->philo_num)
+	while (a < philo->philo_num)
 		/* 	pthread_join şu işe yarar: bir thread'i başlatmadan diğerinin görevinin bitmesini beklememizi
 		sağlar. ilk parametresi beklenecek thread,
 		ikincisi ise dönüş değerini saklayacak pointerdır (optional). */
-		pthread_join(philo[i++].thread, NULL);
+		pthread_join(philo[a++].thread, NULL);
 	/* bir yandan da sürekli herhangi bir filozofun ölüp ölmedi kontrolü yapiliyor. */
 	while ((*philo).is_dead == 0)
 		ft_philo_check(philo);
