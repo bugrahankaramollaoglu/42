@@ -13,10 +13,11 @@
 #include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+/* nb kadar sonuna ekler. */
+char *ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	a;
-	unsigned int	b;
+	unsigned int a;
+	unsigned int b;
 
 	a = 0;
 	b = 0;
@@ -31,4 +32,11 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	}
 	dest[a + b] = '\0';
 	return (dest);
+}
+
+int main()
+{
+	char a[] = "bugra";
+	char b[] = "cemre";
+	printf("%s\n", ft_strncat(a, b, 3)); // bugracem (3 karakter kopyaladı çünkü nb 3)
 }

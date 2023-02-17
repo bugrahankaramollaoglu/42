@@ -32,6 +32,11 @@ void	ft_putnbr(int nb)
 	}
 	if (nb > 9)
 		ft_putnbr(nb / 10);
+	/* +48 sebebi ascii'de inti chara çevirmek. mesela
+	9 sayısı, 10 ile modu 9. sayı olan 9'u yazdıracagız fakat şuan
+	9 putchar ile yazdırılamıyor. çünkü 9 ascii'de \t denk geliyor
+	o da non-printable. buna 48 ('0') eklediğimizde 57 oluyor. o da sayı olan
+	9'un karşılığı. */
 	ft_putchar(nb % 10 + '0');
 }
 /*

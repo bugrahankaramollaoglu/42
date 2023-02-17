@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+/* cmp'den farkı sadece ilk n karakteri kaşılaştırmasıdır. */
+int ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int	i;
+	unsigned int i;
 
 	i = 0;
 	if (n == 0)
@@ -28,9 +29,10 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 
 #include <stdio.h>
 
-int main() {
-	char *s1 = "bugra";
-	char *s2 = "bugaz";
+int main()
+{
+	char *s1 = "bugba";
+	char *s2 = "bugah";
 
 	printf("%d", ft_strncmp(s1, s2, 5));
 }

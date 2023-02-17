@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* string yazdırıyor */
 void	ft_putstr(char *str)
 {
 	int	a;

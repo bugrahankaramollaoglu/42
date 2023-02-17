@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+/* src'den dest'e size-1 kadar kopyalar. bunun nedeni dest'in sonuna manuel koyacagı
+null'a yer kaldıgından emin olmaktır. */
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	index;

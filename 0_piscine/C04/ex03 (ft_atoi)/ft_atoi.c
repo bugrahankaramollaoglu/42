@@ -13,6 +13,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
+
+/* atoi string olarak verilen bir sayıyı mesela "-2323" ya da "1250" int olan -2323
+ve 1250 sayılarına çevirmede kullanılıyor.  */
 int	ft_atoi(char *str)
 {
 	int	count;

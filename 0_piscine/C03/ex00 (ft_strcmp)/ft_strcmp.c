@@ -12,9 +12,10 @@
 
 #include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+/* s1 ile s2 stringini karşılaştırır. farkı olan ilk karakterin ascii farkını döndürür */
+int ft_strcmp(char *s1, char *s2)
 {
-	unsigned int	i;
+	unsigned int i;
 
 	i = 0;
 	while ((s1[i] == s2[i]) && (s1[i] || s2[i]))
@@ -22,4 +23,15 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
+}
+
+#include <stdio.h>
+
+/* a b ve c aynı oldugu icin while boyunca arttırdı. aynı olmadıgında (s1[i] == s2[i] saglanmadıgında)
+döngüden çıktı ve return ile farklarını döndürdü (d-t = 16) */
+int main()
+{
+	char a[] = "abcd";
+	char b[] = "abct";
+	printf("%d\n", ft_strcmp(a, b));
 }
