@@ -13,13 +13,15 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	ft_is_prime(int nb)
+int ft_is_prime(int nb)
 {
-	int	i;
+	int i;
 
 	i = 2;
 	if (nb < 2)
 		return (0);
+	/* /2 diyoruz çünkü bir sayının yarısından kendisine kadar olan yarımda bir tam sayı
+	çarpanı olamaz. */
 	while (i <= nb / 2)
 	{
 		if (nb % i == 0)
@@ -30,7 +32,7 @@ int	ft_is_prime(int nb)
 }
 
 /*
-int	main(void) 
+int	main(void)
 {
 	printf("%d", ft_is_prime(0));
 	printf("%d", ft_is_prime(2));

@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* içinde kendini tekrar çağırdığımız fonksiyonlara recursive fonksiyon denir. */
 int	ft_recursive_factorial(int nb)
 {
 	if (nb < 0)
@@ -24,7 +25,7 @@ int	ft_recursive_factorial(int nb)
 }
 
 /*
- 
+
 int	main(void)
 {
 	int b;

@@ -13,15 +13,16 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_sqrt(int nb)
+int ft_sqrt(int nb)
 {
-	int	a;
+	int a;
 
 	a = 1;
 	while (a * a <= nb && nb > 0)
 	{
 		if (a * a == nb)
 			return (a);
+		/* çünkü bunun karesi INT_MAX'ı aşıyor */
 		else if (a >= 46341)
 			return (0);
 		a++;

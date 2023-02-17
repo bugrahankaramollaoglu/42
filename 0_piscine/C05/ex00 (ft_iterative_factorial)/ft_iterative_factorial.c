@@ -13,28 +13,27 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	ft_iterative_factorial(int nb)
+/* faktöriyel hesaplama */
+int ft_iterative_factorial(int nb)
 {
-	int	factorial;
-	int	a;
+	int factorial;
+	int a;
 
 	factorial = 1;
 	a = 0;
+	/* 0! 1'e eşit */
 	if (nb == 0)
 		return (1);
+	/* -'lerin faktöriyelleri yok */
 	if (nb < 0)
 		return (0);
+	/* diğer türlü sayıya kadar çarpımların toplamını faktorial'da topluyoruz */
 	while (a++ < nb)
 		factorial *= a;
 	return (factorial);
 }
 
-/*
-int	main(void)
+int main(void)
 {
-	int b;
-	b = ft_iterative_factorial(5);
-	printf("%d", b);
+	printf("%d\n", ft_iterative_factorial(4)); // 120
 }
-
-*/

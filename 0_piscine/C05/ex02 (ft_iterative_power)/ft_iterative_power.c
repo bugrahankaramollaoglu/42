@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* üs bulma fonksiyonu */
 int	ft_iterative_power(int nb, int power)
 {
 	int	i;
@@ -31,7 +32,7 @@ int	ft_iterative_power(int nb, int power)
 }
 
 /*
- 
+
 int	main(void)
 {
 	int x;

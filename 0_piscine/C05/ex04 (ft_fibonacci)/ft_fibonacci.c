@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* fibonacci formülünü bilmek gerekiyor: fibo = (n-2) + (n-1) */
 int	ft_fibonacci(int index)
 {
 	if (index < 0)
