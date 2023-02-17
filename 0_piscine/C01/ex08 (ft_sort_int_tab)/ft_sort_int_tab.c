@@ -15,34 +15,33 @@
 
 void ft_sort_int_tab(int *tab, int size)
 {
-    int swap;
-    int a;
+	int swap;
+	int a;
 
-    a = 0;
-    size--;
-    while (a < size)
-    {
-        if (tab[a] > tab[a + 1])
-        {
-            swap = tab[a];
-            tab[a] = tab[a + 1];
-            tab[a + 1] = swap;
-            a = 0;
-        }
-        else
-        {
-            a++;
-        }
-    }
-
-    for (int i = 0; i < 4; i++)
-    {
-        printf("[%d]", tab[i]);
-    }
+	a = 0;
+	size--;
+	while (a < size)
+	{
+		if (tab[a] > tab[a + 1])
+		{
+			swap = tab[a];
+			tab[a] = tab[a + 1];
+			tab[a + 1] = swap;
+			a = 0;
+		}
+		else
+		{
+			a++;
+		}
+	}
 }
 
 int main()
 {
-    int tab[4] = {2, 39, 23, 38};
-    ft_sort_int_tab(tab, 4);
+	int tab[4] = {2, 39, 23, 38};
+	ft_sort_int_tab(tab, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		printf("[%d]", tab[i]);
+	}
 }

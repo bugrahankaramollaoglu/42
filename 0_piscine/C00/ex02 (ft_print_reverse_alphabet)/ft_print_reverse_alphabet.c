@@ -12,14 +12,16 @@
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void ft_print_reverse_alphabet(void)
 {
-	char	alpha;
+	char alpha;
 
-	alpha = 'z';
-	while (alpha >= 'a')
-	{
+	alpha = 123;
+	while (--alpha >= 'a')
 		write(1, &alpha, 1);
-		alpha--;
-	}
+}
+
+int main()
+{
+	ft_print_reverse_alphabet();
 }

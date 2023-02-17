@@ -21,6 +21,9 @@ void	ft_is_negative(int n)
 {
 	if (n < 0)
 		ft_putchar('N');
+		// ya da
+		// write(1, &"N", 1);
 	else
 		ft_putchar('P');
+		// write(1, &"P", 1);
 }

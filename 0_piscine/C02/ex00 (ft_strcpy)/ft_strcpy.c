@@ -17,28 +17,29 @@
 
 char *ft_strcpy(char *dest, char *src)
 {
-    // sayacımız
-    int i;
+	// sayacımız
+	int i;
 
-    i = 0;
+	i = 0;
 
-    // while src[i] != '\0' yani src bitene kadar
-    while (src[i])
-    {
-        // kopyalama işlemi
-        dest[i] = src[i];
-        i++;
-    }
-    // sonuna da null koy
-    dest[i] = '\0';
+	// while src[i] != '\0' yani src bitene kadar
+	while (src[i])
+	{
+		// kopyalama işlemi
+		dest[i] = src[i];
+		i++;
+	}
+	// sonuna da null koy
+	dest[i] = '\0';
 
-    // finalde de döndür
-    return (dest);
+	// finalde de döndür
+	return (dest);
 }
 
+#include <stdlib.h>
 int main()
 {
-    char *s = "bugra";
-    char *d = "a";
-    printf("%s", ft_strcpy(d, s));
+	char *s = "bugra";
+	char d[5];
+	printf("%s", ft_strcpy(d, s));
 }

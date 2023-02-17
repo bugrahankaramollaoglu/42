@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* sadece ilk harfi büyüğe çevir */
-
-#include <unistd.h>
-#include <stdio.h>
+/* kelimelerin sadece ilk harfini büyüğe çevir */
 
 char	*ft_strcapitalize(char *str)
 {
@@ -24,18 +21,18 @@ char	*ft_strcapitalize(char *str)
 	b = 0;
 	while (str[a])
 	{
-        // ilk harf küçükse büyük yap
+		// ilk harf küçükse büyük yap
 		if (b == 0 && (str[a] >= 'a' && str[a] <= 'z'))
 		{
 			str[a] -= 32;
 			b++;
 		}
 
-        // ilk harften sonraki harfler büyükse küçült
+		// ilk harften sonraki harfler büyükse küçült
 		else if (b > 0 && (str[a] >= 'A' && str[a] <= 'Z'))
 			str[a] += 32;
 
-        // a-z ve A-Z dışındakileri atla
+		// a-z ve A-Z dışındakileri atla
 		else if (str[a] < '0' || (str[a] > '9' && str[a] < 'A')
 			|| (str[a] > 'Z' && str[a] < 'a') || (str[a] > 'z'))
 			b = 0;

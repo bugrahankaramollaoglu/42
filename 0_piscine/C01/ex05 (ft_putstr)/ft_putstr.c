@@ -15,22 +15,33 @@
 
 #include <unistd.h>
 
+// klasik ft_putstr
+void ft_putstr(char *str)
+{
+	int i;
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
+/* bi tık daha güzeli */
 void ft_putstr(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 		write(1, &str[i++], 1);
 }
 
-// daha güzeli
+// daha güzeli (pointerlarla)
 void ft_putstr(char *str)
 {
 	while (*str)
-	{
 		write(1, str++, 1);
-	}
 }
 
 // daha da güzeli

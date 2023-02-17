@@ -25,6 +25,8 @@ char	*ft_strupcase(char *str)
 	{
 		if ((str[a] >= 'a') && (str[a] <= 'z'))
 		{
+			/* ascii tablosunda küçük harf ile büyük harf arasında 32 fark oldugu icin kücügü büyütmek icin
+			32 çıkarıyoruz (97->a && 65->A). aynı şekilde büyük bir harfi küçük harfe çevirmek için de 32 ekleyecektik */
 			str[a] -= 32;
 		}
 		a++;

@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 /* swap is a technique that is often used
-esp. when you want to change values of two variables.
+when you want to change values of two variables.
 for swap, you always need a temporary variable that'll hold
-the value you'll change. why is that? this comes from the memory
+the value you'll first change. why is that? this comes from the memory
 management in C. in C, you always have to care about the memory location
 you can't just say
 int a, b;
@@ -21,8 +21,7 @@ a = b;
 b = a;
 because when you say a = b, b's value is assigned to a,
 so a's value is lost. when you want to assign a's value
-to b later on, it is already gone.
-*/
+to b later on, it is already gone. */
 
 #include <unistd.h>
 
@@ -38,7 +37,7 @@ void ft_swap(int *a, int *b)
     *b = temp;
 }
 
-// you can also use
+// 2. yöntem
 void ft_swap(int *a, int *b)
 {
     *a ^= *b; // (1) a = a ^ b

@@ -14,21 +14,22 @@
 
 int ft_str_is_alpha(char *str)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if ((str[i] < 97 || str[i] > 122) && (str[i] < 65 || str[i] > 90))
-        {
-            return (0);
-        }
-        i++;
-    }
-    return (1);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] < 97 || str[i] > 122) && (str[i] < 65 || str[i] > 90))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }
 
-/* tek satırda
-int isalpha (int ch)
-    return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
+/* bu daha iyi
+int isalpha (int ch) {
+	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
+}
 */

@@ -17,30 +17,28 @@
 
 char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
-    unsigned int a;
+	unsigned int a;
 
-    a = 0;
+	a = 0;
 
-    // en fazla n kadar
-    // src'nin sonuna gelene kadar
-    while ((a < n) && src[a])
-    {
-        dest[a] = src[a];
-        a++;
-    }
-    while (a < n)
-    {
-        dest[a] = '\0';
-        a++;
-    }
-    return dest;
+	// en fazla n kadar
+	// src'nin sonuna gelene kadar
+	while ((a < n) && src[a])
+	{
+		dest[a] = src[a];
+		a++;
+	}
+	while (a < n)
+	{
+		dest[a] = '\0';
+		a++;
+	}
+	return dest;
 }
 
 int main()
 {
-    char d[] = "cemreee";
-    char s[] = "bugra";
-    printf("old d: %s\n", d);
-    printf("old s: %s\n", s);
-    printf("%s", ft_strncpy(d,s, 5));
+	char d[] = "cemre";
+	char s[] = "bugra";
+	printf("d artık: %s\n", ft_strncpy(d, s, 2));
 }
