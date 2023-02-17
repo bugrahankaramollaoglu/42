@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include <unistd.h>
 
+/* verilen bir sayıdan sonraki ilk asal sayıyı bulmak için öncelikle asal kontrolü
+yapan bir fonksiyon yazmamız gerekiyor. */
+
 int	ft_is_prime(int nb)
 {
 	int	i;
