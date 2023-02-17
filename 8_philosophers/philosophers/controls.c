@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/13 22:17:20 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/15 01:17:58 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,18 @@ t_time ft_get_time(void)
 	gettimeofday(&tv, NULL);
 	/* 	micro saniye milisaniyeden cok cok kücüktür.bunu miliye cevirmek icin
 	*1000 /1000 yapiyoruz. tv_sec saniye türünden,
-	tv_usec mikrosaniye türünden */
+	tv_usec mikrosaniye türünden. gettimeofday’i kullandığımızda görüyoruz ki:
+	mikrosaniye çok hızlı değişirken saniye ise yavaş değişiyor
+	(kod satırları arasında yavaş değişiyor normal düşünme). ikisinin ortasında
+	ortalama bir değişime sahip değişkene ihtiyacımız var
+	bu yüzden saniyeyi 1000’ le çarpıp mikrosaniyeyi 1000’e bölüp toplayıp
+	milisaniye cinsinden karşılığını buluyoruz. böylelikle filozoflardaki
+	değişimi kontrol etmemiz kolaylaşıyor. AYRICA time_to_die değerlerini
+	kullanıcı bize milisaniye cinsinden veriyor her türlü çevirmek lazım*/
 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (time);
 }
+
+/* data race nedir? data race iki thread aynı değişkene aynı anda ulaştıgında olur. bu threadlerden
+en az bir tanesi okuma bir tanesi yazma yapiyor olmalıdır. bunu kodda kontrol etmek için
+gcc -Wall ...'a -fsanitize=thread -g ekliyoruz. */
