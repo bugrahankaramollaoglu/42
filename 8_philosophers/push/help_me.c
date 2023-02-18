@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 22:17:14 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:03:54 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/19 01:06:32 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/19 01:06:34 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_free(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 	i = 0;
 	while (i < philo->philo_num)
 	{
-		/* bu fonksiyon bir mutexi silmek için kullanılır. başarı durumunda 0 döndürür. */
 		pthread_mutex_destroy(philo[i].left_fork_mutex);
 		pthread_mutex_destroy(philo[i].right_fork_mutex);
 		i++;

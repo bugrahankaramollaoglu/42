@@ -6,17 +6,17 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/13 22:35:25 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/19 01:03:52 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* filozoflara argümanları atiyoruz */
-void init_philos(t_philo *philo, char **av, int ac)
+void	init_philos(t_philo *philo, char **av, int ac)
 {
-	int *is_dead;
-	int i;
+	int	*is_dead;
+	int	i;
 
 	i = 0;
 	is_dead = malloc(sizeof(int));
@@ -42,9 +42,9 @@ void init_philos(t_philo *philo, char **av, int ac)
 }
 
 /* ilk parametre filozofların özelliklerini tutan struct, 2. ve 3. mutexler */
-void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
+void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < philo->philo_num)
@@ -82,9 +82,9 @@ void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 	pthread_mutex_init(philo->lock, NULL);
 }
 
-void create_threads(t_philo *philo)
+void	create_threads(t_philo *philo)
 {
-	int a;
+	int	a;
 
 	a = 0;
 	/* filozof sayısı kadar thread yaratiyor çünkü her biri (her bir thread) aynı anda farklı farklı

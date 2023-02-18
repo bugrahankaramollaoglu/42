@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:03:51 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/19 01:06:44 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/19 01:06:45 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,13 @@ int	main(int ac, char **av)
 	{
 		if (check_args(av))
 		{
-			// thread'lere yer ayırıyoruz
 			philo = malloc(sizeof(*philo) * ft_atoi(av[1]));
 			fork = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 			lock = malloc(sizeof(pthread_mutex_t));
 			if (!philo || !fork || !lock)
 				return (1);
-			// ilklendirme işlemlerini yapiyoruz
 			init_philos(philo, av, ac);
-			// kitleme işlemi yapiyor
 			init_mutex(philo, fork, lock);
-			// thread yaratiyor
 			create_threads(philo);
 			ft_free(philo, fork, lock);
 		}

@@ -6,13 +6,13 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/15 01:17:58 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/19 01:24:04 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int ft_philo_check(t_philo *philo)
+int	ft_philo_check(t_philo *philo)
 {
 	/* eğer goal verilmemişse -1'dir default hali o yüzden bu kontrole asla
 	girilmez. girilmişse ve yenilen yemek sayısı ona eşitlenirse döngüden çıkılır. */
@@ -35,9 +35,9 @@ int ft_philo_check(t_philo *philo)
 	return (0);
 }
 
-int waiting_philos(t_philo *philo, t_time wait_time)
+int	waiting_philos(t_philo *philo, t_time wait_time)
 {
-	t_time time;
+	t_time	time;
 
 	time = ft_get_time();
 	while (ft_get_time() - time < wait_time)
@@ -49,20 +49,20 @@ int waiting_philos(t_philo *philo, t_time wait_time)
 	return (0);
 }
 
-t_time ft_get_time(void)
+t_time	ft_get_time(void)
 {
-	struct timeval tv;
-	unsigned long long time;
+	struct timeval		tv;
+	unsigned long long	time;
 
 	/* bu fonksiyon time.h'da bulunur. genelde iki kod blogunun calısma
 	zamanı arasındaki süreyi hesaplamak için kullanılır.
-	struct timeval türünde o anki zamani döndürür. time structının
+	struct timeval türünde o anki zamani döndürür. bu structın
 	1. parametresi saniye,
 	2. parametresi microsaniye türündedir. bu 1. parametre
 	structı gösteren pointerdır,
 	bu pointer zamanı tutar. fonksiyon çağrıldığında
-	ilk parametrenin point ettiği structın tipinde yaratılan tv değişkenine zamanı
-	yazar. pointer tipinde olması başka yerde de erişebilmek için.
+	ilk parametrenin point ettiği tv değişkenine zamanı
+	yazar. pointer tipinde olması başka yerde de erişebilmek içindir.
 	2. parametrede ise normalde greenwich'e göre geçen dakikayi vererek
 	timezone belirtiliyor fakat çok nadir kullanılmakta. */
 	gettimeofday(&tv, NULL);
