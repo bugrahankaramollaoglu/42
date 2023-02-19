@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:01 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:08:19 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:30:02 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void						print_philos_status(t_philo *philo, char *status,
 void						eat_time_philos(t_philo *philo);
 void						sleep_time_philos(t_philo *philo);
 int							waiting_philos(t_philo *philo,
-								unsigned long long wait_time);
+					unsigned long long wait_time);
 int							ft_philo_check(t_philo *philo);
 int							arg_checks(int ac, char **av);
 long						ft_atoi(const char *str);

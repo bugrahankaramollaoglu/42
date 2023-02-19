@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:24:04 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/19 02:47:49 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,26 @@ t_time	ft_get_time(void)
 
 	/* bu fonksiyon time.h'da bulunur. genelde iki kod blogunun calısma
 	zamanı arasındaki süreyi hesaplamak için kullanılır.
-	struct timeval türünde o anki zamani döndürür. bu structın
+	struct timeval türünde o anki zamani döndürür. bu timeval isimli structın
 	1. parametresi saniye,
-	2. parametresi microsaniye türündedir. bu 1. parametre
-	structı gösteren pointerdır,
+	2. parametresi microsaniye türündedir.
+	aşağıdaki fonksiyonda bu 1. parametre bu structı gösteren pointerdır.
 	bu pointer zamanı tutar. fonksiyon çağrıldığında
 	ilk parametrenin point ettiği tv değişkenine zamanı
 	yazar. pointer tipinde olması başka yerde de erişebilmek içindir.
 	2. parametrede ise normalde greenwich'e göre geçen dakikayi vererek
 	timezone belirtiliyor fakat çok nadir kullanılmakta. */
 	gettimeofday(&tv, NULL);
-	/* 	micro saniye milisaniyeden cok cok kücüktür.bunu miliye cevirmek icin
+	/* 	micro saniye milisaniyeden cok cok kücüktür. bunu miliye cevirmek icin
 	*1000 /1000 yapiyoruz. tv_sec saniye türünden,
 	tv_usec mikrosaniye türünden. gettimeofday’i kullandığımızda görüyoruz ki:
 	mikrosaniye çok hızlı değişirken saniye ise yavaş değişiyor
 	(kod satırları arasında yavaş değişiyor normal düşünme). ikisinin ortasında
 	ortalama bir değişime sahip değişkene ihtiyacımız var
 	bu yüzden saniyeyi 1000’ le çarpıp mikrosaniyeyi 1000’e bölüp toplayıp
-	milisaniye cinsinden karşılığını buluyoruz. böylelikle filozoflardaki
-	değişimi kontrol etmemiz kolaylaşıyor. AYRICA time_to_die değerlerini
+	milisaniye cinsinden karşılığını buluyoruz. kısaca saniye/mikrosaniye ortalamasını
+	almak için diyebiliriz. böylelikle filozoflardaki
+	değişimi kontrol etmemiz kolaylaşıyor. ayrıca time_to_die değerlerini
 	kullanıcı bize milisaniye cinsinden veriyor her türlü çevirmek lazım*/
 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (time);
