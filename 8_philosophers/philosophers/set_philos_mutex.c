@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:03:52 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/19 04:51:15 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	create_threads(t_philo *philo)
 
 	a = 0;
 	/* filozof sayısı kadar thread yaratiyor çünkü her biri (her bir thread) aynı anda farklı farklı
-	işler yapacaklar */
+	işler yapacaklar. her bir thread pthread_t türündedir. */
 	while (a < philo->philo_num)
 	{
 		/* thread yaratmak için pthread_create() kullanılır.
