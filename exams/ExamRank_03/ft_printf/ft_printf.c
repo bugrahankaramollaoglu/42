@@ -6,98 +6,104 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 05:55:01 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/02 05:55:02 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:41:13 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int i = 0;
+	int	i;
 
-    if (str == NULL)
-        str = "(null)";
-    while (str[i])
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
-    return (i);
+	i = 0;
+	if (str == NULL)
+		str = "(null)";
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }
 
-int ft_putnbr(unsigned int nb, int base)
+int	ft_putnbr(unsigned int nb, int base)
 {
-    int i = nb % base;
-    char *base_set = "0123456789abcdef";
-    int count = 0;
+	int		i;
+	char	*base_set;
+	int		count;
 
-    if (nb / base > 0)
-        count += ft_putnbr(nb / base, base);
-    count += ft_putchar(base_set[i]);
-    return (count);
+	i = nb % base;
+	base_set = "0123456789abcdef";
+	count = 0;
+	if (nb / base > 0)
+		count += ft_putnbr(nb / base, base);
+	count += ft_putchar(base_set[i]);
+	return (count);
 }
 
-int print_d(int nb)
+int	print_d(int nb)
 {
-    int count = 0;
+	int	count;
 
-    if (nb < 0)
-    {
-        count += ft_putchar('-');
-        if (nb == -2147483648)
-        {
-            count += ft_putstr("2147483648");
-            return (count);
-        }
-        nb = -nb;
-    }
-    count += ft_putnbr((unsigned int)nb, 10);
-    return (count);
+	count = 0;
+	if (nb < 0)
+	{
+		count += ft_putchar('-');
+		if (nb == -2147483648)
+		{
+			count += ft_putstr("2147483648");
+			return (count);
+		}
+		nb = -nb;
+	}
+	count += ft_putnbr((unsigned int)nb, 10);
+	return (count);
 }
 
-int ft_printf(char *str, ...)
+int	ft_printf(char *str, ...)
 {
-    va_list ap;
-    int count = 0;
-    int i = 0;
+	va_list	ap;
+	int		count;
+	int		i;
 
-    va_start(ap, str);
-    if (str == NULL)
-        return (0);
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-            if (str[i + 1] == 'd')
-                count += print_d(va_arg(ap, int));
-            else if (str[i + 1] == 'x')
-                count += ft_putnbr(va_arg(ap, unsigned int), 16);
-            else if (str[i + 1] == 's')
-                count += ft_putstr(va_arg(ap, char *));
-            i++;
-        }
-        else
-            count += ft_putchar(str[i]);
-        i++;
-    }
-    va_end(ap);
-    return (count);
+	count = 0;
+	i = 0;
+	va_start(ap, str);
+	if (str == NULL)
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == '%')
+		{
+			if (str[i + 1] == 'd')
+				count += print_d(va_arg(ap, int));
+			else if (str[i + 1] == 'x')
+				count += ft_putnbr(va_arg(ap, unsigned int), 16);
+			else if (str[i + 1] == 's')
+				count += ft_putstr(va_arg(ap, char *));
+			i++;
+		}
+		else
+			count += ft_putchar(str[i]);
+		i++;
+	}
+	va_end(ap);
+	return (count);
 }
 
-int main()
+int	main(void)
 {
-    ft_printf("%d", 100);
-    ft_printf("%d\n", -23423);
-    ft_printf("%d\n", -5000);
-    ft_printf("%s\n", "auhsjhagkjhsdkjvxk-lpşorpkter0kpg243*05349+");
-    ft_printf("%%");
+	ft_printf("%d", 100);
+	ft_printf("%d\n", -23423);
+	ft_printf("%d\n", -5000);
+	ft_printf("%s\n", "auhsjhagkjhsdkjvxk-lpşorpkter0kpg243*05349+");
+	ft_printf("%%");
 }
-
