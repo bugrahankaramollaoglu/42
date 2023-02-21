@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 22:17:05 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 02:42:17 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/02/19 05:00:05 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/02/19 05:00:06 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	*loops_for_philos(void *argument)
 	/* filozof sayisi 1 ise ya da koşullara uymuyosa direkt çatal aldırıp öldürüyoruz. */
 	if (philo->philo_num == 1 && !ft_philo_check(philo))
 	{
+		/* eğer sol çatalı kitleyemiyosa null döndürüyoruz. */
 		if (pthread_mutex_lock(philo->left_fork_mutex))
 			return (NULL);
 		print_philos_status(philo, " has taken a fork", 0);
