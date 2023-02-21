@@ -6,13 +6,13 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:07:21 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:12:05 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:26:14 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_philos(t_philo *philo, char **av, int ac)
+void	philo_initialize(t_philo *philo, char **av, int ac)
 {
 	int	*is_dead;
 	int	i;
@@ -71,7 +71,7 @@ void	create_threads(t_philo *philo)
 	a = 0;
 	while (a < philo->philo_num)
 	{
-		pthread_create(&philo[a].thread, NULL, &loops_for_philos, &philo[a]);
+		pthread_create(&philo[a].thread, NULL, &philos_looping, &philo[a]);
 		usleep(100);
 		a++;
 	}
@@ -79,5 +79,5 @@ void	create_threads(t_philo *philo)
 	while (a < philo->philo_num)
 		pthread_join(philo[a++].thread, NULL);
 	while ((*philo).is_dead == 0)
-		ft_philo_check(philo);
+		philosopher_check(philo);
 }

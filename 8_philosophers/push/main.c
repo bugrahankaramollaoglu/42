@@ -6,13 +6,13 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:06:44 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:06:45 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:25:30 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_args(char **av)
+int	av_checker(char **av)
 {
 	int	i;
 
@@ -37,14 +37,14 @@ int	main(int ac, char **av)
 
 	if (ac == 5 || ac == 6)
 	{
-		if (check_args(av))
+		if (av_checker(av))
 		{
 			philo = malloc(sizeof(*philo) * ft_atoi(av[1]));
 			fork = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 			lock = malloc(sizeof(pthread_mutex_t));
 			if (!philo || !fork || !lock)
 				return (1);
-			init_philos(philo, av, ac);
+			philo_initialize(philo, av, ac);
 			init_mutex(philo, fork, lock);
 			create_threads(philo);
 			ft_free(philo, fork, lock);

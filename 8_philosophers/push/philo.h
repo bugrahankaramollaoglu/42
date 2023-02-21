@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:01 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 02:30:02 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:26:48 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,23 @@ typedef struct s_philo
 	pthread_mutex_t			*right_fork_mutex;
 }							t_philo;
 
-void						init_philos(t_philo *philo, char **av, int ac);
+void						philo_initialize(t_philo *philo, char **av, int ac);
 void						init_mutex(t_philo *philo, pthread_mutex_t *fork,
 								pthread_mutex_t *lock);
 void						create_threads(t_philo *philo);
-void						*loops_for_philos(void *argument);
-void						print_philos_status(t_philo *philo, char *status,
+void						*philos_looping(void *argument);
+void						display_status(t_philo *philo, char *status,
 								int kill);
-void						eat_time_philos(t_philo *philo);
-void						sleep_time_philos(t_philo *philo);
-int							waiting_philos(t_philo *philo,
+void						philos_eating(t_philo *philo);
+void						philos_sleeping(t_philo *philo);
+int	philos_waiting(t_philo *philo,
 					unsigned long long wait_time);
-int							ft_philo_check(t_philo *philo);
+int							philosopher_check(t_philo *philo);
 int							arg_checks(int ac, char **av);
 long						ft_atoi(const char *str);
 void						ft_free(t_philo *philo, pthread_mutex_t *fork,
 								pthread_mutex_t *lock);
 t_time						ft_get_time(void);
 int							is_digit(char *str);
+
 #endif
