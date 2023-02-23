@@ -18,6 +18,7 @@ void ft_print_reverse_alphabet(void)
 
 	alpha = 123;
 	while (--alpha >= 'a')
+		/* çünkü write fonksiyonu adres istiyor */
 		write(1, &alpha, 1);
 }
 

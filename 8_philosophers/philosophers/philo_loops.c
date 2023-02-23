@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 05:00:05 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 05:00:06 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/23 05:21:18 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,19 @@ void	sleep_time_philos(t_philo *philo)
 }
 
 /* filozofların döngülerini çalıştıran fonksiyon */
-void	*loops_for_philos(void *argument)
+void	*loops_for_philos(void *arg)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *)argument;
-	/* filozof sayisi 1 ise ya da koşullara uymuyosa direkt çatal aldırıp öldürüyoruz. */
+	philo = (t_philo *)arg;
+	/* filozof sayisi 1 ise ve koşullara da uyuyosa (kimse ölmemişse önceden vs.) direkt çatal aldırıp öldürüyoruz. */
 	if (philo->philo_num == 1 && !ft_philo_check(philo))
 	{
 		/* eğer sol çatalı kitleyemiyosa null döndürüyoruz. */
 		if (pthread_mutex_lock(philo->left_fork_mutex))
 			return (NULL);
 		print_philos_status(philo, " has taken a fork", 0);
+		/* eğer filozof ölmemişse diye kontrol ediyoruz */
 		while (!ft_philo_check(philo))
 		{
 		}
