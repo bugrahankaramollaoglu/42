@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 05:00:05 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 05:00:06 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/26 02:30:03 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	print_philos_status(t_philo *philo, char *status, int kill)
 	{
 		/* informatif tüm satırları yazdırırken kullanılan printf. status
 		burada eat, die,
-		sleep ve think olabilir. filozof_id'leri ekrana yazdırırken
+			sleep ve think olabilir. filozof_id'leri ekrana yazdırırken
 		1'den başladığı için +1 dedik. */
-		printf("[%llu %d %s]\n", (ft_get_time() - philo->start_time), philo->id
-				+ 1, status);
+		printf("%llu [%d] -> %s\n", (ft_get_time() - philo->start_time),
+				philo->id + 1, status);
 		/* eğer kill 1 olarak verilmişse dead_flag'i düzenliyoruz. */
 		if (kill)
 			*philo->is_dead = 1;
@@ -35,11 +35,12 @@ void	print_philos_status(t_philo *philo, char *status, int kill)
 /* filozofları yemek yedirmek icin bu fonksiyonu kullanıyoruz */
 void	eat_time_philos(t_philo *philo)
 {
+	/* çatalları alıyor */
 	pthread_mutex_lock(philo->left_fork_mutex);
 	print_philos_status(philo, "has taken a fork ", 0);
 	pthread_mutex_lock(philo->right_fork_mutex);
 	print_philos_status(philo, "has taken a fork", 0);
-	/* her yeme uyuma düşünme vs. eyleminde ft_philo_chec */
+	/* her yeme uyuma düşünme vs. eyleminde ft_philo_check */
 	if (ft_philo_check(philo))
 		return ;
 	print_philos_status(philo, "is eating", 0);
@@ -57,6 +58,7 @@ void	sleep_time_philos(t_philo *philo)
 	if (ft_philo_check(philo))
 		return ;
 	print_philos_status(philo, "is sleeping", 0);
+	/* diğerlerini bekliyor */
 	waiting_philos(philo, philo->sleep_time);
 }
 
@@ -66,7 +68,7 @@ void	*loops_for_philos(void *argument)
 	t_philo	*philo;
 
 	philo = (t_philo *)argument;
-	/* filozof sayisi 1 ise ya da koşullara uymuyosa direkt çatal aldırıp öldürüyoruz. */
+	/* filozof sayisi 1 ise ve koşullara uymuyosa direkt çatal aldırıp öldürüyoruz. */
 	if (philo->philo_num == 1 && !ft_philo_check(philo))
 	{
 		/* eğer sol çatalı kitleyemiyosa null döndürüyoruz. */

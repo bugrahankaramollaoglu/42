@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 04:51:15 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/02/26 01:05:27 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,12 @@ void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 	/* daha sonra filozoflar kitliyorlar çatallarını. */
 	while (i < philo->philo_num)
 	{
-		pthread_mutex_init(philo[i].left_fork_mutex, NULL);
-		pthread_mutex_init(philo[i].right_fork_mutex, NULL);
-		philo[i].lock = lock;
-		i++;
-	}
-	/* bu fonksiyon bir mutexi ilklendiriyor. mutexler,	çoklu threadlerin ortak kullandıgı
-	bir veriye erişimi sınırlandırmada kullanılan bir metottur. aynı anda erişilmemesini sağlar
-	ilk parametresi	kitlenecek mutex,
-	ikincisi ise mutexe extra özellik verirken kullanılır.
-	mutexin türünü belirtebiliriz böylece farklı threadler tarafından kitlendiginde farklı
-	davranır. bunlar
+		/* bu fonksiyon bir mutexi ilklendiriyor. mutexler,	çoklu threadlerin ortak kullandıgı
+		bir veriye erişimi sınırlandırmada kullanılan bir metottur. aynı anda erişilmemesini sağlar
+		ilk parametresi	kitlenecek mutex,
+		ikincisi ise mutexe extra özellik verirken kullanılır.
+		mutexin türünü belirtebiliriz böylece farklı threadler tarafından kitlendiginde farklı
+		davranır. bunlar
 		* PTHREAD_MUTEX_NORMAL: This is the default type of mutex,
 			and it operates in a straightforward manner. If a thread
 			tries to lock a mutex that is already locked by another thread,
@@ -78,7 +73,15 @@ void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 			so that if a thread tries to lock a mutex that it has already locked,
 			an error is returned.
 		* PTHREAD_MUTEX_RECURSIVE: This type of mutex allows a thread to lock
-			the same mutex multiple times without deadlocking. */
+			the same mutex multiple times without deadlocking.
+		şu an her filozof teknik olarak sol ve sağlarındaki çatalları kitliyor gibi görünse de
+		sonrasında threadlerde kullanacagımız pthread_join sayesinde o catalların bosalmasını
+		beklemelerini saglıyoruz. */
+		pthread_mutex_init(philo[i].left_fork_mutex, NULL);
+		pthread_mutex_init(philo[i].right_fork_mutex, NULL);
+		philo[i].lock = lock;
+		i++;
+	}
 	pthread_mutex_init(philo->lock, NULL);
 }
 
@@ -92,14 +95,14 @@ void	create_threads(t_philo *philo)
 	while (a < philo->philo_num)
 	{
 		/* thread yaratmak için pthread_create() kullanılır.
-		int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+			int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 				void *(*start_routine) (void *), void *arg);
 			1) pointer to the pthread_t type. bu threadin tipidir.
 			2) pointer to pthread_attr_t structure. it's optional, just use NULL
 			3) pointer to function that will be run by the new thread. it takes void pointer and returns void.
 			4) an argument to be passed to the start_routine function. This argument can be any pointer value,
 			including NULL.
-		her bir thread yaratıldıktan sonra philo[i] parametresiyle loops_for_philos fonksiyonunu çalıştırır. */
+		her bir thread yaratıldıktan sonra philo[a] parametresiyle loops_for_philos fonksiyonunu çalıştırır. */
 		pthread_create(&philo[a].thread, NULL, &loops_for_philos, &philo[a]);
 		/* threadleri yaratırken karışmaması için 100 mikrosaniye bekletiyoruz. */
 		usleep(100);
