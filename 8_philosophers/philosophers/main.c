@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/19 01:03:51 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:13:51 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int	main(int ac, char **av)
 {
 	t_philo			*philo;
 	pthread_mutex_t	*fork;
+	/* hem biri işlemini yazarken aynı anda diğeri yazamıyor
+	hem de bi tane filo öldüğünde diğerleri işlemlere devam edemiyor
+	döngünün devamı için gerekli olan bi sey.  */
 	pthread_mutex_t	*lock;
 
 	if (ac == 5 || ac == 6)

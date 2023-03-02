@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 05:00:05 by bkaramol          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/02/26 02:30:03 by bkaramol         ###   ########.fr       */
-=======
-/*   Updated: 2023/02/23 05:21:18 by bkaramol         ###   ########.fr       */
->>>>>>> a91c3ff453f84cea71d82f35cf9f602fe15500db
+/*   Created: 2023/03/02 17:09:19 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/03/02 17:12:33 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +15,9 @@
 /* ekrana yazı yazdıran fonksiyon */
 void	print_philos_status(t_philo *philo, char *status, int kill)
 {
+	/* eğer bunu koymazsak filoyu kitlememiş oluruz o zaman da ölse bile işlemlere devam eder.
+	aşağıki satıra geçmez. bu yüzden birisi oldugu zaman digerleri devam edemez. bir ölümden
+	tüm threadler sorumlu. */
 	pthread_mutex_lock(philo->lock);
 	/* eğer filozof ölmemişse kontrol ediyoruz */
 	if (!*philo->is_dead)
@@ -67,7 +66,7 @@ void	sleep_time_philos(t_philo *philo)
 }
 
 /* filozofların döngülerini çalıştıran fonksiyon */
-void	*loops_for_philos(void *arg)
+void	*loops_for_philos(void *argument)
 {
 	t_philo	*philo;
 
