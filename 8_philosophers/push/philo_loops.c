@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:06:52 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/21 20:26:14 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/02 05:11:10 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	display_status(t_philo *philo, char *status, int kill)
 	pthread_mutex_unlock(philo->lock);
 }
 
-void	philos_eating(t_philo *philo)
+void	 philos_eating(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork_mutex);
 	display_status(philo, "has taken a fork ", 0);

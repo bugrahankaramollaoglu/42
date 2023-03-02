@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:06:44 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/21 20:25:30 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/02 03:14:20 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 	if (ac == 5 || ac == 6)
 	{
 		if (av_checker(av))
-		{
+		{	// ./philo filo_sayisi ölme yeme uyuma (yemek_sayisi)
 			philo = malloc(sizeof(*philo) * ft_atoi(av[1]));
 			fork = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 			lock = malloc(sizeof(pthread_mutex_t));

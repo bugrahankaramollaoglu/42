@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:06:38 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/21 20:26:14 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/02 04:55:14 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	philosopher_check(t_philo *philo)
 {
-	if (philo->eaten == philo->goal)
+	if (philo->eaten == philo->goal) 
 		return (1);
 	pthread_mutex_lock(philo->lock);
 	if (*philo->is_dead)
@@ -54,3 +54,5 @@ t_time	ft_get_time(void)
 	time = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	return (time);
 }
+
+
