@@ -24,11 +24,6 @@ void	ft_print_alphabet(void)
 		write(1, &alpha, 1);
 }
 
-/* int	main(void)
-{
-	ft_print_alphabet();
-} */
-
 /* ek bilgi
 	normalde i 0 iken printf(i++) 0 yazdırır,
 	a'nın değeri daha sonra arttırılır.
