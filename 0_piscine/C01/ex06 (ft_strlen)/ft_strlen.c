@@ -15,15 +15,17 @@ it is very easy, it calculates the length of a given string */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	c;
+	int c;
 
 	c = 0;
-	while (str[c]) c++;
+	while (str[c])
+		c++;
 	return (c);
 }
 
-int main() {
-    printf("%d", ft_strlen("asdasdasdasdasd"));
+int main()
+{
+	printf("%d", ft_strlen("asdasdasdasdasd"));
 }

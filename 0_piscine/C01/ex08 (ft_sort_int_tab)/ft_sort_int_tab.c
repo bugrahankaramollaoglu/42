@@ -13,6 +13,14 @@
 #include <unistd.h>
 #include <stdio.h>
 
+void ft_swap(int *a, int *b)
+{
+	int innuendo;
+	innuendo = *a;
+	*a = *b;
+	*b = innuendo;
+}
+
 void ft_sort_int_tab(int *tab, int size)
 {
 	int swap;
@@ -24,9 +32,7 @@ void ft_sort_int_tab(int *tab, int size)
 	{
 		if (tab[a] > tab[a + 1])
 		{
-			swap = tab[a];
-			tab[a] = tab[a + 1];
-			tab[a + 1] = swap;
+			ft_swap(&tab[a], &tab[a + 1]);
 			a = 0;
 		}
 		else
@@ -38,7 +44,7 @@ void ft_sort_int_tab(int *tab, int size)
 
 int main()
 {
-	int tab[4] = {2, 39, 23, 38};
+	int tab[4] = {2323, 39, 23, 38};
 	ft_sort_int_tab(tab, 4);
 	for (int i = 0; i < 4; i++)
 	{
