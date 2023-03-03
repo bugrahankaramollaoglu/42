@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* src'den dest'e size-1 kadar kopyalar. bunun nedeni dest'in sonuna manuel koyacagı
-null'a yer kaldıgından emin olmaktır. */
+/* If the size of the destination buffer is less than or equal to the length
+of the source string, the function copies n - 1 characters from the source
+string to the destination buffer and appends a null terminator at the end.
+If the size of the destination buffer is greater than the length of the
+source string, the function copies the entire source string to the
+destination buffer and appends a null terminator at the end.*/
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	index;
@@ -32,3 +36,39 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	}
 	return (counter);
 }
+
+/* The advantage of using strlcpy over strcpy is that it helps
+prevent buffer overflows, which can occur when a string is
+copied to a buffer that is too small to hold it. */
+
+/* örnek
+
+int main() {
+	char src[] = "Hello, world!";
+	char dest[6];
+	ft_strlcpy(dest, src, sizeof(dest));
+	printf("The value of dest is \"%s\"\n", dest);
+}
+
+bu kod The value of dest is "Hello" yazdırır. çünkü 5 hellodan 1 de null'dan
+en fazla 6 byte kopyalanabilir.
+
+ */
+
+/* strlcpy ve strncpy farkı nedir?
+strncpy fonksiyonu, kaynak dizinin ilk n karakterini hedef diziye kopyalar.
+Eğer kaynak dizisi n karakterden kısa ise, kalan bölüm null karakteri ile
+doldurulur. Eğer kaynak dizisi n karakterden uzun ise, hedef diziye yalnızca
+n karakter kopyalanır. Ancak, sonuna null karakteri eklenmezse, hedef dizi
+null karakteri ile sonlandırılmamış olur.
+Öte yandan, strlcpy fonksiyonu, kaynak dizinin tümünü hedef diziye kopyalar
+(veya kaynak dizinin tamamını kopyalayacak kadar alan yoksa, kaynak dizinin
+boyutu kadar kopyalar) ve null karakteri de sonuna ekler. Bu nedenle, hedef
+dizi her zaman null karakteri ile sonlandırılır.
+Bu nedenle, strncpy fonksiyonunun kullanımı biraz dikkat gerektirir. Çünkü,
+null karakteri ekleme işlemi, hedef dizinin boyutunu belirlemede kullanılan n
+sayısından bağımsız olarak gerçekleşir. Bu, hedef dizinin sonunda beklenmedik
+karakterlerin kalması veya null karakterinin olmaması gibi sorunlara neden
+olabilir. Öte yandan, strlcpy fonksiyonu kaynak dizisinin tamamını kopyalar
+ve null karakteri sonuna ekleyerek hedef dizinin güvenli bir şekilde sonlandırılmasını
+sağlar. Bu nedenle, strlcpy fonksiyonu, hedef dizi boyutunun belirlenmesi açısından daha güvenlidir. */

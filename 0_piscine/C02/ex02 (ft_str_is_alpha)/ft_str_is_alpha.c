@@ -28,7 +28,7 @@ int ft_str_is_alpha(char *str)
 	return (1);
 }
 
-/* bu daha iyi
+/* bu daha ii
 int isalpha (int ch) {
 	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
 }

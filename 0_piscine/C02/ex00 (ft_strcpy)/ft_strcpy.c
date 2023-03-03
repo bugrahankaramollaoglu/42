@@ -58,8 +58,7 @@ dest'in gösterdiği hafıza blogunu degistirmeye calısırdık, bu da undefined
 behaviour'a sebep olur. char *p sayesinde orijinal dest'i değiştirmeden kopyası
 üzerinden işlem yapabiliyoruz böylece destin adresi değil adresteki değerle oynuyoruz. */
 
-/*
-? üçüncü yol
+/* üçüncü yol
 char *ft_strcpy(char *dest, const char *src)
 {
 	char *p = dest;
