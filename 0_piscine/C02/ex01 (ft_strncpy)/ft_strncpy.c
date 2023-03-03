@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-char *ft_strncpy(char *dest, char *src, unsigned int n)
+/* char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int a;
 
@@ -34,7 +34,10 @@ char *ft_strncpy(char *dest, char *src, unsigned int n)
 		a++;
 	}
 	return dest;
-}
+} */
+
+/* ikinci yol
+char *ft_strncpy(char *dest, char *src) */
 
 int main()
 {
