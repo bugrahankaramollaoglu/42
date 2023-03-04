@@ -50,25 +50,23 @@ int main() {
 	printf("The value of dest is \"%s\"\n", dest);
 }
 
-bu kod The value of dest is "Hello" yazdırır. çünkü 5 hellodan 1 de null'dan
-en fazla 6 byte kopyalanabilir.
-
- */
+bu kod <The value of dest is "Hello"> yazdırır. çünkü 5 hellodan 1 de null'dan
+en fazla 6 byte kopyalanabilir. */
 
 /* strlcpy ve strncpy farkı nedir?
-strncpy fonksiyonu, kaynak dizinin ilk n karakterini hedef diziye kopyalar.
-Eğer kaynak dizisi n karakterden kısa ise, kalan bölüm null karakteri ile
-doldurulur. Eğer kaynak dizisi n karakterden uzun ise, hedef diziye yalnızca
+strncpy fonksiyonu, srcnin ilk n karakterini deste kopyalar.
+Eğer src n karakterden kısa ise, kalan bölüm null karakteri ile
+doldurulur. Eğer src n karakterden uzun ise, deste yalnızca
 n karakter kopyalanır. Ancak, sonuna null karakteri eklenmezse, hedef dizi
 null karakteri ile sonlandırılmamış olur.
-Öte yandan, strlcpy fonksiyonu, kaynak dizinin tümünü hedef diziye kopyalar
-(veya kaynak dizinin tamamını kopyalayacak kadar alan yoksa, kaynak dizinin
+Öte yandan, strlcpy fonksiyonu, srcnin tümünü deste kopyalar
+(veya srcnin tamamını kopyalayacak kadar alan yoksa, srcnin
 boyutu kadar kopyalar) ve null karakteri de sonuna ekler. Bu nedenle, hedef
 dizi her zaman null karakteri ile sonlandırılır.
 Bu nedenle, strncpy fonksiyonunun kullanımı biraz dikkat gerektirir. Çünkü,
-null karakteri ekleme işlemi, hedef dizinin boyutunu belirlemede kullanılan n
+null karakteri ekleme işlemi, destin boyutunu belirlemede kullanılan n
 sayısından bağımsız olarak gerçekleşir. Bu, hedef dizinin sonunda beklenmedik
 karakterlerin kalması veya null karakterinin olmaması gibi sorunlara neden
-olabilir. Öte yandan, strlcpy fonksiyonu kaynak dizisinin tamamını kopyalar
-ve null karakteri sonuna ekleyerek hedef dizinin güvenli bir şekilde sonlandırılmasını
-sağlar. Bu nedenle, strlcpy fonksiyonu, hedef dizi boyutunun belirlenmesi açısından daha güvenlidir. */
+olabilir. Öte yandan, strlcpy fonksiyonu srcnin tamamını kopyalar
+ve null karakteri sonuna ekleyerek destin güvenli bir şekilde sonlandırılmasını
+sağlar. Bu nedenle, strlcpy fonksiyonu, destin boyutunun belirlenmesi açısından daha güvenlidir. */

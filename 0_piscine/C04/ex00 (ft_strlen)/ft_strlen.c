@@ -13,9 +13,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-	int	a;
+	int a;
 
 	a = 0;
 	while (str[a] != '\0')
@@ -24,6 +24,16 @@ int	ft_strlen(char *str)
 	}
 	return (a);
 }
+
+/* ikinci yol
+int ft_strlen(char *str) {
+	int i = 0;
+	while (*str) {
+		str++;
+		i++;
+	}
+	return i;
+} */
 
 /*
 int	main(void)

@@ -32,12 +32,10 @@ int	ft_iterative_power(int nb, int power)
 }
 
 /*
-
 int	main(void)
 {
 	int x;
 	x = ft_iterative_power(5, 2);
 	printf("%d", x);
 }
-
 */

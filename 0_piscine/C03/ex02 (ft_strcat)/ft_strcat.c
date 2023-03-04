@@ -36,7 +36,7 @@ char *ft_strcat(char *dest, char *src)
 	}
 	/* sonuna null ekliyoruz ki string olsun. C'de string ile char array arasında fark vardır.
 	char array şu olabilir: char a[] = {'a','l','i'}; fakat bu bir string olmaz. string olması için
-	sonunda null olması lazım. C'de 5 farklı şekilde string yaratılabilir:
+	sonunda null olması lazım. C'de 6 farklı şekilde string yaratılabilir:
 		1) char a[] = "bugra";
 		2) char a[en_az_5] = "bugra";
 		3) char *a = "bugra";
@@ -50,6 +50,7 @@ char *ft_strcat(char *dest, char *src)
 		   a[4] = 'a';
 		   a[5] = '\0';
 		   tek tek atiyacaksak sonuna manuel \0 koymalısın diğerleri otomatik atiyor
+		6) char a[] = {'b','u','g','r','a','\0'};
 		*/
 	dest[a] = '\0';
 	return (dest);

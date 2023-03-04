@@ -15,10 +15,10 @@
 
 /* str char stringi içerisinde ("bugrahankara") to_find stringini ("rah") arıyor.
 bulamazsa 0, bulursa buldugu adresten kalanını gönderiyor (rahankara) */
-char	*ft_strstr(char *str, char *to_find)
+char *ft_strstr(char *str, char *to_find)
 {
-	int	a;
-	int	b;
+	int a;
+	int b;
 
 	a = 0;
 	b = 0;
@@ -41,4 +41,11 @@ char	*ft_strstr(char *str, char *to_find)
 		b = 0;
 	}
 	return (0);
+}
+
+int main()
+{
+	char *ss = "bugrahankarahankara";
+	char *f = "j";
+	printf("%s\n", ft_strstr(ss, f));
 }

@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-/* s1 ile s2 stringini karşılaştırır. farkı olan ilk karakterin ascii farkını döndürür */
+/* s1 ile s2 stringini karşılaştırır. farklı olan ilk karakterin ascii farkını döndürür */
 int ft_strcmp(char *s1, char *s2)
 {
 	unsigned int i;
@@ -35,3 +35,7 @@ int main()
 	char b[] = "abct";
 	printf("%d\n", ft_strcmp(a, b));
 }
+
+/* strcmp'de mühim olan ne döndürdüğün değil, +, - ya da 0 bir değer döndürmen. o yüzden
+s1[i] - s2[i] yerine eğer s1>s2 ise return (1), küçükse return (-1) de diyebilirdin. bilgisayar
+sadece işaretine bakıyor çünkü. */

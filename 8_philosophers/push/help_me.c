@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:06:32 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/03 22:15:03 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/04 00:40:48 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_free(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 		pthread_mutex_destroy(philo[i].left_fork_mutex);
 		pthread_mutex_destroy(philo[i].right_fork_mutex);
 		i++;
-	}j
+	}
 	pthread_mutex_destroy(philo->lock);
 	pthread_mutex_destroy(fork);
 	free(lock);
