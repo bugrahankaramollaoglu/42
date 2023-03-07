@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 				ft_swap(&argv[a], &argv[a + 1]);
 			}
 			a++;
-		}	
+		}
 		b++;
 	}
 	a = 1;
@@ -78,3 +78,7 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+/* eğer buna ./a.out 20 10 30 verirsen
+çalışmaz fakat 2 1 3 verirsen sıralar. sebebi de
+strcmp'nin tüm stringe değil tek bir indise göre sıralamasıdır */

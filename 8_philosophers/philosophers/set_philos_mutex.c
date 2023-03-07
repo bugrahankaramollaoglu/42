@@ -6,17 +6,17 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/26 01:05:27 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/07 02:45:30 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 /* filozoflara argümanları atiyoruz */
-void	init_philos(t_philo *philo, char **av, int ac)
+void init_philos(t_philo *philo, char **av, int ac)
 {
-	int	*is_dead;
-	int	i;
+	int *is_dead;
+	int i;
 
 	i = 0;
 	is_dead = malloc(sizeof(int));
@@ -42,9 +42,9 @@ void	init_philos(t_philo *philo, char **av, int ac)
 }
 
 /* ilk parametre filozofların özelliklerini tutan struct, 2. ve 3. mutexler */
-void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
+void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (i < philo->philo_num)
@@ -85,9 +85,9 @@ void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 	pthread_mutex_init(philo->lock, NULL);
 }
 
-void	create_threads(t_philo *philo)
+void create_threads(t_philo *philo)
 {
-	int	a;
+	int a;
 
 	a = 0;
 	/* filozof sayısı kadar thread yaratiyor çünkü her biri (her bir thread) aynı anda farklı farklı
@@ -97,7 +97,7 @@ void	create_threads(t_philo *philo)
 		/* thread yaratmak için pthread_create() kullanılır.
 			int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 				void *(*start_routine) (void *), void *arg);
-			1) pointer to the pthread_t type. bu threadin tipidir.
+			1) pointer to the pthread_t type. bu threadin kendisidir.
 			2) pointer to pthread_attr_t structure. it's optional, just use NULL
 			3) pointer to function that will be run by the new thread. it takes void pointer and returns void.
 			4) an argument to be passed to the start_routine function. This argument can be any pointer value,
