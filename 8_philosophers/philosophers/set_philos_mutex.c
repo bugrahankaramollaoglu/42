@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/07 02:45:30 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:17:02 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,35 @@ void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 			an error is returned.
 		* PTHREAD_MUTEX_RECURSIVE: This type of mutex allows a thread to lock
 			the same mutex multiple times without deadlocking.
-		şu an her filozof teknik olarak sol ve sağlarındaki çatalları kitliyor gibi görünse de
-		sonrasında threadlerde kullanacagımız pthread_join sayesinde o catalların bosalmasını
-		beklemelerini saglıyoruz. */
+		bu ikinci parametreyi kullanmak için pthread_mutexattr_t tipinde bir obje oluşturmak,
+		daha sonra bu objeyi ilklendirmek, daha sonra da attribute vermek gerekiyor
+
+		**********************
+
+		pthread_mutexattr_t attr;
+		pthread_mutexattr_init(&attr);
+		pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
+
+		pthread_mutex_t mutex;
+		pthread_mutex_init(&mutex, &attr);
+
+		// Use the mutex...
+
+		pthread_mutex_destroy(&mutex);
+		pthread_mutexattr_destroy(&attr);
+
+		**********************
+
+		gibi. şu an her filozofun sol ve sağlarındaki çatalların mutexlerini baslattık,
+		henüz kitlemedik.  */
 		pthread_mutex_init(philo[i].left_fork_mutex, NULL);
 		pthread_mutex_init(philo[i].right_fork_mutex, NULL);
+		/* burada da her bir filozofu kitlemek için kullanacağımız
+		filozof mutexi. */
 		philo[i].lock = lock;
 		i++;
 	}
+	/* daha sonrasında da bunu ilklendiriyoruz. */
 	pthread_mutex_init(philo->lock, NULL);
 }
 
@@ -98,10 +119,24 @@ void create_threads(t_philo *philo)
 			int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 				void *(*start_routine) (void *), void *arg);
 			1) pointer to the pthread_t type. bu threadin kendisidir.
-			2) pointer to pthread_attr_t structure. it's optional, just use NULL
-			3) pointer to function that will be run by the new thread. it takes void pointer and returns void.
-			4) an argument to be passed to the start_routine function. This argument can be any pointer value,
-			including NULL.
+			2) pointer to pthread_attr_t structure. it's optional, just use NULL and the thread
+			   will be built with default attributes. if you want to add spesific ones, you may use
+			   various functions like pthread_attr_init(), pthread_attr_setstacksize(),
+			   or pthread_attr_setschedpolicy(), etc. mesela if you want to create a thread
+			   with a specific stack size, you can code:
+
+			   *******************
+
+				pthread_t my_thread;
+				pthread_attr_t attr;
+				pthread_attr_init(&attr);
+				pthread_attr_setstacksize(&attr, 1024*1024); // set stack size to 1 MB
+				pthread_create(&my_thread, &attr, my_function, NULL);
+
+			   *******************
+
+			3) yaratılan thread'de çalıştırılacak fonksiyon. void pointer aliyor ve void döndürüyor.
+			4) o fonksiyona parametre veriyoruz burda da.
 		her bir thread yaratıldıktan sonra philo[a] parametresiyle loops_for_philos fonksiyonunu çalıştırır. */
 		pthread_create(&philo[a].thread, NULL, &loops_for_philos, &philo[a]);
 		/* threadleri yaratırken karışmaması için 100 mikrosaniye bekletiyoruz. */
@@ -112,10 +147,49 @@ void create_threads(t_philo *philo)
 	/* daha sonra thread (filozof) sayısı kadar pthread_join uyguluyoruz her bir threade. */
 	while (a < philo->philo_num)
 		/* 	pthread_join şu işe yarar: bir thread'i başlatmadan diğerinin görevinin bitmesini beklememizi
-		sağlar. ilk parametresi beklenecek thread,
-		ikincisi ise dönüş değerini saklayacak pointerdır (optional). */
+		sağlar. ilk parametre bitmesi beklenecek thread, ikincisi de thread bitince return
+		değerini saklayacak pointer. bir thread pthread_create() fonksiyonu ile yaratıldığında
+		o thread main thread altında senkronize (aynı anda) çalışmaya başlar. eğer main thread'i
+		child thread işini bitirene kadar bekletmek istiyosak pthread_join() kullaniyoruz. */
 		pthread_join(philo[a++].thread, NULL);
 	/* bir yandan da sürekli herhangi bir filozofun ölüp ölmedi kontrolü yapiliyor. */
 	while ((*philo).is_dead == 0)
 		ft_philo_check(philo);
 }
+
+/* pthread_join() kullanım örnegi
+
+#include <pthread.h>
+#include <stdio.h>
+
+void *my_function(void *arg) {
+	printf("Child thread started\n");
+	// do some work
+	printf("Child thread finished\n");
+	pthread_exit((void*) 42); // exit with status 42
+}
+
+int main() {
+	pthread_t my_thread;
+	int rc;
+	void *status;
+
+	// create the child thread
+	rc = pthread_create(&my_thread, NULL, my_function, NULL);
+	if (rc) {
+		printf("Error creating thread\n");
+		return -1;
+	}
+
+	// wait for the child thread to terminate
+	rc = pthread_join(my_thread, &status);
+	if (rc) {
+		printf("Error joining thread\n");
+		return -1;
+	}
+
+	printf("Child thread exit status: %ld\n", (long) status);
+
+	return 0;
+}
+ */

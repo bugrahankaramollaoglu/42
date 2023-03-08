@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/02 17:13:51 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:04:42 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 	pthread_mutex_t	*lock;
 
 	if (ac == 5 || ac == 6)
-	{
+	{ 
 		if (check_args(av))
 		{
 			// thread'lere yer ayırıyoruz

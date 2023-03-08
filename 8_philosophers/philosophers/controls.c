@@ -6,13 +6,17 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/23 05:07:46 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:09:37 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_philo_check(t_philo *philo)
+/* bu fonksiyon eğer
+	1) opsiyonel yemek sayısına ulasılmısa çıkar
+	2) filozoflardan biri zaten ölmüsse çıkar
+	3) biri ölecekse (yemek yeme süresi dolarsa öldü yazdırır) çıkar*/
+int ft_philo_check(t_philo *philo)
 {
 	/* eğer goal verilmemişse -1'dir default hali o yüzden bu kontrole asla
 	girilmez. girilmişse ve yenilen yemek sayısı ona eşitlenirse döngüden çıkılır. */
@@ -35,13 +39,19 @@ int	ft_philo_check(t_philo *philo)
 	return (0);
 }
 
-int	waiting_philos(t_philo *philo, t_time wait_time)
+/* bir filozof yemek yedikten sonra diğerini beklemesini sağlayan fonksiyon.
+daha sonra kullanırken birinci parametreye filoyu, ikinciye
+her filonun yemek yeme ve uyuma süresini verecek. kalan zamanda (düsünme) süre
+belli olmadıgı icin onda kullanmıyoruz. */
+int waiting_philos(t_philo *philo, t_time wait_time)
 {
-	t_time	time;
+	t_time time;
 
+	/* o anki zamanı alıp time'a atiyoruz (1ocak70) */
 	time = ft_get_time();
 	while (ft_get_time() - time < wait_time)
 	{
+		/* bu arada da sürekli ölüm kontrolü yapiyoruz. */
 		if (ft_philo_check(philo))
 			return (1);
 		usleep(100);
@@ -49,10 +59,10 @@ int	waiting_philos(t_philo *philo, t_time wait_time)
 	return (0);
 }
 
-t_time	ft_get_time(void)
+t_time ft_get_time(void)
 {
-	struct timeval		tv;
-	unsigned long long	time;
+	struct timeval tv;
+	unsigned long long time;
 
 	/* bu fonksiyon time.h'da bulunur. genelde iki kod blogunun calısma
 	zamanı arasındaki süreyi hesaplamak için kullanılır.
