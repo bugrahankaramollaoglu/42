@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 05:55:01 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/21 19:41:13 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:41:45 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,11 @@ int	ft_printf(char *str, ...)
 	return (count);
 }
 
+#include <stdio.h>
+
 int	main(void)
 {
-	ft_printf("%d", 100);
+	ft_printf("%x\n", 123);
 	ft_printf("%d\n", -23423);
 	ft_printf("%d\n", -5000);
 	ft_printf("%s\n", "auhsjhagkjhsdkjvxk-lpşorpkter0kpg243*05349+");
