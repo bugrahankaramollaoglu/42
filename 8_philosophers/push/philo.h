@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:01 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/21 20:26:48 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/09 00:28:27 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void						display_status(t_philo *philo, char *status,
 								int kill);
 void						philos_eating(t_philo *philo);
 void						philos_sleeping(t_philo *philo);
-int	philos_waiting(t_philo *philo,
-					unsigned long long wait_time);
+int							philos_waiting(t_philo *philo,
+								unsigned long long wait_time);
 int							philosopher_check(t_philo *philo);
 int							arg_checks(int ac, char **av);
 long						ft_atoi(const char *str);

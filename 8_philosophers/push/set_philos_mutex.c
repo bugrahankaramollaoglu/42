@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:07:21 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/02 04:38:28 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:48:33 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	philo_initialize(t_philo *philo, char **av, int ac)
 		philo[i].is_dead = is_dead;
 		i++;
 	}
-	i = 0;
 }
 
 void	init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)

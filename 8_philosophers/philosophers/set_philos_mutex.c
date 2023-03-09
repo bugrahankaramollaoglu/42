@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/08 21:17:02 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:53:33 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void init_philos(t_philo *philo, char **av, int ac)
 		philo[i].is_dead = is_dead;
 		i++;
 	}
-	i = 0;
 }
 
 /* ilk parametre filozofların özelliklerini tutan struct, 2. ve 3. mutexler */
@@ -135,7 +134,7 @@ void create_threads(t_philo *philo)
 
 			   *******************
 
-			3) yaratılan thread'de çalıştırılacak fonksiyon. void pointer aliyor ve void döndürüyor.
+			3) yaratılan thread'de çalıştırılacak fonksiyon. void pointer aliyor ve döndürüyor.
 			4) o fonksiyona parametre veriyoruz burda da.
 		her bir thread yaratıldıktan sonra philo[a] parametresiyle loops_for_philos fonksiyonunu çalıştırır. */
 		pthread_create(&philo[a].thread, NULL, &loops_for_philos, &philo[a]);
@@ -152,7 +151,7 @@ void create_threads(t_philo *philo)
 		o thread main thread altında senkronize (aynı anda) çalışmaya başlar. eğer main thread'i
 		child thread işini bitirene kadar bekletmek istiyosak pthread_join() kullaniyoruz. */
 		pthread_join(philo[a++].thread, NULL);
-	/* bir yandan da sürekli herhangi bir filozofun ölüp ölmedi kontrolü yapiliyor. */
+	/* bir yandan da sürekli herhangi bir filozof ölüp ölmedi kontrolü yapiliyor. */
 	while ((*philo).is_dead == 0)
 		ft_philo_check(philo);
 }
