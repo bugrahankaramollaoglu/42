@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/08 22:04:42 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:21:01 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int	main(int ac, char **av)
 {
 	t_philo			*philo;
 	pthread_mutex_t	*fork;
+	pthread_mutex_t	*lock;
+
 	/* hem biri işlemini yazarken aynı anda diğeri yazamıyor
 	hem de bi tane filo öldüğünde diğerleri işlemlere devam edemiyor
 	döngünün devamı için gerekli olan bi sey.  */
-	pthread_mutex_t	*lock;
-
 	if (ac == 5 || ac == 6)
-	{ 
+	{
 		if (check_args(av))
 		{
 			// thread'lere yer ayırıyoruz
@@ -59,3 +59,34 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+
+/* data race örnegi --> gcc main.c -fsanitize=thread
+
+#include <pthread.h>
+#include <stdio.h>
+
+int		i = 0;
+
+void	*routine(void *x)
+{
+	int	j;
+
+	j = 0;
+	while (j < 100000)
+	{
+		i++;
+		j++;
+	}
+}
+
+int	main(void)
+{
+	pthread_t	p1;
+	pthread_t	p2;
+
+	pthread_create(&p1, NULL, routine, NULL);
+	pthread_create(&p2, NULL, routine, NULL);
+	pthread_join(p1, NULL);
+	pthread_join(p2, NULL);
+	printf("%d\n", i);
+} */

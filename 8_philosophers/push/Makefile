@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/19 01:06:47 by bkaramol          #+#    #+#              #
-#    Updated: 2023/02/19 01:06:48 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/03/09 21:06:43 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -pthread
 
-#FLAGS_DATARACE = -fsanitize=thread -g
+FLAGS_DATARACE = -fsanitize=thread -g
 
 all: $(NAME)
 
