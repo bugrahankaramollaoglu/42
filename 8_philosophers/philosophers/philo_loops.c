@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:09:19 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/08 21:20:59 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/11 00:40:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void *loops_for_philos(void *argument)
 
 	philo = (t_philo *)argument;
 	/* filozof sayisi 1 ise ve koşullara da uyuyosa (kimse ölmemişse önceden vs.) direkt çatal aldırıp öldürüyoruz. */
-	if (philo->philo_num == 1 && !ft_philo_check(philo))
+	if (philo->philo_num == 1)
 	{
 		/* eğer sol çatalı kitleyemiyosa null döndürüyoruz.
 		pthread_mutex_lock() fonksiyonu hata yoksa 0 varsa sayı döndürür.

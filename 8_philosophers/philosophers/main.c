@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/09 22:21:01 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:20:24 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,28 +65,40 @@ int	main(int ac, char **av)
 #include <pthread.h>
 #include <stdio.h>
 
-int		i = 0;
+int	count = 0;
 
-void	*routine(void *x)
-{
-	int	j;
-
-	j = 0;
-	while (j < 100000)
-	{
-		i++;
-		j++;
-	}
+void* increment(void* arg) {
+    int i;
+    for (i = 0; i < 1000000; i++) {
+        count++;
+    }
+    return (NULL);
 }
 
-int	main(void)
-{
-	pthread_t	p1;
-	pthread_t	p2;
+int	main(void) {
+    pthread_t thread1, thread2;
+    pthread_create(&thread1, NULL, increment, NULL);
+    pthread_create(&thread2, NULL, increment, NULL);
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    printf("Final count value: %d\n", count);
+    return (0);
+}
 
-	pthread_create(&p1, NULL, routine, NULL);
-	pthread_create(&p2, NULL, routine, NULL);
-	pthread_join(p1, NULL);
-	pthread_join(p2, NULL);
-	printf("%d\n", i);
-} */
+yukarıdaki kodda ortak bir count isminde değişkenimiz var. global tanımladıgımız
+bu değişkeni iki thread de arttırmaya çalışıyor. pthread_create() fonksiyonlarından
+birini silersek bu degisken istendigi gibi 100000 oluyor fakat aynı anda ikisi de
+yaparsa (paralel) tamamlanamadan data race oluyor ve her calıstıgında random bir yerde
+arttırma islemi tıkanıyor. mutex ya da semaphore gibi senkronizasyon islemi kullanmadıgımız
+icin bu sorun meydana geliyor. the final value of count is not deterministic,
+and can vary between runs of the program. This is because both threads are racing to increment count,
+and it's possible for one thread to read the value of count, increment it,
+and write the new value back to count before the other thread has a chance to read
+the updated value. This can result in lost updates or overwrites,
+leading to an incorrect final value for count.
+
+In the code above, we use pthread_join() twice to wait for both thread1 and thread2
+to complete before printing the final value of count. This ensures that we get
+the correct final value of count, and that the program does not terminate prematurely.
+
+*/

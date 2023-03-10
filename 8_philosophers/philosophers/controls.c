@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/09 01:00:32 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/11 00:34:01 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /* bu fonksiyon eğer
 	1) opsiyonel yemek sayısına ulasılmısa çıkar
-	2) filozoflardan biri zaten ölmüsse çıkar
-	3) biri ölecekse (yemek yeme süresi dolarsa öldü yazdırır) çıkar*/
+	2) filozoflardan biri önceden ölmüşse (*is_dead kontrolü var cünkü) çıkar
+	3) biri ölecekse (yemek yeme süresi dolarsa) 1 verir ve çıkar. */
 int ft_philo_check(t_philo *philo)
 {
 	/* eğer goal verilmemişse -1'dir default hali o yüzden bu kontrole asla
