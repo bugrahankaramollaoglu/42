@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/03/10 17:20:24 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/03/11 04:58:38 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main(int ac, char **av)
 			ft_free(philo, fork, lock);
 		}
 	}
+	// system("leaks philo");
 	return (0);
 }
 
@@ -97,8 +98,9 @@ and write the new value back to count before the other thread has a chance to re
 the updated value. This can result in lost updates or overwrites,
 leading to an incorrect final value for count.
 
-In the code above, we use pthread_join() twice to wait for both thread1 and thread2
+In the code above,
+	we use pthread_join() twice to wait for both thread1 and thread2
 to complete before printing the final value of count. This ensures that we get
-the correct final value of count, and that the program does not terminate prematurely.
+the correct final value of count,
+	and that the program does not terminate prematurely. */
 
-*/
