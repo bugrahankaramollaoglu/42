@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 18:50:30 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/07/07 14:07:59 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:57:46 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,11 @@ void ft_bit_and_shift(int pid, char *str)
 		// i'ye burada 8 veriyoruz. neden burada 8 de diğerinde 7'ydi?
 		// çünkü 8 biti toplamda 7 kaydırma yapıyoruz. bir byte'ı 8 kaydırırsan 0 gelir (unsigned binary'de)
 		i = 8;
-		// burada *str'yi önce c'ye atıyoruz (mesela bugra diyelim,
-		b'yi c charına atar)
-			// sonra ++ ile stringin pointerı u'ya gider,
-			yani artık ugra'yı gösterir. c = *str++;
-			// bu işlemi 8 defa yapar fakat i'yi 7'den başlatır
-			// post increment oldugu için.
-			while (i--)
+		// burada *str'yi önce c'ye atıyoruz (mesela bugra diyelim, b'yi c charına atar)
+		// sonra ++ ile stringin pointerı u'ya gider, yani artık ugra'yı gösterir. c = *str++;
+		// bu işlemi 8 defa yapar fakat i'yi 7'den başlatır
+		// post increment oldugu için.
+		while (i--)
 		{
 			// önce c'yi (örnekte 'b') bit olarak i kadar (7 kadar) sağa öteler
 			// mesela b == 10010101 olsun. bunu 7 sağa ötelersen
