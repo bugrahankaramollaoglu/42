@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:25:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/06/04 02:14:52 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/08/14 01:50:14 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	print_x(unsigned int nb)
 	return (ret);
 }
 
+// büyük hex
 int	print_capx(unsigned int nb)
 {
 	int	ret;

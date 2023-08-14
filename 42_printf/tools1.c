@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:03:04 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/06/04 02:15:22 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/08/14 01:49:28 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int ft_printf(const char *str, ...)
 {
 	// toplamda yazdırılan byte sayısı döndürülecek. bu onu tutuyor
 	int ret;
-	// indis
 	int i;
 	// o anki parametreyi tutacak
 	va_list ap;
@@ -53,7 +52,7 @@ int ft_printf(const char *str, ...)
 	i = 0;
 	// parametreleri işleme işlemini başlatıyoruz
 	va_start(ap, str);
-	while (str[i])
+	while (str[i++])
 	{
 		// yüzde işaretini gördügü anda girmeli ki karakter olarak yazdırmasın
 		if (str[i] == '%')
@@ -63,7 +62,6 @@ int ft_printf(const char *str, ...)
 		}
 		else
 			ret += print_c(str[i]);
-		i++;
 	}
 	// ret olayının sebebi klasik printf yazdırdıgı byte sayısını döndürüyor, biz de öyle yapiyoruz
 	return (ret);
@@ -76,6 +74,6 @@ int main(void)
 	ft_printf("%u\n", 10);
 	ft_printf("%x\n", 10);
 	ft_printf("%X\n", 10);
-	ft_printf("innuendo\n");
-	system("leaks a.out"); // + valgrind ./a.out
+	ft_printf("%%");
+	// system("leaks a.out"); // + valgrind ./a.out
 }

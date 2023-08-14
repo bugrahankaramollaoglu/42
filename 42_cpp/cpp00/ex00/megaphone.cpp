@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:16:44 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/08/13 18:23:03 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/08/14 01:52:57 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ char ft_toUpper(char c)
 
 int main(int ac, char **av)
 {
-	if (ac == 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	}
-	else
+	if (ac >= 2)
 	{
 		int i(1);
 		int i2(0);
@@ -44,5 +40,7 @@ int main(int ac, char **av)
 			i++;
 		}
 	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	std::cout << std::endl;
 }
