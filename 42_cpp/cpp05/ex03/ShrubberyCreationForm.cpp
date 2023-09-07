@@ -1,59 +1,77 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 15:08:40 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/08/01 15:13:38by ael-khni         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ) : Form( "ShrubberyCreationForm", 145, 137 ), _target( target ) {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137)
+{
+    std::cout << "Shrubbery Creation Form is created" << std::endl;
+    this->_target = "default";
+}
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& src ) : Form( src ), _target( src._target ) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation Form", 145, 137)
+{
+    std::cout << "Shrubbery Creation Form is created" << std::endl;
+    this->_target = target;
+}
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm(src)
+{
+    std::cout << "Shrubbery Creation Form is copied" << std::endl;
+    *this = src;
+}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& rhs ) {
-    (void)rhs;
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+    std::cout << "Shrubbery Creation Form is destroyed" << std::endl;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
+{
+    std::cout << "Shrubbery Creation Form is assigned" << std::endl;
+    this->_target = rhs._target;
     return *this;
 }
 
-void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const {
-    if ( this->getSigned() == false )
-        throw Form::NotSignedException();
-    else if ( executor.getGrade() > this->getGradeToExecute() ) {
-        throw Form::GradeTooLowException();
-    }
-
-    std::ofstream file( this->getName() + "_shrubbery" );
-    file << "                      ___" << std::endl;
-    file << "                _,-'\"\"   \"\"\"\"`--." << std::endl;
-    file << "             ,-'          __,,-- \\" << std::endl;
-    file << "           ,\'    __,--\"\"\"\"dF      )" << std::endl;
-    file << "          /   .-\"Hb_,--\"\"dF      /" << std::endl;
-    file << "        ,\'       _Hb ___dF\"-._,-'" << std::endl;
-    file << "      ,'      _,-\"\"\"\"   \"\"--..__" << std::endl;
-    file << "     (     ,-'                  `." << std::endl;
-    file << "      `._,'     _   _             ;" << std::endl;
-    file << "       ,'     ,' `-'Hb-.___..._,-'" << std::endl;
-    file << "       \\    ,'\"Hb.-\'HH`-.dHF\"" << std::endl;
-    file << "        `--\'   \"Hb  HH  dF\"" << std::endl;
-    file << "                \"Hb HH dF" << std::endl;
-    file << "                 \"HbHHdF" << std::endl;
-    file << "                  |HHHF" << std::endl;
-    file << "                  |HHH|" << std::endl;
-    file << "                  |HHH|" << std::endl;
-    file << "                  |HHH|" << std::endl;
-    file << "                  |HHH|" << std::endl;
-    file << "                  dHHHb" << std::endl;
-    file << "                .dFd|bHb.               o" << std::endl;
-    file << "      o       .dHFdH|HbTHb.          o /" << std::endl;
-    file << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
-    file << "##########################################" << std::endl;
+void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    // (void)executor;
+    if (this->getSigned() == false)
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw AForm::GradeTooLowException();
+    std::ofstream file(_target + "_shrubbery");
+    file << "               _{\\ _{\\{\\/}/}/}__" << std::endl;
+    file << "             {/{/\\}{/{/\\}(\\}{/\\} _" << std::endl;
+    file << "            {/{/\\}{/{/\\}(_)}{/{/\\}  _" << std::endl;
+    file << "         {\\{/(/}\\}{/{/\\}\\}{/){/\\}\\} /\\}" << std::endl;
+    file << "        {/{/(_)/}{\\{/)/}{\\(_){/}/}/}/}" << std::endl;
+    file << "       _{\\{/{/{\\{/{/(_)/}/}/}{\\(/}/}/}" << std::endl;
+    file << "      {/{/{\\{\\{(/}{\\{\\/}/}{\\}(_){\\/}\\}" << std::endl;
+    file << "      _{\\{/{\\{/(_)/}/}{/{/{/\\}\\)(\\}{/\\}" << std::endl;
+    file << "     {/{/{\\{(/}{/{\\{\\{\\/})/}{\\(_)/}/}\\}" << std::endl;
+    file << "      {\\{\\/}(_){\\{\\{\\/}/}(_){\\/}{\\/}/)(/}" << std::endl;
+    file << "       {/{\\{\\/}{/{\\{\\{\\/}/}{\\{\\/}/}\\}(_)" << std::endl;
+    file << "      {/{\\{\\/}{/){\\{\\{\\/}/}{\\{\\(/}/}\\}/}" << std::endl;
+    file << "       {/{\\{\\/}(_){\\{\\{\\(/}/}{\\(_)/}/}\\}" << std::endl;
+    file << "         {/({/{\\{/{\\{\\/}(_){\\/}/}\\}/}(\\}" << std::endl;
+    file << "          (_){/{\\/}{\\{\\/}/}{\\{\\)/}/}(_)" << std::endl;
+    file << "            {/{/{\\{\\/}{/{\\{\\{\\(_)/}" << std::endl;
+    file << "             {/{\\{\\{\\/}/}{\\{\\\\}/}" << std::endl;
+    file << "              {){/ {\\/}{\\/} \\}\\}" << std::endl;
+    file << "              (_)  \\.-'.-/" << std::endl;
+    file << "          __...--- |'-.-'| --...__" << std::endl;
+    file << "   _...--\"   .-'  |'-.-'|  ' -.  \"\"--..__" << std::endl;
+    file << " -\"    ' .  . '   |.'-._| '  . .  '   jro" << std::endl;
+    file << " .  '-  '    .--'  | '-.'|    .  '  . '" << std::endl;
+    file << "          ' ..     |'-_.-|" << std::endl;
+    file << "  .  '  .       _.-|-._ -|-._  .  '  ." << std::endl;
+    file << "              .'   |'- .-|   '." << std::endl;
+    file << "  ..-'   ' .  '.   `-._-_.'   .'  '  - ." << std::endl;
+    file << "   .-' '        '-._______.-'     '  ." << std::endl;
+    file << "        .      ~," << std::endl;
     file.close();
+}
+
+std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &shr)
+{
+    out << "Shrubbery Creation Form: " << shr.getName() << ", grade to sign: " << shr.getGradeToSign() << ", grade to execute: " << shr.getGradeToExecute() << ", signed: " << shr.getSigned() << std::endl;
+    return out;
 }

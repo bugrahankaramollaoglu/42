@@ -1,35 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 16:44:11 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/08/03 13:13:32 by ael-khni         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef PRESIDENTALPARDONFORM
+#define PRESIDENTALPARDONFORM
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#include "AForm.hpp"
 
-#include "Form.hpp"
-
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
-private:
-    std::string _target;
-
-    PresidentialPardonForm();
-
-public:
-    PresidentialPardonForm( const std::string& target );
-    PresidentialPardonForm( const PresidentialPardonForm& src );
-    ~PresidentialPardonForm();
-
-    PresidentialPardonForm& operator=( const PresidentialPardonForm& rhs );
-    
-    void execute( const Bureaucrat& executor ) const;
+    private:
+        std::string _target;
+    public:
+        PresidentialPardonForm();
+        PresidentialPardonForm(std::string target);
+        PresidentialPardonForm(PresidentialPardonForm const &src);
+        ~PresidentialPardonForm();
+        PresidentialPardonForm& operator=(const PresidentialPardonForm &rhs);
+        void execute(Bureaucrat const & executor) const;
 };
 
-#endif // PRESIDENTIALPARDONFORM_HPP
+std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &pres);
+
+#endif

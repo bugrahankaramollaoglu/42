@@ -1,32 +1,47 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 16:45:16 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/08/03 13:12:42 by ael-khni         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : Form( "PresidentialPardonForm", 25, 5 ), _target( target ) {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Presidential Pardon Form", 25, 5)
+{
+    std::cout << "Presidential Pardon Form is created" << std::endl;
+    this->_target = "default";
+}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : Form( src ), _target( src._target ) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Presidential Pardon Form", 25, 5)
+{
+    std::cout << "Presidential Pardon Form is created" << std::endl;
+    this->_target = target;
+}
 
-PresidentialPardonForm::~PresidentialPardonForm() {}
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : AForm(src)
+{
+    std::cout << "Presidential Pardon Form is copied" << std::endl;
+    *this = src;
+}
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs) {
-    (void)rhs;
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+    std::cout << "Presidential Pardon Form is destroyed" << std::endl;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
+{
+    std::cout << "Presidential Pardon Form is assigned" << std::endl;
+    this->_target = rhs._target;
     return *this;
 }
 
-void    PresidentialPardonForm::execute(const Bureaucrat& executor) const {
-    if ( executor.getGrade() > this->getGradeToExecute() )
-        throw Form::GradeTooLowException();
-    else {
-        std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-    }
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+    if (this->getSigned() == false)
+        throw AForm::FormNotSignedException();
+    else if (executor.getGrade() > this->getGradeToExecute())
+        throw AForm::GradeTooLowException();
+    else
+        std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &pres)
+{
+    out << "Presidential Pardon Form: " << pres.getName() << ", grade to sign: " << pres.getGradeToSign() << ", grade to execute: " << pres.getGradeToExecute() << ", signed: " << pres.getSigned() << std::endl;
+    return out;
 }

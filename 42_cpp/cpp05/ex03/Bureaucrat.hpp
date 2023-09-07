@@ -1,22 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:26:07 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/08/01 12:55:22y ael-khni         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -24,14 +12,12 @@ private:
     const std::string   _name;
     int                 _grade;
 
-    Bureaucrat();
-
 public:
     Bureaucrat( const std::string& name, int grade );
     Bureaucrat( const Bureaucrat& src );
     ~Bureaucrat();
 
-    Bureaucrat  &operator=( const Bureaucrat& rhs );
+    Bureaucrat& operator=( const Bureaucrat& rhs );
 
     std::string getName() const;
     int         getGrade() const;
@@ -39,11 +25,8 @@ public:
     void        incrementGrade();
     void        decrementGrade();
 
-    void        signForm( Form& form );
-
-    void        executeForm( const Form& form ) const;  
-
-    /* ---------------- Exception Classes ---------------- */
+   	void        signForm( AForm& form );
+	void    executeForm(AForm const & form);
     class GradeTooHighException : public std::exception {
         public:
             virtual const char* what() const throw() { return "Grade too high"; }
