@@ -2,7 +2,9 @@
 
 /* A class is made abstract by declaring at least one
 of its functions as pure virtual function. A pure virtual
-function is specified by placing "= 0" in its declaration.  */
+function is specified by placing "= 0" in its declaration.
+If a class only has pure virtual functions (and no data),
+it is called an interface. */
 
 class Box
 {

@@ -28,3 +28,5 @@ public:
 
 // bir classı abstract yapmak için en az bir pure-virtual-function yeterlidir
 
+/* abstract classın tam zıttına concrete class denir, yani bildiğimiz,
+ilklendirilebilir, objelendirilebilir sınıflar. */
