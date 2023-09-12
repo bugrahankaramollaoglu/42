@@ -1,21 +1,38 @@
-#ifndef ROBOTOMYREQUESTFORM
-#define ROBOTOMYREQUESTFORM
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 18:34:39 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/09 18:34:42 by bkaramol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "AForm.hpp"
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
+# include <iostream>
+# include <ctime>
+# include <cstdlib>
+# include "./AForm.hpp"
 
 class RobotomyRequestForm : public AForm
 {
-    private:
-        std::string _target;
-    public:
-        RobotomyRequestForm();
-        RobotomyRequestForm(std::string target);
-        RobotomyRequestForm(RobotomyRequestForm const &src);
-        ~RobotomyRequestForm();
-        RobotomyRequestForm& operator=(const RobotomyRequestForm &rhs);
-        void execute(Bureaucrat const & executor) const;
-};
+	public:
 
-std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &robot);
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(RobotomyRequestForm const &src);
+		~RobotomyRequestForm(void);
+
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &rhs);
+
+		void execute(Bureaucrat const & executor) const;
+	private:
+		const std::string _target;
+
+};
 
 #endif

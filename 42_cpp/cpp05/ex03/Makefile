@@ -1,22 +1,34 @@
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
-OBJ = $(SRC:.cpp=.o)
-CC = c++
-RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/09/10 15:29:01 by bkaramol          #+#    #+#              #
+#    Updated: 2023/09/10 15:32:06 by bkaramol         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = main
+NAME = interns
+
+SRC = $(wildcard *.cpp)
+
+OBJ = $(SRC:.cpp=.o)
+
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	c++ -o $(NAME) $(CPPFLAGS) $(OBJ)
 
 clean:
-	$(RM) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
-.PHONY: all clean fclean re
+phony: all clean fclean re

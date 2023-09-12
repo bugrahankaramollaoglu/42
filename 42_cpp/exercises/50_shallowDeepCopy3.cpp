@@ -1,5 +1,7 @@
 #include <iostream>
 
+// deep copy örneği
+
 class Deep
 {
 private:

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:34:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/04 13:44:16 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/09 13:38:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed() : fixedPointNumber(0)
 // bir binary'yi << 3 yapmak demek o sayıyı 2^3 yani 8 ile çarpmaktır.
 // mesela (15 << 3) demek (15x8) demektir. bu işlemi bir integera yaptığında
 // da o sayının fixed karşılığını buluyosun. mesela 17.56 sayısını fixed'a çevirelim:
-// 17.56 << fractionalBits (8)
+// 17.56 << fractionalBits (yani 8)
 // 17.56 * 256 = 4495.36
 Fixed::Fixed(const int nbr) : fixedPointNumber(nbr << fractionalBits)
 {

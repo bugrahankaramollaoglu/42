@@ -8,8 +8,13 @@ int main() {
 	std::cout << letter << std::endl; // a
 
 	// 2) static casting: static_cast<type>(value)
-	char letter2 = static_cast<char>(97);
-	std::cout << letter2 << std::endl; // a
+	float x;
+	int y;
+
+	x = 13.37;
+	y = 42;
+	float z = static_cast<int>(x + y);
+	std::cout << z << std::endl; // 55
 
 	// 3) dynamic casting: converts a pointer or reference
 	// from one type to another type: dynamic_cast<type>(value)

@@ -1,58 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 18:34:22 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/10 13:22:09 by bkaramol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy Request Form", 72, 45)
+/* robotomy: when a person has very few emotions or vocal inflections and
+behaves like a robot as if they have had a lobotomy. */
+
+/* lobotomy: iki beyin lobunu bağlayan sinir bağlarının kesilmesi.
+şizofreni tedavisinde kullanılır. */
+
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
-    std::cout << "Robotomy Request Form is created" << std::endl;
-    this->_target = "default";
+ return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy Request Form", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target)\
+ : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-    std::cout << "Robotomy Request Form is created" << std::endl;
-    this->_target = target;
+	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src) : AForm(src)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)\
+ : AForm("RobotomyRequestForm", 72, 45), _target(src._target)
 {
-    std::cout << "Robotomy Request Form is copied" << std::endl;
-    *this = src;
+	return ;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Robotomy Request Form is destroyed" << std::endl;
+	return ;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &obj)
 {
-    std::cout << "Robotomy Request Form is assigned" << std::endl;
-    this->_target = rhs._target;
+	(void)obj;
     return *this;
 }
 
-void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (this->getSigned() == false)
-        throw AForm::FormNotSignedException();
-    else if (executor.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException();
-    else
-    {
-        std::cout << "Drilling noises" << std::endl;
-        srand(time(0));
-        if (rand() % 2 == 0)
-        {
-            std::cout << this->_target << " has been robotomized successfully" << std::endl;
-        }
-        else
-        {
-            std::cout << this->_target << " robotomization failed" << std::endl;
-        }
-    }
-}
+	this->AForm::executeCheck(executor);
+	std::srand(std::time(0));
+	double chance = (double)((std::rand()) / (RAND_MAX + (double)1));
+	double probability = 0.5;
 
-std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &robot)
-{
-    out << "Robotomy Request Form: " << robot.getName() << ", grade to sign: " << robot.getGradeToSign() << ", grade to execute: " << robot.getGradeToExecute() << ", signed: " << robot.getSigned() << std::endl;
-    return out;
+	if (chance > probability) {
+		std::cout << "drilling noises..." << std::endl;
+		std::cout << "We inform that " << _target << " has been robotomized." << std::endl;
+	} else {
+		std::cout << "We inform that unfortunately robotomy failed." << std::endl;
+	}
 }

@@ -1,24 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 18:33:16 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/10 14:19:46 by bkaramol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "./ShrubberyCreationForm.hpp"
+#include "./RobotomyRequestForm.hpp"
 #include "Intern.hpp"
+#include <exception>
+#include <iostream>
 
-int main(void)
+int main()
 {
-    Intern      intern;
+	{
+		Intern someRandomIntern;
+		AForm *rrf;
 
-    AForm        *form = intern.makeForm("shrubbery creation", "Form");
-    AForm        *form2 = intern.makeForm("robotomy request", "Form2");
-    AForm        *form3 = intern.makeForm("presidential pardon", "Form3");
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		delete rrf;
+	}
 
-    std::cout << *form << std::endl;
-    std::cout << *form2 << std::endl;
-    std::cout << *form3 << std::endl;
+	try {
+		Bureaucrat bureaucrat("ash", 2); // error with 200
+		ShrubberyCreationForm form1("Shrubbery");
+		RobotomyRequestForm form2("Robotomy");
+		PresidentialPardonForm form3("President");
 
-    delete form;
-    delete form2;
-    delete form3;
-    return (0);
+		std::cout << "\n--------------- Form 1 ( Shrubbery ) ---------------" << std::endl;
+		bureaucrat.signForm(form1);
+		bureaucrat.executeForm(form1);
+		std::cout << "\n--------------- Form 2 ( Robotomy ) ---------------" << std::endl;
+		bureaucrat.signForm(form2);
+		bureaucrat.executeForm(form2);
+		bureaucrat.executeForm(form2);
+		bureaucrat.executeForm(form2);
+		bureaucrat.executeForm(form2);
+		std::cout << "\n--------------- Form 3 ( President ) ---------------" << std::endl;
+		bureaucrat.signForm(form3);
+		bureaucrat.executeForm(form3);
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }
