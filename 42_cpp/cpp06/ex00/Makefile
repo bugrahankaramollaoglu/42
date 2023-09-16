@@ -1,31 +1,26 @@
-SRC = main.cpp Casting.cpp
+SRC = main.cpp ScalarConverter.cpp
+
 OBJ	= $(SRC:.cpp=.o)
+
 CXX	= c++
+
 RM	= rm -rf
-CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
+
+CXXFLAGS	=	-Wall -Werror -Wextra -std=c++11 # 98 olacak
+
 NAME = convert
-
-#Colors:
-GREEN		=	\e[92;5;118m
-YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
-RESET		=	\e[0m
-CURSIVE		=	\e[33;3m
-
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
-	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 clean:
-	@$(RM) $(OBJ)
-	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
-fclean: clean
-	@$(RM) $(NAME)
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+	$(RM) $(OBJ)
 
-re: fclean $(NAME)
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean re

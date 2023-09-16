@@ -5,29 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/12 12:18:46 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/12 12:18:55 by bkaramol         ###   ########.fr        #
+#    Created: 2023/09/12 21:02:35 by bkaramol          #+#    #+#              #
+#    Updated: 2023/09/12 21:02:35 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Serializer.cpp
-OBJ	= $(SRC:.cpp=.o)
-CXX	= c++
-RM	= rm -rf
-CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
-NAME = serialize_deserialize
+NAME = Serializer
 
+CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-all: $(NAME)
+CC = c++ 
 
-$(NAME): $(OBJ)
-	@$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
+STD = -std=c++98
 
-clean:
-	@$(RM) $(OBJ)
-fclean: clean
-	@$(RM) $(NAME)
+SRC = Serializer.cpp main.cpp
 
-re: fclean $(NAME)
+INC = Serializer.hpp
 
-.PHONY: all clean fclean re
+OBJ = $(SRC:.cpp=.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	$(CC) $(CXXFLAGS) $(STD) $(OBJ) -o $(NAME)
+
+%.o : %.cpp $(INC)
+	$(CC) $(CXXFLAGS) -c $< -o $@
+
+clean :
+	rm -rf $(OBJ)
+
+fclean : clean
+	rm -rf $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re

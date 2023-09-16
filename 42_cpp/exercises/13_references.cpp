@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-/* cpp'de değişkenler referanslarla kullanılabilir */
-// it is an alias for a variable, do not confuse with pointers
-// A reference is declared using the &symbol after a variable's type. For example
+/* cpp'de değişkenler referanslarla kullanılabilir
+it is an alias for a variable, do not confuse with pointers
+A reference is declared using the &symbol after a variable's type. For example */
 
 int original = 42;
 int &ref = original; // 'ref' is a reference to 'original'

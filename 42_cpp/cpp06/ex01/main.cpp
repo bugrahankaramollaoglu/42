@@ -1,19 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/12 21:02:40 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/12 21:10:24 by bkaramol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Serializer.hpp"
 
-int	main(void)
+int main()
 {
-	Data*	data1 = new Data;
-	Data*	data2;
-	uintptr_t		store_data;
+	Data *data = new Data;
 
-	data1->num = 42;
-	store_data = Serializer::serialize(data1);
-	data2 = Serializer::deserialize(store_data);
+	data->name = "achraf";
+	data->age = 30;
 
-	std::cout << "Original pointer address and value: "
-		<< data1 << " " << data1->num << std::endl;
-	std::cout << "Deserialized pointer address and value: "
-		<< data2 << " " << data2->num << std::endl;
+	std::cout << "Name: " << Serializer::deserialize(Serializer::serialize(data))->name << std::endl;
+	std::cout << "Age: " << Serializer::deserialize(Serializer::serialize(data))->age << std::endl;
 
-	delete data1;
+	delete data;
+
+	std::cout << "\n";
+
+	Data deneme;
+	deneme.age = 22;
+	deneme.name = "bugra";
+	std::cout << deneme.age << "\n";
+	std::cout << deneme.name << "\n";
 }
