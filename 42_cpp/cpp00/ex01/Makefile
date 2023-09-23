@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 00:43:51 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/01 20:55:21 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/21 13:04:43 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,11 @@ NAME = phonebook
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror # gelecek
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =  $(wildcard *.cpp)
 
 OBJS = $(SRCS:.cpp=.o)
-
-RM = rm -f
 
 all: $(NAME)
 
@@ -28,9 +26,9 @@ $(NAME): $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	rm -rf *.o
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all

@@ -6,20 +6,20 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 18:08:53 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 01:00:26 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : Name(""), HitPoint(10), EnergyPoint(10), AttackDamage(0)
+ClapTrap::ClapTrap() : Name(""), HitPoint(100), EnergyPoint(10), AttackDamage(0)
 {
 	std::cout << "claptrap default constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "claptrap default destructor called" << std::endl;
+	std::cout << "claptrap default destructor called with: " << this->Name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	*this = other;
 }
 
-ClapTrap::ClapTrap(std::string Name) : Name(Name), HitPoint(10), EnergyPoint(10), AttackDamage(0)
+ClapTrap::ClapTrap(std::string Name) : Name(Name), HitPoint(100), EnergyPoint(50), AttackDamage(20)
 {
 	std::cout << "claptrap named constructor called with: " << Name << std::endl;
 	this->Name = Name;

@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/02 21:45:28 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/02 23:55:07 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/22 14:20:13 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = animal
 
 CC = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
 SRCS = $(wildcard *.cpp)
 

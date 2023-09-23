@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:13:31 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 22:24:59 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 01:10:46 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "wrong animal destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const& other)
+WrongAnimal::WrongAnimal(WrongAnimal const &other)
 {
 	std::cout << "wrong animal copy constructor called" << std::endl;
 	*this = other;
 }
 
-WrongAnimal& WrongAnimal::operator=(WrongAnimal const& other)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &other)
 {
 	std::cout << "wrong animal assignment operator called" << std::endl;
 	if (this != &other)

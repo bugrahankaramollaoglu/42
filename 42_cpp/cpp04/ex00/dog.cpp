@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:41:19 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 21:47:44 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:16:30 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ Dog &Dog::operator=(const Dog &other)
 
 void Dog::makeSound() const
 {
+
 	std::cout << "hav hav" << std::endl;
 }

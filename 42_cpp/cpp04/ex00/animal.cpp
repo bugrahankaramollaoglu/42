@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:38:31 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 22:48:33 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 01:10:30 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ Animal::~Animal()
 	std::cout << "animal destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+Animal::Animal(const Animal &other)
 {
 	std::cout << "animal copy constructor called" << std::endl;
 	*this = other;
 }
 
-Animal& Animal::operator=(const Animal& other)
+Animal &Animal::operator=(const Animal &other)
 {
 	std::cout << "animal assignment operator called" << std::endl;
 	if (this != &other)

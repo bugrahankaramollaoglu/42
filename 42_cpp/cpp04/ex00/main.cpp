@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:43:59 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/03 00:00:36 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:27:44 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,30 @@
 #include "wrongAnimal.hpp"
 #include "wrongCat.hpp"
 
-/* int main() {
-	Animal animal;
+/* int main()
+{
+	// Animal animal;
+	// getType() string döndürüyor o yüzden böyle kullaniyoruz
+	// std::cout << animal.getType() << std::endl;
+	// makeSound() ise direkt kendisi fonksiyon
+	// animal.makeSound();
 
-	Animal* a = new Animal();
-	delete a;
+	// Animal* a = new Animal();
+	// delete a;
 
-	Dog dog;
-	Dog* d = new Dog();
-	delete d;
+	// Dog dog;
+	// std::cout << dog.getType() << std::endl;
+	// dog.makeSound();
 
-	Cat cat;
-	Cat* c = new Cat();
-	delete c;
+	// Cat cat;
+	// std::cout << cat.getType() << std::endl;
+	// cat.makeSound();
+
+	// Dog* d = new Dog();
+	// delete d;
+
+	// Cat* c = new Cat();
+	// delete c;
 } */
 
 /* int main()
@@ -54,26 +65,28 @@
 	return 0;
 } */
 
-/* int main() {
-	const WrongAnimal* wa = new WrongAnimal();
-	const WrongAnimal* wc = new WrongCat();
-	wc->makeSound(); // wrongcat's miyav miyav demeliydi ama animal dedi
-	// sebebi ise bu sınıflarda makeSound() virtual olmaması
-	delete wa;
-	delete wc;
-} */
+// WRONG_ANIMAL KULLANIM ÖRNEĞİ
+/* int main()
+{
+	// cat'i Animal'dan da çağırsak Cat'ten de çağırsak miyav diyor
+	// const Animal *cat = new Cat();
+	// const Cat *cat2 = new Cat();
+	// std::cout << "\n";
+	// cat->makeSound();
+	// cat2->makeSound();
+	// std::cout << "\n";
+	// delete cat;
+	// delete cat2;
 
-/* int main() {
-	WrongCat* wrongcat = new WrongCat();
-	wrongcat->makeSound();
-} */
-
-/* int main() {
-	const Animal *animal = new Animal();
-	const Animal *cat = new Cat();
-	animal->makeSound();
-	delete animal;
-	delete cat;
+	// ama wrong animal subjectte dedigi gibi sadece Catten cagrılınca diyor (bc virtual degil)
+	// const WrongAnimal *w_cat = new WrongCat();
+	// const WrongCat *w_cat2 = new WrongCat();
+	// std::cout << "\n";
+	// w_cat->makeSound();
+	// w_cat2->makeSound();
+	// std::cout << "\n";
+	// delete w_cat;
+	// delete w_cat2;
 } */
 
 /* int main() {

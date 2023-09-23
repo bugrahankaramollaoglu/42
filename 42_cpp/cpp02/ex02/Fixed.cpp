@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:14:37 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/04 18:07:40 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:38:29 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,23 @@
 
 Fixed::Fixed() : nbr(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int i) : nbr(i << fractionalBits)
 {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float f) : nbr(roundf(f * (1 << fractionalBits)))
 {
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	if (this != &fixed)
 		this->nbr = fixed.getRawBits();
 	return *this;
@@ -43,7 +38,6 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
@@ -113,13 +107,19 @@ Fixed Fixed::operator*(const Fixed &fixed) const
 
 Fixed Fixed::operator/(const Fixed &fixed) const
 {
-	return (Fixed(this->toFloat() / fixed.toFloat()));
+	if (fixed != 0)
+		return (Fixed(this->toFloat() / fixed.toFloat()));
+	else
+	{
+		std::cout << "cannot divide by 0 m8\n";
+		exit(1);
+	}
 }
 
 // ++fixed (pre)
 Fixed &Fixed::operator++()
 {
-	// direkt o anki örneği arttırıp gönderiyoruz
+	// preincrementta direkt o anki örneği arttırıp gönderiyoruz
 	this->nbr++;
 	return *this;
 }

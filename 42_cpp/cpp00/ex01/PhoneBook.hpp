@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 21:13:47 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/01 20:53:35 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:02:03 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class PhoneBook
 {
+private:
+	Contact contacts[8];
+
 public:
 	PhoneBook()
 	{
@@ -29,9 +32,6 @@ public:
 	bool isNumber(const std::string &s);
 	bool isValidNumber(const std::string &s);
 	bool allSpaces(const std::string &s);
-
-private:
-	Contact contacts[8];
 };
 
 #endif

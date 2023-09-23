@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:00:42 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/08/21 21:04:06 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:25:09 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ int main()
 	ha.complain("INFO");
 
 	ha.complain("ERROR");
-
 }

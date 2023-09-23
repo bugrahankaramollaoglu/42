@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:24:46 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 12:17:08 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:26:05 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@
 }
 */
 
-int main()
+/* int main()
 {
 	Zombie *z1 = newZombie("ahmet");
 	z1->announce();
 	randomChump("mehmet");
 	delete z1;
 }
+ */

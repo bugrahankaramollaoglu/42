@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/13 17:50:26 by bkaramol          #+#    #+#              #
-#    Updated: 2023/08/28 15:17:59 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/21 12:48:47 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
+	rm -rf *.o
+
+fclean: clean
 	rm -rf $(NAME)
 
 re: clean all
-
-.PHONY: clean all re

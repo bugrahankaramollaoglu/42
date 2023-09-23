@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 21:14:13 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/03 17:41:39 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:56:58 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ int main()
 			std::cout << "input phone number: ";
 			std::getline(std::cin, phoneNumber);
 
-			if (phoneNumber == "" || pb.allSpaces(phoneNumber))
+			if (phoneNumber == "" || pb.allSpaces(phoneNumber) || !pb.isNumber(phoneNumber))
 			{
-				std::cout << "phone number must not be empty\n";
+				std::cout << "phone number must be a valid number\n";
 				goto labelPN;
 			}
 			else

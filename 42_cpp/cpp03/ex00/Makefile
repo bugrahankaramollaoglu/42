@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 11:46:57 by bkaramol          #+#    #+#              #
-#    Updated: 2023/08/27 15:13:12 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/21 23:47:16 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = claptrap
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SOURCES = $(wildcard *.cpp)
 

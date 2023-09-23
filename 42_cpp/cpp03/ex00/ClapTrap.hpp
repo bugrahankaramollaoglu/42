@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:53 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 16:44:12 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 23:48:00 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ public:
 	~ClapTrap();
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &copy);
+
+public:
 	ClapTrap(std::string Name);
 
 public:

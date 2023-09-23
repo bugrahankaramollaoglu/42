@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 21:10:42 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 11:54:45 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:50:13 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ std::string Contact::getFirstName()
 	return this->firstName;
 }
 
-/* ----------- */
+/* --------------------------- */
 
 void Contact::setLastName(std::string ln)
 {
@@ -34,7 +34,7 @@ std::string Contact::getLastName()
 	return this->lastName;
 }
 
-/* ----------- */
+/* --------------------------- */
 
 void Contact::setNickName(std::string nn)
 {
@@ -46,7 +46,7 @@ std::string Contact::getNickName()
 	return this->nickName;
 }
 
-/* ----------- */
+/* --------------------------- */
 
 void Contact::setPhoneNumber(std::string pn)
 {
@@ -58,7 +58,7 @@ std::string Contact::getPhoneNumber()
 	return this->phoneNumber;
 }
 
-/* ----------- */
+/* --------------------------- */
 
 void Contact::setDarkestSecret(std::string ds)
 {

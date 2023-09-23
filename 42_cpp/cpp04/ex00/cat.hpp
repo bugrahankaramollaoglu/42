@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:53:12 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 23:56:36 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:15:35 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ class Cat : public Animal
 {
 public:
 	Cat();
-	Cat(const Cat& other);
-	Cat& operator=(const Cat& other);
+	Cat(const Cat &other);
+	Cat &operator=(const Cat &other);
 	virtual ~Cat();
 
 public:

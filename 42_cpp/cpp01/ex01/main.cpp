@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 11:57:18 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/01 21:39:28 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:30:12 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int main()
 {
-	int i = 0;
-	int num = 10;
 	Zombie *horde;
-	horde = zombieHorde(num, "cranberries");
-	while (i < num)
+	horde = zombieHorde(10, "cranberries");
+	for (int i = 0; i < 10; i++)
 	{
 		horde[i].announce();
-		i++;
 	}
 	delete[] horde;
 }

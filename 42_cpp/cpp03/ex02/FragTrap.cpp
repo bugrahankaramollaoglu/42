@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 18:04:33 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 18:31:26 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:50:51 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 	return (*this);
 }
 
-void FragTrap::attack(std::string target) {
+void FragTrap::attack(std::string target)
+{
 	std::cout << "this is fragtrap attacking: " << target << std::endl;
-	return ;
+	return;
+}
+
+void FragTrap::highFiveGuys(void)
+{
+	std::cout << "hi 5" << std::endl;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 04:25:08 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 12:15:02 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/09/21 13:12:41 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/21 13:23:44 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ private:
 	std::string name;
 
 public:
-	Zombie();				  // default constructor
-	Zombie(std::string name); // parametred constructor
-	~Zombie();				  // deconstructor
+	Zombie();
+	Zombie(std::string name);
+	~Zombie();
 
 public:
-	void announce(void); // member function
+	void announce(void);
 };
 
-/* two different ways of creating objects of Zombie class */
+/* two different ways of creating functions  */
 Zombie *newZombie(std::string name); // heap
 void randomChump(std::string name);	 // stack
 /* what is the advantage of each over the other?
@@ -40,6 +40,12 @@ be shared between scopes and functions.
 
 allocating on heap gives you more possible-storage.
 objects on heap can be accessed from multiple locations.
-it is slower and riskier.  */
+it is slower and riskier.
+
+and also, why did we define those functions outside class?
+	* By defining these functions as standalone functions,
+	you can use them without having to create an
+	instance of the Zombie class.
+	* they have nothing really to do with class member and attributes */
 
 #endif

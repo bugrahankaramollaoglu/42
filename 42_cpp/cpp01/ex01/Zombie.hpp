@@ -6,12 +6,12 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 11:57:48 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 12:20:56 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:35:57 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:43:45 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 11:58:32 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:02:29 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ public:
 	};
 
 public:
-	// accessors are getX() functions
-	// mutators are setX() functions
-
 	void setFirstName(std::string firstName);
 	std::string getFirstName();
 

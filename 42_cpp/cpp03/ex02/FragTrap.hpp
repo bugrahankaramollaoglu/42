@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 18:02:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 18:29:51 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 01:01:26 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ class FragTrap : public ClapTrap
 {
 public:
 	FragTrap();
-	FragTrap(std::string name);
-	FragTrap(const FragTrap &other);
 	~FragTrap();
+	FragTrap(const FragTrap &other);
 	FragTrap &operator=(const FragTrap &other);
+
+public:
+	FragTrap(std::string name);
 	void highFiveGuys(void);
 	void attack(std::string target);
 };

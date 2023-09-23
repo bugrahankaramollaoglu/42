@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:47:50 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/03 23:47:27 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 21:11:22 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	Fixed(Fixed const &fixed);
 	Fixed &operator=(Fixed const &fixed);
 
+public:
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };

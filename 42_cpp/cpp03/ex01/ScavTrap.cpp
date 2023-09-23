@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:01:40 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 17:51:17 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:46:15 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "scavtrap default constructor called" << std::endl;
+}
+
+// however destructors are already automatically inherited, so no need : ~ClapTrap()
+ScavTrap::~ScavTrap()
+{
+	std::cout << "scavtrap default destructor called with: " << Name << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+	std::cout << "scavtrap copy constructor called" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+	std::cout << "ScavTrap Copy Assignment operator Called" << std::endl;
+	ClapTrap::operator=(other);
+	return *this;
 }
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
@@ -40,10 +58,4 @@ void ScavTrap::attack(std::string const &target)
 void ScavTrap::guardGate(void)
 {
 	std::cout << "scavtrap is now in gatekeeper mode." << std::endl;
-}
-
-// however destructors are already automatically inherited, so no need : ~ClapTrap()
-ScavTrap::~ScavTrap()
-{
-	std::cout << "scavtrap default destructor called with: " << Name << std::endl;
 }

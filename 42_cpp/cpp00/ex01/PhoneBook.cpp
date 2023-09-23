@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:32:37 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 12:09:40 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:00:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void PhoneBook::printAllContacts(void)
 		firstName = this->contacts[i].getFirstName();
 		lastName = this->contacts[i].getLastName();
 		nickname = this->contacts[i].getNickName();
-		// setw() fonksiyonu genişliği 10'a sabitler
 		std::cout << " |" << std::setw(10) << i + 1 << "|";
 		if (firstName.length() > 10)
 			std::cout << firstName.substr(0, 9) << "."
@@ -91,3 +90,5 @@ bool PhoneBook::allSpaces(const std::string &s)
 	}
 	return 1;
 }
+
+

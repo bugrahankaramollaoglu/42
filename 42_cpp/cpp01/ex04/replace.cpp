@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 12:39:48 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 13:53:32 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:16:54 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void Replace::fun(std::string filee, std::string s1, std::string s2)
 		{
 			// fileRep outstream'ine chainAppend yapılmış
 			// önce line yani file'ın bir satırını baştan (0)
-			// s1 görene kadar alıp file.replace dosyasına atılmış
-			// daha sonra bunun da sonuna s2 eklenmiş
+			// s1 yani eski str görene kadar alıp file.replace dosyasına atılmış
+			// daha sonra bunun da sonuna yeni str yani s2 eklenmiş
 			fileRep << line.substr(0, pos) << s2;
 			// burada ise s1 + s1'in ilk konumu kadar kaydırıyoruz line'ı
 			// artık yeni line s1'den sonraki satır sonuna kadar olan kısım oldu
@@ -96,7 +96,7 @@ void Replace::fun(std::string filee, std::string s1, std::string s2)
 			// her defasında güncelliyoruz
 			pos = line.find(s1);
 		}
-		// görmediği kısımlarda direkt line'da biriktiriyor
+		// görmediği yani s1 olmayan satırları direkt line'da biriktiriyor
 		fileRep << line << std::endl;
 	}
 	file.close();

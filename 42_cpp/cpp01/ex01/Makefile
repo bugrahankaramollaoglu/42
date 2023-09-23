@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 11:57:20 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/01 21:33:12 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/21 13:26:48 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = zombies
 
 CC = c++
 
-CPPFLAGS = -Wall -Werror -Wextra  -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 
 SRCS = $(wildcard *.cpp)
 
@@ -31,4 +31,4 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re:fclean all
+re: fclean all

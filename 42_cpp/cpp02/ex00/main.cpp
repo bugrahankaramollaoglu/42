@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:47:59 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/03 23:03:02 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 21:45:28 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 
 /* int main(void)
 {
-	Fixed a;
-	Fixed b(a);
+	Fixed a; // what calls default constr
+	Fixed b(a); // what calls copy constr // same as Fixed b = a;
 	Fixed c;
 
-	c = b;
+	c = b; // what calls copy constr + assignment operator
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
