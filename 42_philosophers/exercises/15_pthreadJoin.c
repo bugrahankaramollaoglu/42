@@ -5,11 +5,11 @@
 // pthread_join() fonksiyonuyla mevcut threadin bir başka
 // threadin işini bitmesini beklemesini sağlayabiliriz. böylece sorun çıkmaz
 
-void *thread_function(void *arg)
+void *fun(void *arg)
 {
 	// Do some work...
 	printf("Thread is doing some work...\n");
-	sleep(2);
+	sleep(1);
 	printf("Thread is done.\n");
 
 	return NULL;
@@ -21,7 +21,7 @@ int main()
 	int result;
 
 	// Create a thread
-	result = pthread_create(&thread, NULL, thread_function, NULL);
+	result = pthread_create(&thread, NULL, fun, NULL);
 	if (result != 0)
 	{
 		perror("pthread_create");
@@ -32,13 +32,8 @@ int main()
 
 	// Wait for the thread to finish using pthread_join
 	result = pthread_join(thread, NULL);
-	if (result != 0)
-	{
-		perror("pthread_join");
-		return 1;
-	}
 
-	printf("Thread joined.\n");
+	printf("Thread had been waited\n");
 
 	return 0;
 }

@@ -1,28 +1,27 @@
 #include <pthread.h>
-#include <unistd.h>
 #include <stdio.h>
 
 /* başlangıçta main çalışırken program bir tane ana threadle başlar.
 ondan sonraki bütün threadler pthread_create() fonksiyonuyla yaratılmalıdır. */
 
-void *worker(void *data)
+void *fun(void *arg)
 {
-	char *name = (char *)data;
-	for (int i = 0; i < 100; i++)
-	{
-		usleep(50000);
-		printf("hello from thread %s\n", name);
-	}
-	printf("thread %s is done\n", name);
-	return 0;
+	printf("Hello from the thread!\n");
+	return NULL;
 }
+
+/* pthread_create(1,2,3,4) fonksiyonunda
+	@1 -> yaratılacak threadin adresi
+	@2 -> thread attributes. genelde NULL
+	@3 -> threadin çalıştıracağı fonksiyon: (void*)fun(void*)
+	@4 -> bu fonksiyona gelecek parametre. */
 
 int main()
 {
-	pthread_t t1, t2;
-	pthread_create(&t1, NULL, worker, "bugra");
-	pthread_create(&t2, NULL, worker, "cemre");
-	sleep(5);
-	pthread_exit(NULL);
+	pthread_t thread;
+
+	pthread_create(&thread, NULL, fun, NULL);
+	pthread_join(thread, NULL);
+
 	return 0;
 }

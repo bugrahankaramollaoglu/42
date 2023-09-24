@@ -9,15 +9,11 @@ int main(int ac, char **av, char **env)
 		printf("%s\n", *en);
 }
 
-/*
-
-extern char **environ;
+/* extern char **environ;
 
 int main() {
   char **s = environ;
 
   for (; *s; s++)
 	printf("%s\n", *s);
-}
-
-*/
+} */

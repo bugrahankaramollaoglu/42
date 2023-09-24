@@ -7,5 +7,6 @@ int main()
 {
 	pid_t pid;
 	pid = fork();
-	printf("hem mother hem child proses buna girecek, o yüzden 2 kere yazdırılacak\n");
+	pid = fork();
+	printf("hem mother hem child proses buna girecek, o yüzden 4 kere yazdırılacak\n");
 }

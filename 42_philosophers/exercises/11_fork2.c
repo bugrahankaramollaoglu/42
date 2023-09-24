@@ -3,9 +3,9 @@
 #include <unistd.h>
 
 /* fork() fonksiyonundan sonra gelen her şey iki kere işlenir, biri
-main proseste diğeri child proseste. kullanilan fork() fonksiyonu
-sayisi ^ 2 kadar proses yaratilir. mesela ilk fork() 2, ikinci fork 4, üçüncü fork()
-8 tane child proses yaratir.  */
+main proseste diğeri child proseste. kullanilan fork() sayisi üzeri 2
+kadar proses yaratilir. mesela ilk fork() 2, ikinci fork 4, üçüncü fork()
+8 tane child proses yaratir. */
 
 int main()
 {
