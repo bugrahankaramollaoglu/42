@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 12:38:42 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 15:00:52 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:03:43 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 class Replace
 {
 public:
-	// aslında bunlara gerek yok ama gene de
 	Replace();
 	~Replace();
 

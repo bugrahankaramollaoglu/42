@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:53 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 18:23:56 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:01:43 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <string>
 #include <iostream>
 
+
 class ClapTrap
 {
 protected:
-	// cannot initialize here bc its not allowed in c++98
 	std::string Name;
 	int HitPoint;
 	int EnergyPoint;

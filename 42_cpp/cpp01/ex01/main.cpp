@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 11:57:18 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 13:30:12 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/25 10:03:33 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,3 @@ int main()
 
 // ./zombies | grep "Brai" | wc -l
 // ./zombies | grep "destr" | wc -l
-
-// valgrind ./zombies

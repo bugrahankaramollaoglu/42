@@ -6,11 +6,12 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 21:14:13 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 12:56:58 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/25 09:52:33 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 int main()
 {
@@ -158,7 +159,7 @@ int main()
 							  << "\n";
 					goto labelID;
 				}
-				else if (contactNum >= std::stoi(reply))
+				else if (contactNum >= pb.my_stoi(reply))
 				{
 					pb.printContact(reply);
 				}

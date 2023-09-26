@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 13:22:57 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/21 15:18:49 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/25 15:56:44 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = program
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRC = main.cpp replace.cpp
 
-OBJ = $(SRC:%.cpp=%.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

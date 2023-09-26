@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:00:39 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 15:25:29 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:02:59 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 void Harl::complain(std::string level)
 {
-	// creates a string array to do the checking
 	const std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	// array of pointers to each member function of Harl class.
-	// function pointers to member functions are defined like that
-	// returnType (className::*funcName)(parameters)
 	void (Harl::*options[4])();
 
-	// arraydeki her pointer sirasiyla fonksiyonları tutuyor
 	options[0] = &Harl::debug;
 	options[1] = &Harl::info;
 	options[2] = &Harl::warning;
@@ -31,7 +26,6 @@ void Harl::complain(std::string level)
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
-			// calls the corresponding function using pointer
 			(this->*options[i])();
 	}
 }

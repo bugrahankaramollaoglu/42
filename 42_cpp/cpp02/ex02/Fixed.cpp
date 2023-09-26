@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 14:14:37 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 23:38:29 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/09/25 22:37:36 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/26 09:21:52 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,26 +111,20 @@ Fixed Fixed::operator/(const Fixed &fixed) const
 		return (Fixed(this->toFloat() / fixed.toFloat()));
 	else
 	{
-		std::cout << "cannot divide by 0 m8\n";
+		std::cout << "cannot divide by 0!!!\n";
 		exit(1);
 	}
 }
 
-// ++fixed (pre)
+
 Fixed &Fixed::operator++()
 {
-	// preincrementta direkt o anki örneği arttırıp gönderiyoruz
 	this->nbr++;
 	return *this;
 }
 
-// fixed++ (post)
-// takes a dummy int parameter (often unused)
 Fixed Fixed::operator++(int)
 {
-	// burda ise arttırma işlemi yapiyor ama
-	// işlem yapılmamış objeyi döndürüyor (o an için)
-	// daha sonra ++ işlemi devreye girecek
 	Fixed returnvalue = *this;
 	this->nbr++;
 	return (returnvalue);

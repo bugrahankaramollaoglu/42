@@ -6,13 +6,12 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:01:40 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/02 17:51:17 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:15:26 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-// this is how you inherit a constructor from the baseClass
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "scavtrap default constructor called" << std::endl;
@@ -42,7 +41,6 @@ void ScavTrap::guardGate(void)
 	std::cout << "scavtrap is now in gatekeeper mode." << std::endl;
 }
 
-// however destructors are already automatically inherited, so no need : ~ClapTrap()
 ScavTrap::~ScavTrap()
 {
 	std::cout << "scavtrap default destructor called with: " << Name << std::endl;

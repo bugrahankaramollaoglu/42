@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 21:00:44 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/02 13:55:03 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/25 17:01:02 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Harl
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRC = Harl.cpp main.cpp
 
