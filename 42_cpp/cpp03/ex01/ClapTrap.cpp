@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:51 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 10:11:48 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 01:00:26 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap() : Name(""), HitPoint(100), EnergyPoint(10), AttackDamage(0)
 	std::cout << "claptrap default constructor called" << std::endl;
 }
 
-ClapTrap::~ClapTrap()	
+ClapTrap::~ClapTrap()
 {
 	std::cout << "claptrap default destructor called with: " << this->Name << std::endl;
 }
@@ -103,9 +103,4 @@ int ClapTrap::getHit() const
 int ClapTrap::getEnergy() const
 {
 	return this->EnergyPoint;
-}
-
-int ClapTrap::getAttack() const
-{
-	return this->AttackDamage;
 }

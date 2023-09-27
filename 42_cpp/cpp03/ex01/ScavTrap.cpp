@@ -6,20 +6,19 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:01:40 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 10:06:54 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:46:15 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+// this is how you inherit a constructor from the baseClass
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	this->HitPoint = 100;
-	this->EnergyPoint = 50;
-	this->AttackDamage = 20;
 	std::cout << "scavtrap default constructor called" << std::endl;
 }
 
+// however destructors are already automatically inherited, so no need : ~ClapTrap()
 ScavTrap::~ScavTrap()
 {
 	std::cout << "scavtrap default destructor called with: " << Name << std::endl;

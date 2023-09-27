@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 22:37:36 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 09:21:52 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/09/04 14:14:37 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/26 09:22:39 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,24 +111,36 @@ Fixed Fixed::operator/(const Fixed &fixed) const
 		return (Fixed(this->toFloat() / fixed.toFloat()));
 	else
 	{
-		std::cout << "cannot divide by 0!!!\n";
+		std::cout << "cannot divide by 0 m8\n";
 		exit(1);
 	}
 }
 
-
+// ++fixed (pre)
 Fixed &Fixed::operator++()
 {
+	// preincrementta direkt o anki örneği arttırıp gönderiyoruz
 	this->nbr++;
 	return *this;
 }
 
+// preincrementte neden referans gönderiyoruz da postta by value
+// olarak gönderiyoruz? çünkü ++x'te nesnenin kendisini gönderiyoruz,
+// yani arttırılmış değerini ama postta kopyasını gönderiyoruz,
+// arttırma işlemi daha sonra yapılıyor.
+
+// fixed++ (post)
+// takes a dummy int parameter (often unused)
 Fixed Fixed::operator++(int)
 {
+	// burda ise arttırma işlemi yapiyor ama
+	// işlem yapılmamış objeyi döndürüyor (o an için)
+	// daha sonra ++ işlemi devreye girecek
 	Fixed returnvalue = *this;
 	this->nbr++;
 	return (returnvalue);
 }
+
 
 Fixed &Fixed::operator--()
 {

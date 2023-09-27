@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/29 13:22:57 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/27 13:52:16 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/21 15:18:49 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = program
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = $(wildcard *.cpp)
+SRC = main.cpp replace.cpp
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
@@ -26,9 +26,10 @@ $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf *.o
+	rm -rf $(OBJ)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:
+	rm -rf $(OBJ) $(NAME)
+	rm -rf file.replace
 
 re: fclean clean all

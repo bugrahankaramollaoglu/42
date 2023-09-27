@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:53 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 10:07:50 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:24:32 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class ClapTrap
 {
 protected:
+	// cannot initialize here bc its not allowed in c++98
 	std::string Name;
 	int HitPoint;
 	int EnergyPoint;
@@ -40,7 +41,6 @@ public:
 	std::string getName() const;
 	int getHit() const;
 	int getEnergy() const;
-	int getAttack() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:47:50 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/25 17:20:24 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/21 21:11:22 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Fixed
 {
 private:
 	int fixedPointNumber;
-	static const int bits;
+	static const int bits = 8; // .'dan sonraki maksimum bit sayısı
 
 public:
 	Fixed();

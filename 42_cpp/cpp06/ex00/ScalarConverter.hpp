@@ -6,6 +6,7 @@
 
 class ScalarConverter
 {
+
 private:
 	ScalarConverter();
 	ScalarConverter(ScalarConverter const &org);

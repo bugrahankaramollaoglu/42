@@ -6,7 +6,7 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 11:46:57 by bkaramol          #+#    #+#              #
-#    Updated: 2023/09/26 10:15:35 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/09/02 18:08:20 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fragtrap
 
 CC = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES = $(wildcard *.cpp)
 

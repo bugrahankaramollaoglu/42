@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 13:28:48 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/25 13:28:50 by bkaramol         ###   ########.fr       */
+/*   Created: 2023/08/20 14:19:50 by bkaramol          #+#    #+#             */
+/*   Updated: 2023/09/02 12:35:38 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 class HumanB
 {
 private:
+	// humanB'de ise pointer tanımlamak zorundayız
+	// çünkü weapon objesi humanB'nin constructor'ında
+	// ilklendirilmiyor yani ilk başta NULL olmak zorunda.
 	Weapon *weapon;
 	std::string name;
 

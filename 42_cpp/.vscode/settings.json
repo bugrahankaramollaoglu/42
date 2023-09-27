@@ -1,6 +1,6 @@
 {
 	"files.associations": {
-		"new": "cpp",
+		"ostream": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",
@@ -19,6 +19,9 @@
 		"cwchar": "cpp",
 		"cwctype": "cpp",
 		"deque": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"set": "cpp",
 		"string": "cpp",
 		"unordered_map": "cpp",
 		"vector": "cpp",
@@ -42,8 +45,8 @@
 		"iostream": "cpp",
 		"istream": "cpp",
 		"limits": "cpp",
+		"new": "cpp",
 		"numbers": "cpp",
-		"ostream": "cpp",
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",

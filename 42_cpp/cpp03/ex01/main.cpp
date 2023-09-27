@@ -6,27 +6,22 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 11:46:55 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 10:14:12 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:47:11 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+/* bir derived classi çağırdığında
+base classin constructor destructor fonksiyonlari
+da çağrılır. bunu engellemenin yolu yoktur, en fazla
+override edebilirsin bu çağrıları. */
+
 int main(void)
 {
 	// ClapTrap ct;
 	// ScavTrap st;
-
-	// std::cout << "claptrap's attributes: " << std::endl;
-	// std::cout << ct.getEnergy() << "\n";
-	// std::cout << ct.getHit() << "\n";
-	// std::cout << ct.getAttack() << "\n";
-
-	// std::cout << "scavtrap's attributes: " << std::endl;
-	// std::cout << st.getEnergy() << "\n";
-	// std::cout << st.getHit() << "\n";
-	// std::cout << st.getAttack() << "\n";
 
 	// ClapTrap ct("ahmet");
 	// ScavTrap st("mehmet");
