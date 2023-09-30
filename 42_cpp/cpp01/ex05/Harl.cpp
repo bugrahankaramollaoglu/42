@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 21:00:39 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/21 15:25:29 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:40:55 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void Harl::complain(std::string level)
 	// returnType (className::*funcName)(parameters)
 	void (Harl::*options[4])();
 
-	// arraydeki her pointer sirasiyla fonksiyonları tutuyor
+	// arraydeki her pointer sırasıyla fonksiyonları tutuyor
 	options[0] = &Harl::debug;
 	options[1] = &Harl::info;
 	options[2] = &Harl::warning;

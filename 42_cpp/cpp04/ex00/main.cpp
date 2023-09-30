@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:43:59 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/22 14:27:44 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:25:51 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 /* int main()
 {
 	// Animal animal;
-	// getType() string döndürüyor o yüzden böyle kullaniyoruz
 	// std::cout << animal.getType() << std::endl;
 	// makeSound() ise direkt kendisi fonksiyon
 	// animal.makeSound();

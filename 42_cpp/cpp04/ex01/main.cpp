@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:43:59 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/03 02:08:40 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/28 10:25:10 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@
 
 /* int main()
 {
-
 	const Animal *animals[4] = {new Cat, new Dog, new Cat, new Dog};
 
 	for (long unsigned int i = 0; i < sizeof(animals) / sizeof(Animal *); ++i)

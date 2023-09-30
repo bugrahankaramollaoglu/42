@@ -4,18 +4,14 @@
 // that I can understand fixed and floating point of numbers,
 // prefer c++ if you are going to use code - chatgpt
 
-/* Exercise 1 (Easy):
-Write a C++ program that declares an integer variable,
-initializes it with a value, and prints it to the console. */
-
-void fun1() {
-	int a = 5;
-	std::cout << a << std::endl;
-}
-
 /* Exercise 2 (Easy):
 Write a C++ program that declares a floating-point variable,
 initializes it with a value, and prints it to the console. */
+
+int main() {
+	float a = 2.45f;
+	std::cout << a << std::endl;
+}
 
 /* 32.66 demekle 32.66f demek arasında fark vardır.
 eğer suffix olmadan direkt 32.66 dersek cpp bunu float
@@ -26,42 +22,6 @@ sonuna f koydugun sayilar ise float olarak algılanır.  */
 void fun2() {
 	float a = 32.66f;
 	std::cout << a << std::endl;
-}
-
-/* Exercise 3 (Easy):
-Write a C++ program that takes two integer inputs from the user,
-performs addition on them, and prints the result. */
-
-void fun3() {
-	int num1, num2;
-	std::cin >> num1;
-	std::cin >> num2;
-	// 10 - enter - 20 de diyebilirsin,
-	// 10 - 20 - enter da diyebilirsin
-	std::cout << "sum: " << num1 + num2 << std::endl;
-}
-
-/* Exercise 4 (Easy):
-Write a C++ program that takes two floating-point inputs from
-the user, performs division on them, and prints the result. */
-
-void fun4() {
-	float f1, f2;
-	std::cin >> f1;
-	std::cin >> f2;
-	std::cout << "div: " << f1 / f2 << std::endl;
-}
-
-
-/* Exercise 5 (Intermediate):
-Write a C++ program that calculates the square root of a
-floating-point number using the sqrt function from the <cmath> library. */
-
-#include <cmath>
-
-void fun5() {
-	float f = 3.62f;
-	std::cout << sqrt(f) << std::endl;
 }
 
 /* Exercise 6 (Intermediate):
@@ -114,12 +74,3 @@ void fun7(std::string bin) {
 }
 
 
-int main() {
-	// fun1();
-	// fun2();
-	// fun3();
-	// fun4();
-	// fun5();
-	// fun6(78);
-	// fun7("01001110");
-}

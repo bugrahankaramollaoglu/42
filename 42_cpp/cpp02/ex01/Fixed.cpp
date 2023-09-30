@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 15:34:57 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/25 22:25:15 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:49:00 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ Fixed::Fixed() : fixedPointNumber(0)
 }
 
 /* integeri fixedPointNumber'a çevirmek için integeri fixedPointte
-olmasını istediğin fractionalBit sayısı kadar sola leftShift yapiyoruz. mesela
-Fixed(36) verilmiş olsun. yani 36 integerini 8bitli fixed-point-number'a çeviricez.
+olmasını istediğin fractionalBit sayısı kadar sola leftShift yapiyoruz. yani çarpıyoruz.
+mesela Fixed(36) verilmiş olsun. yani 36 integerini 8bitli fixed-point-number'a çeviricez.
 1) 36 bit karsılıgı: 00100100
 2) 00100100 << 8 (sağdan 8 sıfır eklemek demek)
 3) 0010010000000000

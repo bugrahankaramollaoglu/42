@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:14:37 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/26 09:22:39 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:51:50 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ Fixed &Fixed::operator++()
 	return *this;
 }
 
-// preincrementte neden referans gönderiyoruz da postta by value
-// olarak gönderiyoruz? çünkü ++x'te nesnenin kendisini gönderiyoruz,
+// preincrementte neden Fixed& şeklinde referans gönderiyoruz da postta
+// Fixed şeklinde by value olarak gönderiyoruz? çünkü ++x'te nesnenin kendisini gönderiyoruz,
 // yani arttırılmış değerini ama postta kopyasını gönderiyoruz,
 // arttırma işlemi daha sonra yapılıyor.
 
@@ -140,7 +140,6 @@ Fixed Fixed::operator++(int)
 	this->nbr++;
 	return (returnvalue);
 }
-
 
 Fixed &Fixed::operator--()
 {
