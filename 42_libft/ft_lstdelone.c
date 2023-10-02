@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 00:32:34 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/08/30 13:15:27 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/01 12:36:13 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,21 @@ void ft_lstdelone(t_list *lst, void (*del)(void *))
 		free(lst);
 	}
 }
+
+/* --------------------------------- */
+
+void myDel(void *content)
+{
+	if (content)
+		free(content);
+}
+
+int main() {
+	t_list *new1 = ft_lstnew("bir");
+	t_list *new2 = ft_lstnew("iki");
+	t_list *new3 = ft_lstnew("üç");
+
+	ft_lstdelone(new1->next, myDel);
+}
+
+

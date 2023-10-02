@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 // şu şekilde çalıştırarak dataRace kontrolü yapabilirsin
-// gcc main.c - fsanitize = thread
+// gcc -fsanitize=thread main.c
 
 int count = 0;
 
@@ -21,6 +21,9 @@ int main(void)
 	pthread_create(&thread1, NULL, increment, NULL);
 	pthread_create(&thread2, NULL, increment, NULL);
 
+	// pthread_join() fonksiyonu main threadin çağırdığın threadin
+	// bitmesini beklemesini sağlar. şu an için thread1 ve thread2 bitmesini
+	// bekletiyoruz main prosese, böylece arttırma işlemi çok daha uzun çalışıyor
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
 

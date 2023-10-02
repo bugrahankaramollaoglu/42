@@ -8,8 +8,8 @@ istediğimiz fd'yi belirleyebiliyoruz. */
 
 int main()
 {
-	int fd1 = open("37.txt", O_CREAT | O_RDWR, 777);
+	int fd1 = open("mydup2", O_CREAT | O_RDWR, 777);
 	int fd2 = dup2(fd1, 324);
-	write(fd2, "asd\n", 4); // 37.txt'e yazdırdı
-	printf("%d\n", fd2);	// 324
+	write(fd2, "asd\n", 4); // mydup2'ye yazdırdı
+	printf("%d\n", fd2);	// 324 id ile yeni bir fd yarattik
 }

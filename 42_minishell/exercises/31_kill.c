@@ -9,7 +9,6 @@
 void signalTaker(int pidNumber)
 {
 	printf("CTRL+C'ye basildi\n");
-	exit(1);
 }
 
 int main()

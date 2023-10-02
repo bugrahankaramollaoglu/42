@@ -66,11 +66,13 @@ char *get_next_line(int fd)
 	str = ft_buff(fd, str);
 	if (!str)
 		return (NULL);
+	printf("--str-->  %s\n", str);
 
-	// varsa line'ı buna
 	line = ft_get_line(str);
+	printf("--line--> %s\n", str);
 
 	str = ft_last_str(str);
+	printf("--kalan-str--> %s\n", str);
 
 	return (line);
 }
@@ -86,7 +88,7 @@ int main()
 
 	while (metin)
 	{
-		printf("%s", metin);
+		// printf("%s", metin);
 		free(metin);			   // bunu koymazsan valgrindde leaks veriyor
 		metin = get_next_line(fd); // her kullanışta bir sonraki satiri aliyoruz
 	}

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 23:15:22 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/06/24 22:19:41 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/01 11:18:52 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <fcntl.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <limits.h>
 # include <unistd.h>
 

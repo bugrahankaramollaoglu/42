@@ -2,18 +2,18 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-/* dup() fonksiyonu bir fd'yi klonlamaya yarar. */
+/* dup() fonksiyonu bir fd'yi klonlamaya yarar. bunu yaparken de
+yeni fd'yi en küçük numaralı fd id'sine atar. dup2 ise spesifik id'ye atiyor. */
 
 int main()
 {
 	int fd1, fd2;
-	fd1 = open("36.txt", O_CREAT | O_RDWR | O_TRUNC, 777);
+	fd1 = open("mydup", O_CREAT | O_RDWR | O_TRUNC, 777);
 	if (!fd1)
 		return 1;
 	fd2 = dup(fd1);
-	write(fd1, "hello\n", 6); // bu da çalışıyor
-	write(fd2, "there\n", 6); // bu da çalışıyor
-							  // çünkü artık fd1 de fd2 de 36.txt'i gösteriyor
+	// write(fd1, "hello there\n", 12); // bu da çalışıyor
+	// write(fd2, "hello there\n", 12); // bu da çalışıyor çünkü kopyaladık
 	close(fd1);
 	close(fd2);
 }

@@ -6,23 +6,22 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 04:05:27 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/02/03 04:06:43 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/01 11:28:39 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int ft_atoi(const char *str)
 {
-	int	count;
-	int	sign;
-	int	result;
+	int count;
+	int sign;
+	int result;
 
 	count = 0;
 	sign = 1;
 	result = 0;
-	while (((str[count] >= 9 && str[count] <= 13) || str[count] == ' ')
-		&& str[count])
+	while (((str[count] >= 9 && str[count] <= 13) || str[count] == ' ') && str[count])
 		count++;
 	if (str[count] == '+' || str[count] == '-')
 	{
@@ -36,4 +35,11 @@ int	ft_atoi(const char *str)
 		count++;
 	}
 	return (result * sign);
+}
+
+int main()
+{
+	char str[] = "-42";
+	int num = ft_atoi(str);
+	printf("%d\n", num);
 }
