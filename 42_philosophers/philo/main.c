@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/06 10:19:53 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:16:49 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int main(int ac, char **av)
 		printf("you entered invalid argument!\n");
 		exit(1);
 	}
-	// system("leaks philo");
+	system("leaks philo");
 	return (0);
 }
