@@ -11,8 +11,8 @@ yerine açıktaki en düşük fd'ye kopyaliyodu. return olarak @2'yi döndürür
 
 int main()
 {
-	int newFile = open("myfile", O_CREAT | O_WRONLY);
-	dup2(newFile, 1);
+	int fd = open("myfile", O_CREAT | O_WRONLY);
+	dup2(fd, STDOUT_FILENO); // ya da 1 de diyebilirdin
 	printf("bugra\n");
 	printf("kara\n");
 	printf("molla\n");

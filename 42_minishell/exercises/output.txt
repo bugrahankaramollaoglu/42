@@ -1,0 +1,2 @@
+Read from input file: bu bir faredir
+Write to output file.

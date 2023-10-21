@@ -6,11 +6,11 @@
 #    By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/29 15:58:08 by bkaramol          #+#    #+#              #
-#    Updated: 2023/07/30 21:37:43 by bkaramol         ###   ########.fr        #
+#    Updated: 2023/10/21 14:43:59 by bkaramol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=		srcs/minishell.c srcs/command_line.c srcs/error_msg.c \
+SRCS		=	srcs/minishell.c srcs/command_line.c srcs/error_msg.c \
 				srcs/execute.c srcs/execve.c srcs/ft_exit.c srcs/ft_free.c \
 				srcs/ft_sig_handler.c srcs/builtin/builtin.c \
 				srcs/builtin/ft_echo.c srcs/builtin/ft_cd.c \
@@ -37,7 +37,7 @@ CFLAGS		=		-Wall -Werror -Wextra
 
 RM			=		rm -rf
 
-all:		$(NAME) 
+all:		$(NAME)
 
 
 

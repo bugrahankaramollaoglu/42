@@ -6,12 +6,13 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 15:58:19 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/07/30 21:36:54 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:22:16 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
 # include "libft/libft.h"
 # include "parse/parse.h"
 # include <dirent.h>
