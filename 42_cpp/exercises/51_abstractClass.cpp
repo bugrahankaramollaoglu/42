@@ -7,7 +7,7 @@ kendisi tam bir sınıf görevi görmediğinden ilklendirilemez. kraliçe arı
 gibi düşünülebilir, birçok arıya miras verir ama kendisi tam bir arı görevi görmez */
 
 /* kullanırken kurallar
-	* başına -abstract- anahtar kelimesini alır.
+	* başına -abstract- anahtar kelimesini alır (geleneksel olarak).
 	* virtual almaz çünkü zaten sanaldır
 	* obje oluşturmazlar
 	* bir abstract class nonAbstract (concrete) metot barındırabilir

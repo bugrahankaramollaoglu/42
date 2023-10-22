@@ -2,15 +2,15 @@
 
 /* pure virtual function nedir? bir base classı abstract
 yapmakta kullanılır. eğer base class altındaki metot
-virtual anahtar kelimesiyle kullanılmış ve class altında bir
+virtual anahtar kelimesiyle kullanılmış, 0'a eşitlenmiş ve bir
 özellik yüklenmemişse o class artık bir abstract classtır çünkü
 herhangi bir özelliği olmadığı, boş olduğu için ilklendirilemez.
 sentaksı şöyledir:
 
 virtual returnType functionName() = 0;
 
-bu metodun doldurulması gerekir onu da inherit alan alt sınıflar
-yapabilir sadece. */
+bu metodun yeniden yazılması zorunludur onu da inherit alan alt sınıflar
+yapabilir sadece */
 
 class Animal
 {

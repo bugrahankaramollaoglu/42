@@ -9,7 +9,7 @@ that means you can call a function on an object, and the appropriate
 function implementation will be determined at runtime based on the
 actual type of the object rather than the type of the reference or pointer.
 
-2) inheritance: virtual anahtar kelimesi sayesinde bir fonksiyonu derived classta
+2) polymorphism2: virtual anahtar kelimesi sayesinde bir fonksiyonu derived classta
 yeniden yazabiliyoruz (override)
 
 */
