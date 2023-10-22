@@ -11,13 +11,15 @@
 	6 = 101. peki .75 nasıl çevrilecek? 0.75 sayısını noktanın sağındaki sayı 0 olana ya da 8 bit birikene kadar sürekli kendisiyle topluyoruz, eğer sonucun
 	int kısmı 1 ise 1, 0sa 0 yazıyoruz. her bir oldugunda 1 olan integeri 0lıyoruz. mesela
 
-	[6.75 = 101.11]
+	0.75 + 0.75 = 1.50 (buradan 1 geldi)
 
-	0.75 + 0.75 = 1.50
+	0.50 + 0.50 = 1.00 (buradan da 1 geldi)
 
-	0.50 + 0.50 = 1.00
+	kesirli kısım 00 ise devam etmiyoruz
 
 	yani 6.75 ondalık kesri 2li sistemde fixedPointNumber gösterimi 101.11'miş.
+
+	[6.75 = 101.11]
 
 	* fixed point sayilar floating point sayılara göre hassasiyetleri daha yüksek ama daha dar aralığı kapsayan sayılardır.
 

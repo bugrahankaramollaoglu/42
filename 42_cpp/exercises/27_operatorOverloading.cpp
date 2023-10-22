@@ -3,7 +3,7 @@
 /* built-in veri tiplerini toplayabiliriz mesela bir int ile
 bir double. ama bir class'ın iki objesini toplayamayiz çünkü
 bu veri tipleri user-defined tiplerdir. o yüzden +, - vs. gibi
-operatörleri pnları toplayip cikaracak sekilde overload etmemiz gerekir */
+operatörleri onları toplayip cikaracak sekilde overload etmemiz gerekir */
 
 class Deneme
 {

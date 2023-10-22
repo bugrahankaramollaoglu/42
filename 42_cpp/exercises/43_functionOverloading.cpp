@@ -1,6 +1,7 @@
 #include <iostream>
 
 // farklı tip parametreleri oldugu sürece aynı ismi farklı fonksiyonlara verebiliriz
+// polymorphismin bir özelliği de budur
 
 class Deneme
 {

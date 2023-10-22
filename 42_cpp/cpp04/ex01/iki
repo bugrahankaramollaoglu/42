@@ -1,0 +1,15 @@
+animal constructor called
+dog constructor called
+Brain default constructor called
+animal copy constructor called
+animal assignment operator called
+Brain default constructor called
+Brain assignment operator called
+Dog Assigment Operator called
+Dog Copy Constructor called
+dog destructor called
+Brain destructor called
+animal destructor called
+dog destructor called
+Brain destructor called
+animal destructor called

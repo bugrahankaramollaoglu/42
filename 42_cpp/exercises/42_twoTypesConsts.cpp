@@ -23,7 +23,6 @@ eğer getData()'nın constunu silersen hata verir
 classında constructor yoksa ve objenin constunu silersen yine verir
 çünkü const objeler ilklendirilmelidir, constructor ilklendirme görevi görür
 
-
 	class MyClass {
 	public:
 		void nonConstFunction() {

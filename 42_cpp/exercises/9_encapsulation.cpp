@@ -10,8 +10,9 @@ public:
 	}
 
 private:
-	int _privateValue;
 	// privatelarin başına _ koymak onları fark etmeyi kolaylaştırır
+	int _privateValue;
+	
 	void privateFunction()
 	{
 		std::cout << "This is a private function." << std::endl;

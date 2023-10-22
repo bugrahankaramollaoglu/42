@@ -1,29 +1,42 @@
 #include <iostream>
 using namespace std;
 
-// when you declare a member method as virtual
-// derived classes can override that function
-// it is the way to achieve polymorphism
-// without virtual, the code is determined compile-time
-// with virtual, it is rendered runtime (66-67.cpp)
+/* there are 2 use cases of <virtual> when used with a
+method like <--virtual void fun()-->
 
-class Shape {
-	public:
-		virtual void sayWhat() {
-			cout << "this is shape" << endl;
-		}
+1) polymorphism: virtual anahtar kelimesi sayesinde polymorphism yapmiş oluyoruz
+that means you can call a function on an object, and the appropriate
+function implementation will be determined at runtime based on the
+actual type of the object rather than the type of the reference or pointer.
+
+2) inheritance: virtual anahtar kelimesi sayesinde bir fonksiyonu derived classta
+yeniden yazabiliyoruz (override)
+
+*/
+
+class Base
+{
+public:
+	virtual void print()
+	{
+		std::cout << "Printing from Base class" << std::endl;
+	}
 };
 
-class Rectangle : Shape {
-	public:
-		void sayWhat() override {
-			cout << "this is rectangle" << endl;
-		}
+class Derived : public Base
+{
+public:
+	void print() override
+	{
+		std::cout << "Printing from Derived class" << std::endl;
+	}
 };
 
-int main() {
-	Shape shape;
-	Rectangle rectangle;
-	shape.sayWhat();
-	rectangle.sayWhat();
+int main()
+{
+	Base *basePtr = new Derived(); // Polymorphism: Base class pointer pointing to a Derived object
+	basePtr->print();			   // Calls the Derived class's print function
+
+	delete basePtr;
+	return 0;
 }

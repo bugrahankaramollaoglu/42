@@ -13,8 +13,19 @@ virtual if your class has any virtual functions*/
 
 class Base
 {
-	public:
-		virtual ~Base() {
-			std::cout << "Base destructor" << std::endl;
-		}
+public:
+	Base()
+	{
+		std::cout << "Base constructor" << std::endl;
+	}
+	virtual ~Base()
+	{
+		std::cout << "Base destructor" << std::endl;
+	}
 };
+
+int main()
+{
+	Base *base = new Base();
+	delete base;
+}

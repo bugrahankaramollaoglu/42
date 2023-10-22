@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:43:59 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/28 10:25:10 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/22 05:24:01 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include "wrongAnimal.hpp"
 #include "wrongCat.hpp"
 
-/* int main()
+int main()
 {
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
 	delete j; // should not create a leak
 	delete i;
-} */
+}
 
 /* int main(void)
 {
@@ -49,21 +49,3 @@
 	dog2->makeSound();
 } */
 
-/* int main()
-{
-	const Animal *animals[4] = {new Cat, new Dog, new Cat, new Dog};
-
-	for (long unsigned int i = 0; i < sizeof(animals) / sizeof(Animal *); ++i)
-	{
-		animals[i]->makeSound();
-		delete animals[i];
-	}
-
-	Dog basic;
-	{
-		Dog tmp = basic;
-	}
-
-	return 0;
-}
- */

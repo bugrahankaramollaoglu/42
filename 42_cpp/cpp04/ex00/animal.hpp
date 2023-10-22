@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 21:36:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/10/22 04:04:48 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/22 04:24:27 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	// subject bu fonksiyonun virtual olmasını istiyor, virtual yazmasak da
 	// dog ve cat kendi getType() ve makeSound() fonksiyonlarını cagırıyorlar
 	// normalde basedeki bir fonksiyonu derivedlarda override edebilmek icin virtual
-	// tanımlıyoruz am c++98'de override olmadıgından dog ve cat sınıflarında bu fonksiyonu
+	// tanımlıyoruz ama c++98'de override olmadıgından dog ve cat sınıflarında bu fonksiyonu
 	// yeniden yazar gibi yaziyoruz.
 	virtual void makeSound() const;
 	std::string getType() const;

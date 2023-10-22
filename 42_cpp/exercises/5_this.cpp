@@ -28,7 +28,7 @@ use the special instance pointer <this>. */
 					this->name = n;
 					return *this; // Return the current instance
 				}
-		}; 
+		};
 
 	3) constructorlarda, aynı isimli member variable ve contructor parametreleri karışmasın diye
 

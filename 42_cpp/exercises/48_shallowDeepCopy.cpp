@@ -40,4 +40,4 @@ A class that requires deep copies generally needs:
 	A destructor to delete the dynamically allocated memory.
 	A copy constructor to make a copy of the dynamically allocated memory.
 	An overloaded assignment operator to make a copy of the dynamically allocated memory. */
-	
+
