@@ -33,8 +33,8 @@ int main()
 
 	/* 	we create an object with Base pointer but from Derived()
 		class. it must say "hello from derived" since it is instantiated
-		from Derived class. and actually it does, only thanks to the "virtual"
-		keyword and the equality of names in the both classes. if we were to
+		as Derived. and actually it does, but only if we use the "virtual"
+		keyword and give the same name for the function in both classes. if we were to
 		remove the virtual keyword from the function in the base class,
 		obj->announce() would print <hello from base> because OS wouldn't know
 		it is supposed to implicitly override the function according to the derived

@@ -4,34 +4,29 @@
 class Character
 {
 public:
-	void sayHello(std::string const &target);
+	void sayHello(std::string const &target)
+	{
+		std::cout << "Hello " << target << "! im just a character" << std::endl;
+	}
 };
 
 // function overriding
 class Warrior : public Character
 {
 public:
-	void sayHello(std::string const &target);
+	void sayHello(std::string const &target)
+	{
+		std::cout << "Hello " << target << ", i am a warrior!" << std::endl;
+	}
 };
-
-void Character::sayHello(const std::string &target)
-{
-	std::cout << "Hello " << target << "! im just a character" << std::endl;
-}
-
-void Warrior::sayHello(const std::string &target)
-{
-	std::cout << "Hello " << target << ", i am a warrior!" << std::endl;
-}
 
 int main(void)
 {
-	Warrior *a = new Warrior();
+	Character *a = new Warrior();
+	Warrior *b = new Warrior();
 
-	Character *b = new Warrior();
-
-	a->sayHello("ahmet"); // Hello ahmet, i am a warrior!
-	b->sayHello("ahmet"); // Hello ahmet! im just a character
+	a->sayHello("ahmet"); // Hello ahmet! im just a character
+	b->sayHello("ahmet"); // Hello ahmet, i am a warrior!
 
 	delete a;
 	delete b;

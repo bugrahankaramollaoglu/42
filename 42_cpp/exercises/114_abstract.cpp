@@ -30,5 +30,5 @@ class Derived : public Base
 int main()
 {
 	Derived derived;
-	derived.my_fun();
+	// derived.my_fun();
 }

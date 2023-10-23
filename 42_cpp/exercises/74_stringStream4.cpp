@@ -18,6 +18,7 @@ int main()
 	cout << "The numeric values converted to string:" << endl;
 	cout << "myStr1 = " << myStr1 << "\n"
 		 << "myStr2 = " << myStr2 << endl;
+		 
 	// string to numeric
 	stringstream ns;
 	ns << "2019 3.142"; // insert a string of numbers into the stream

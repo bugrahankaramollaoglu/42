@@ -41,7 +41,7 @@ int main()
 	// bunda copy constructor çağrıldı
 	Deneme b(a);
 
-	Deneme c(0, 0);
+	Deneme c(5, 6);
 
 	// bunda assignment operator çağrıldı
 	c = a;
