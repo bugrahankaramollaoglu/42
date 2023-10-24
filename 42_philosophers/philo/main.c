@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:10 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/10/18 17:16:49 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:22:06 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int main(int ac, char **av)
 	{
 		if (check_args(av))
 		{
-			// thread'lere yer ayırıyoruz
 			philo = malloc(sizeof(*philo) * ft_atoi(av[1]));
 			fork = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 			lock = malloc(sizeof(pthread_mutex_t));

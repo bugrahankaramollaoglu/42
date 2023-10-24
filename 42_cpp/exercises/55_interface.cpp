@@ -4,7 +4,8 @@
 of its functions as pure virtual function. A pure virtual
 function is specified by placing "= 0" in its declaration.
 If a class only has pure virtual functions (and no data),
-it is called an interface. */
+it is called an interface. interfaces cannot have data members
+or non-virtual methods. neither constructor/destructor. */
 
 class Box
 {

@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:17:20 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/10/18 17:17:56 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:25:55 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ int waiting_philos(t_philo *philo, t_time wait_time)
 	time = ft_get_time();
 	while (ft_get_time() - time < wait_time)
 	{
-		/* bu arada da sürekli ölüm kontrolü yapiyoruz. */
 		if (ft_philo_check(philo))
 			return (1);
-		// bekleme birimi 100er 100er mikrosaniye
 		usleep(100);
 	}
 	return (0);

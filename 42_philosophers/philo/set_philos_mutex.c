@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 22:16:56 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/09/06 12:45:16 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/24 03:25:04 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,10 @@ void init_mutex(t_philo *philo, pthread_mutex_t *fork, pthread_mutex_t *lock)
 		pthread_mutex_init(philo[i].left_fork_mutex, NULL);
 		pthread_mutex_init(philo[i].right_fork_mutex, NULL);
 		/* burada da her bir filozofu kitlemek için kullanacağımız
-		filozof mutexi. */
+		filozof mutexi ki bir şey yapmasınlar */
 		philo[i].lock = lock;
 		i++;
 	}
-	/* daha sonrasında da bunu ilklendiriyoruz. */
 	pthread_mutex_init(philo->lock, NULL);
 }
 
@@ -142,13 +141,12 @@ void create_threads(t_philo *philo)
 		a++;
 	}
 	a = 0;
-	/* yine o esnada thread (filozof) sayısı kadar pthread_join uyguluyoruz her bir threade. */
 	while (a < philo->philo_num)
 		/* 	pthread_join şu işe yarar: bir thread'i başlatmadan diğerinin görevinin bitmesini beklememizi
 		sağlar. ilk parametre bitmesi beklenecek thread, ikincisi de thread bitince return
 		değerini saklayacak pointer. bir thread pthread_create() fonksiyonu ile yaratıldığında
 		o thread main thread altında senkronize (aynı anda) çalışmaya başlar. eğer main thread'i
-		child thread işini bitirene kadar bekletmek istiyosak pthread_join() kullaniyoruz. */
+		child thread işini bitirene kadar bekletmek istiyosak bu fonksiyonu kullaniyoruz. */
 		pthread_join(philo[a++].thread, NULL);
 	/* bir yandan da sürekli herhangi bir filozof ölüp ölmedi kontrolü yapiliyor. */
 	while ((*philo).is_dead == 0)
