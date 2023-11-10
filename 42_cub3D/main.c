@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: ikayacio <ikayacio@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:51:16 by ikayacio          #+#    #+#             */
-/*   Updated: 2023/10/29 15:49:37 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:49:49 by ikayacio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,15 @@ int	init_map(int fd, t_map *Map)
 		result = temp;
 		str = get_next_line(fd);
 	}
+	Map->flags.w_flag = 0;
+	Map->flags.a_flag = 0;
+	Map->flags.s_flag = 0;
+	Map->flags.d_flag = 0;
+	Map->flags.r_flag = 0;
+	Map->flags.l_flag = 0;
 	return (init_map2(result, Map));
 }
 
-// Buradaki row_count değişikliğini kontrol et hata olabilir
 void	new_map(t_map *Map)
 {
 	int	i;
@@ -128,13 +133,12 @@ int	main(int argc, char **argv)
 	init_dir(&map);
 	map.player.cam_x = 0.0;
 	map.player.cam_y = 0.66;
-	map.player.pos_x += 0.32;
+	map.player.pos_x += 0.5;
 	map.player.pos_y += 0.5;
 	map.window.mlx_ptr = mlx_init();
 	if (map.window.mlx_ptr == NULL)
 		return (err("Mlx Pointer Error\n", &map));
 	open_window(&map);
 	img_init(&map, -1);
-	
 	free_map(&map);
 }
