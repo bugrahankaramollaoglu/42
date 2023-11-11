@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:51:50 by ikayacio          #+#    #+#             */
-/*   Updated: 2023/11/10 18:33:23 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:20:17 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ int	handle_release(int keycode, t_map *M)
 
 int	handle_input(int keycode, t_map *M)
 {
-	/*
-	double	rs;
-	double	old_dir_x;
-	double	old_pl_x;
-	*/
 	if (keycode == ESC)
 		close_program(M);
 	else if (keycode == W || keycode == A || keycode == S || keycode == D)
@@ -69,7 +64,6 @@ int	handle_input(int keycode, t_map *M)
 			M->flags.s_flag = 1;
 		else if (keycode == D)
 			M->flags.d_flag = 1;
-		//check_move(M, keycode);
 	}
 	else if (keycode == RIGHT_ARR || keycode == LEFT_ARR)
 	{
@@ -77,20 +71,6 @@ int	handle_input(int keycode, t_map *M)
 			M->flags.r_flag = 1;
 		else
 			M->flags.l_flag = 1;
-		/*
-		rs = ROTATION_SPEED;
-		if (keycode == RIGHT_ARR)
-			rs = -ROTATION_SPEED;
-		if (M->start_dir == 'W')
-			rs *= -1;
-		old_dir_x = M->player.dir_x;
-		M->player.dir_x = M->player.dir_x * cos(rs) - M->player.dir_y * sin(rs);
-		M->player.dir_y = old_dir_x * sin(rs) + M->player.dir_y * cos(rs);
-		old_pl_x = M->player.cam_x;
-		M->player.cam_x = M->player.cam_x * cos(rs) - M->player.cam_y * sin(rs);
-		M->player.cam_y = old_pl_x * sin(rs) + M->player.cam_y * cos(rs);
-		render_map(M);
-		*/
 	}
 	return (0);
 }
