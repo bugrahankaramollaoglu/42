@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:51:46 by ikayacio          #+#    #+#             */
-/*   Updated: 2023/11/11 20:35:51 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:56:02 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void draw_wall_slice(t_map *Map, int x, int draw_start, int draw_end)
 	image = &Map->images[Map->id];
 
 	// 3D duvarın 2D yüzeyine 2D resim bastırırken kullanılacak yatay konum
+	// ışının duvarın hangi x koordinatına denk geldigini tutan degisken
 	double tex_x;
 
 	// yatay/dikey duvarlara göre formül uyguluyor. yatay duvarlar horizonla paralel
@@ -98,7 +99,7 @@ void draw(t_map *Map, int x)
 	draw_wall_slice(Map, x, draw_start, draw_end);
 }
 
-// Raycasting için DDA (Digital Differential Analyzer) algoritmasını gerçekleştirmek için işlev.
+// burasi nokta atlama notioniyla ilgili
 void loop(t_map *Map, int *map_x, int *map_y)
 {
 	while (1)
@@ -128,11 +129,11 @@ void loop(t_map *Map, int *map_x, int *map_y)
 
 // Ray parametrelerini oyuncu pozisyonuna ve kamera yönetimine dayalı olarak başlatma işlevi.
 // dir_x/y        -> ışının vektör koordinatları
-// camera_x/y	  -> camera plane's x/y coordinates
-// map_x/y 		  -> ışının 2D haritada mevcut konumu
 // delta_dist_x/y -> dikey/yatay gridler arasındaki constant mesafe
 // side_dist_x/y  -> bir sonraki dikey(side_dist_x) ve yatay(side_dist_y) gridlere uzaklık
 // step_x/y		  -> ışın x/y düzlemlerinde pozitif mi (sağ/yukarı) negatif mi (sol/aşağı)
+// camera_x/y	  -> camera plane's x/y coordinates
+// map_x/y 		  -> ışının 2D haritada mevcut konumu
 void ray_init(t_map *Map, double camera_x, int map_x, int map_y)
 {
 	// Başlangıç ray yönlendirmesini ve mesafelerini hesapla.
@@ -141,17 +142,20 @@ void ray_init(t_map *Map, double camera_x, int map_x, int map_y)
 	Map->ray.delta_dist_x = fabs(1 / Map->ray.dir_x);
 	Map->ray.delta_dist_y = fabs(1 / Map->ray.dir_y);
 	Map->ray.side_dist_x = (map_x + 1.0 - Map->player.pos_x) * Map->ray.delta_dist_x;
+
 	// öncelikle step_x/y 1'e eşitleniyor (yani hem x hem y ekseninde pozitif başlangıç olarak)
 	Map->ray.step_x = 1;
 	Map->ray.step_y = 1;
 	Map->ray.side_dist_y = (map_y + 1.0 - Map->player.pos_y) * Map->ray.delta_dist_y;
 
-	// Negatif ışın yönlendirmeleri için ray parametrelerini ayarla.
+	// checks if the ray is moving in the negative x direction (west <-)
 	if (Map->ray.dir_x < 0)
 	{
 		Map->ray.step_x = -1;
 		Map->ray.side_dist_x = (Map->player.pos_x - map_x) * Map->ray.delta_dist_x;
 	}
+
+	// checks if the ray is moving in the negative y direction (south V)
 	if (Map->ray.dir_y < 0)
 	{
 		Map->ray.step_y = -1;
@@ -176,7 +180,7 @@ void cast_ray(t_map *Map, int x)
 	// NORTH or SOUTH
 	if (Map->player.dir_x == 0)
 	{
-		// directly NORTH or directly SOUTH
+		// again, NORTH or SOUTH
 		if (Map->player.dir_y == -1 || Map->player.dir_y == 1)
 		{
 			// oyuncunun bakış açısıyla kameara açısını eşitliyoruz
