@@ -148,19 +148,24 @@ void ray_init(t_map *Map, double camera_x, int map_x, int map_y)
 	Map->ray.step_y = 1;
 	Map->ray.side_dist_y = (map_y + 1.0 - Map->player.pos_y) * Map->ray.delta_dist_y;
 
-	// checks if the ray is moving in the negative x direction (west <-)
+	// checks if the ray is moving in the negative x direction (west)
 	if (Map->ray.dir_x < 0)
 	{
 		Map->ray.step_x = -1;
 		Map->ray.side_dist_x = (Map->player.pos_x - map_x) * Map->ray.delta_dist_x;
 	}
 
-	// checks if the ray is moving in the negative y direction (south V)
+	// checks if the ray is moving in the negative y direction (south)
 	if (Map->ray.dir_y < 0)
 	{
 		Map->ray.step_y = -1;
 		Map->ray.side_dist_y = (Map->player.pos_y - map_y) * Map->ray.delta_dist_y;
 	}
+	// During the main raycasting loop, these side distances are updated as the ray
+	// moves through the grid. The smaller of the two side distances will indicate
+	// which direction (horizontal or vertical) the ray should move to the next grid
+	// cell. The algorithm repeatedly increments or decrements the ray's position based
+	// on the smaller side distance until the ray hits a wall or obstacle.
 }
 
 // Tek bir ışını başlat ve karşılık gelen duvar dilimini çizme işlevi.
@@ -169,6 +174,7 @@ void ray_init(t_map *Map, double camera_x, int map_x, int map_y)
 void cast_ray(t_map *Map, int x)
 {
 	double camera_x;
+	// oyuncunun haritadaki konumu
 	int map_x;
 	int map_y;
 
