@@ -6,7 +6,7 @@
 /*   By: bkaramol <bkaramol@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:17:26 by bkaramol          #+#    #+#             */
-/*   Updated: 2023/08/30 13:15:19 by bkaramol         ###   ########.fr       */
+/*   Updated: 2023/12/15 10:51:56 by bkaramol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,4 @@ void ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+	
