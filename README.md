@@ -1,10 +1,10 @@
-# ecole42
+# 42
 
 projects I have done in 42
 
 | Name            | Description | Achievements |
 | --------------- | ----------- | ------------ |
-| **C Modules**  | Learnt the basics of C with basic modules  | Introduction to CS    |
+| [**C Modules**](https://github.com/bugrahankaramollaoglu/42/tree/main/42_B2BR)  | Learnt the basics of C with basic modules  | Introduction to CS    |
 | **Libft**       | A reimplementation attempt for numerous built-in functions from various C Libraries   | Makefile, User-Defined Libraries, Data Structures |
 | **Ft_printf**   | Rewriting the famous **printf** function   | Variadic Functions, Basic Algorithm  |
 | **Get_next_line**|  Writing a function that reads from a file line by line  | File Descriptors, Static Variables   |
