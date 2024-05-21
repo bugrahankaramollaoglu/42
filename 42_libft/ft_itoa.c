@@ -58,3 +58,8 @@ char	*ft_itoa(int n)
 	}
 	return (mystr);
 }
+
+//int main() {
+//    int a = 425;
+//    printf("%s\n", ft_itoa(a));
+//}

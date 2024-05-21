@@ -25,18 +25,18 @@ void ft_lstdelone(t_list *lst, void (*del)(void *))
 
 /* --------------------------------- */
 
-void myDel(void *content)
-{
-	if (content)
-		free(content);
-}
-
-int main() {
-	t_list *new1 = ft_lstnew("bir");
-	t_list *new2 = ft_lstnew("iki");
-	t_list *new3 = ft_lstnew("üç");
-
-	ft_lstdelone(new1->next, myDel);
-}
+//void myDel(void *content)
+//{
+//	if (content)
+//		free(content);
+//}
+//
+//int main() {
+//	t_list *new1 = ft_lstnew("bir");
+//	t_list *new2 = ft_lstnew("iki");
+//	t_list *new3 = ft_lstnew("üç");
+//
+//	ft_lstdelone(new1->next, myDel);
+//}
 
 

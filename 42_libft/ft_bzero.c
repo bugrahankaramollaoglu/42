@@ -35,16 +35,16 @@ void printArr(char *a, int size)
 	printf("\n");
 }
 
-int main()
-{
-	char *a = malloc(sizeof(int) * 5);
-	a[0] = 'b';
-	a[1] = 'u';
-	a[2] = 'g';
-	a[3] = 'r';
-	a[4] = 'a';
-	printArr(a, 5);
-	ft_bzero(a, 2);
-	printArr(a, 5);
-	free(a);
-}
+//int main()
+//{
+//	char *a = malloc(sizeof(int) * 5);
+//	a[0] = 'b';
+//	a[1] = 'u';
+//	a[2] = 'g';
+//	a[3] = 'r';
+//	a[4] = 'a';
+//	printArr(a, 5);
+//	ft_bzero(a, 2);
+//	printArr(a, 5);
+//	free(a);
+//}

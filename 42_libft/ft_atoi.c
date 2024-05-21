@@ -37,9 +37,9 @@ int ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int main()
-{
-	char str[] = "-42";
-	int num = ft_atoi(str);
-	printf("%d\n", num);
-}
+//int main()
+//{
+//	char str[] = "-42";
+//	int num = ft_atoi(str);
+//	printf("%d\n", num);
+//}
